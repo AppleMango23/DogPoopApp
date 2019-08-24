@@ -2,11 +2,13 @@ import { AppLoading } from 'expo';
 import { Asset } from 'expo-asset';
 import * as Font from 'expo-font';
 import React, { useState } from 'react';
-import { Platform, StatusBar, StyleSheet, View, Text,TouchableOpacity} from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import { Platform, StatusBar, StyleSheet, View, Text,TouchableOpacity,Image,Modal} from 'react-native';
+import { Ionicons,Foundation } from '@expo/vector-icons';
 import {Header} from 'react-native-elements';
 // import AppNavigator from './navigation/AppNavigator';
 import ReactNativeParallaxHeader from 'react-native-parallax-header';
+
+
 
 const IS_IPHONE_X = 812;
 const STATUS_BAR_HEIGHT = Platform.OS === 'ios' ? (IS_IPHONE_X ? 44 : 20) : 0;
@@ -16,57 +18,66 @@ const NAV_BAR_HEIGHT = HEADER_HEIGHT - STATUS_BAR_HEIGHT;
 export default function App(props) {
 
 
-  const [isLoadingComplete, setLoadingComplete] = useState(false);
+  const [modalVisible, setModalVisible] = useState(false);
   
   renderNavBar = () => (
     <View style={styles.navContainer}>
       <View style={styles.statusBar} />
       <View style={styles.navBar}>
+      <Foundation name="guide-dog" size={39} color="white" />
+      <Text style={{justifyContent:'center',color:'white',fontSize:25}}>Status:</Text>
+      <Text style={{textAlign:'right',color:'#00FF00',fontSize:18,marginLeft:9}}>Done walking</Text>
         <TouchableOpacity style={styles.iconLeft} onPress={() => {}}>
-          <Ionicons name="md-add-circle-outline" size={32} color="white" />
+          {/* <Ionicons name="md-add-circle-outline" size={32} color="white" /> */}
         </TouchableOpacity>
-        <Text style={{justifyContent:'center',color:'white',fontSize:26}}>Hey</Text>
+        {/* <Text style={{justifyContent:'center',color:'white',fontSize:32}}>Hey</Text> */}
         <TouchableOpacity style={styles.iconRight} onPress={() => {}}>
-        <Ionicons name="md-search" size={32} color="white" />
+        {/* <Ionicons name="md-search" size={32} color="white" /> */}
         </TouchableOpacity>
       </View>
     </View>
   )
   contentInsdie = () => (
     <View>
-      <Text style={{color:'red',fontSize:35}}>Hey</Text>
-      <Text style={{color:'red',fontSize:35}}>Hey</Text>
-      <Text style={{color:'red',fontSize:35}}>Hey</Text>
-      <Text style={{color:'red',fontSize:35}}>Hey</Text>
-      <Text style={{color:'red',fontSize:35}}>Hey</Text>
-      <Text style={{color:'red',fontSize:35}}>Hey</Text>
-      <Text style={{color:'red',fontSize:35}}>Hey</Text>
-      <Text style={{color:'red',fontSize:35}}>Hey</Text>
-      <Text style={{color:'red',fontSize:35}}>Hey</Text>
-      <Text style={{color:'red',fontSize:35}}>Hey</Text>
-      <Text style={{color:'red',fontSize:35}}>Hey</Text>
-      <Text style={{color:'red',fontSize:35}}>Hey</Text>
-      <Text style={{color:'red',fontSize:35}}>Hey</Text>
-      <Text style={{color:'red',fontSize:35}}>Hey</Text>
-      <Text style={{color:'red',fontSize:35}}>Hey</Text>
-      <Text style={{color:'red',fontSize:35}}>Hey</Text>
-      <Text style={{color:'red',fontSize:35}}>Hey</Text>
-      <Text style={{color:'red',fontSize:35}}>Hey</Text>
-      <Text style={{color:'red',fontSize:35}}>Hey</Text>
-      <Text style={{color:'red',fontSize:35}}>Hey</Text>
+      <Text style={{color:'black',fontSize:24}}>FlatListData</Text>
+      <Text style={{color:'black',fontSize:24}}>FlatListData</Text>
+      <Text style={{color:'black',fontSize:24}}>FlatListData</Text>
+      <Text style={{color:'black',fontSize:24}}>FlatListData</Text>
+      <Text style={{color:'black',fontSize:24}}>FlatListData</Text>
+      <Text style={{color:'black',fontSize:24}}>FlatListData</Text>
+      <Text style={{color:'black',fontSize:24}}>FlatListData</Text>
+      <Text style={{color:'black',fontSize:24}}>FlatListData</Text>
+      <Text style={{color:'black',fontSize:24}}>FlatListData</Text>
+      <Text style={{color:'black',fontSize:24}}>FlatListData</Text>
+      <Text style={{color:'black',fontSize:24}}>FlatListData</Text>
+      <Text style={{color:'black',fontSize:24}}>FlatListData</Text>
+      <Text style={{color:'black',fontSize:24}}>FlatListData</Text>
+      <Text style={{color:'black',fontSize:24}}>FlatListData</Text>
+      <Text style={{color:'black',fontSize:24}}>FlatListData</Text>
+      <Text style={{color:'black',fontSize:24}}>FlatListData</Text>
+      <Text style={{color:'black',fontSize:24}}>FlatListData</Text>
+      <Text style={{color:'black',fontSize:24}}>FlatListData</Text>
+      <Text style={{color:'black',fontSize:24}}>FlatListData</Text>
+      <Text style={{color:'black',fontSize:24}}>FlatListData</Text>
     </View>
   )
 
   return (
     <View style={styles.container}>
+      {/* Flatlist will setting up here */}
       <ReactNativeParallaxHeader
         headerMinHeight={HEADER_HEIGHT+13}
-        headerMaxHeight={250}
+        headerMaxHeight={400}
         extraScrollHeight={20}
-        navbarColor="#3498db"
-        title={<Text style={{justifyContent:'center',color:'white',fontSize:26}}>HoLooo</Text>}
+        navbarColor="#989898"
+        title={
+          <TouchableOpacity onPress={()=>{setModalVisible(true)}}>
+          <Image source={require('./assets/images/angelPro.jpg')} style={{width:310,height:310,borderRadius:150}} />
+          </TouchableOpacity>
+      }
         titleStyle={styles.titleStyle}
         // backgroundImage={images.background}
+        backgroundColor="#404040"
         backgroundImageScale={1.2}
         renderNavBar={renderNavBar}
         renderContent={contentInsdie}
@@ -81,8 +92,61 @@ export default function App(props) {
         alwaysShowTitle={false}
         alwaysShowNavBar={false}
       />
-      {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-      
+      <Modal
+        animationType="fade"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          setModalVisible(false);
+        }}>
+      <View style={{backgroundColor:'grey',borderTopLeftRadius:20,borderTopRightRadius:20,height:100,marginTop:'140%'}}>
+        <TouchableOpacity onPress={()=>{alert('test')}}>
+          <View style={{alignItems:'center'}}>
+            <Ionicons name="ios-add-circle-outline" size={35} color="white" />
+            <Text>List</Text>
+          </View>
+        </TouchableOpacity>
+
+        {/* <TouchableOpacity onPress={()=>{alert('test')}}>
+          <View style={{justifyContent:'center',alignItems:'center'}}>
+            <Ionicons name="md-timer" size={35} color="grey" />
+            <Text>Timeline</Text>
+          </View>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={()=>{alert('test')}}>
+          <View style={{justifyContent:'center',alignItems:'center'}}>
+            <Ionicons name="md-settings" size={35} color="grey" />
+            <Text>Setting</Text>
+          </View>
+        </TouchableOpacity> */}
+      </View>
+      </Modal>
+
+      {/* Bottom navigation */}
+      <View style={{backgroundColor:'white',height:64,borderTopColor:'black',borderTopWidth:0.2,flexDirection:'row',justifyContent:'space-between',padding:5,paddingLeft:26,paddingRight:26}}>
+      <TouchableOpacity onPress={()=>{alert('test')}}>
+        <View style={{justifyContent:'center',alignItems:'center'}}>
+          <Ionicons name="md-list-box" size={35} color="grey" />
+          <Text>List</Text>
+        </View>
+      </TouchableOpacity>
+
+      <TouchableOpacity onPress={()=>{alert('test')}}>
+        <View style={{justifyContent:'center',alignItems:'center'}}>
+          <Ionicons name="md-timer" size={35} color="grey" />
+          <Text>Timeline</Text>
+        </View>
+      </TouchableOpacity>
+
+      <TouchableOpacity onPress={()=>{alert('test')}}>
+        <View style={{justifyContent:'center',alignItems:'center'}}>
+          <Ionicons name="md-settings" size={35} color="grey" />
+          <Text>Setting</Text>
+        </View>
+      </TouchableOpacity>
+      </View>
+            
     </View>
   );
 }
@@ -114,14 +178,7 @@ function handleFinishLoading(setLoadingComplete) {
 }
 
 const styles = StyleSheet.create({
-  // container: {
-  //   flex: 1,
-  //   backgroundColor: '#fff',
-  //   justifyContent:'center',
-  //   alignItems:'center'
-  // },
   container: {
-    
     flex: 1,
   },
   contentContainer: {
