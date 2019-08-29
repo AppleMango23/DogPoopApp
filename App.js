@@ -2,13 +2,11 @@ import { AppLoading } from 'expo';
 import { Asset } from 'expo-asset';
 import * as Font from 'expo-font';
 import React, { useState } from 'react';
-import { Platform, StatusBar, StyleSheet, View, Text,TouchableOpacity,Image,Modal} from 'react-native';
+import { Platform, StyleSheet, View, Text,TouchableOpacity,Image,Modal} from 'react-native';
 import { Ionicons,Foundation } from '@expo/vector-icons';
-import {Header} from 'react-native-elements';
 // import AppNavigator from './navigation/AppNavigator';
 import ReactNativeParallaxHeader from 'react-native-parallax-header';
-
-
+import * as Animatable from 'react-native-animatable';
 
 const IS_IPHONE_X = 812;
 const STATUS_BAR_HEIGHT = Platform.OS === 'ios' ? (IS_IPHONE_X ? 44 : 20) : 0;
@@ -19,7 +17,21 @@ export default function App(props) {
 
 
   const [modalVisible, setModalVisible] = useState(false);
-  
+  const [animationButton, setAnimationButton] = useState("");
+  const zoomOut = {
+    0: {
+      opacity: 1,
+      scale: 1,
+    },
+    0.5: {
+      opacity: 1,
+      scale: 0.3,
+    },
+    1: {
+      opacity: 0,
+      scale: 0,
+    },
+  };
   renderNavBar = () => (
     <View style={styles.navContainer}>
       <View style={styles.statusBar} />
@@ -37,30 +49,96 @@ export default function App(props) {
       </View>
     </View>
   )
-  contentInsdie = () => (
+  handleClick = () => setAnimationButton(true)
+
+  contentInsdie = () => 
+  (
     <View>
-      <Text style={{color:'black',fontSize:24}}>FlatListData</Text>
-      <Text style={{color:'black',fontSize:24}}>FlatListData</Text>
-      <Text style={{color:'black',fontSize:24}}>FlatListData</Text>
-      <Text style={{color:'black',fontSize:24}}>FlatListData</Text>
-      <Text style={{color:'black',fontSize:24}}>FlatListData</Text>
-      <Text style={{color:'black',fontSize:24}}>FlatListData</Text>
-      <Text style={{color:'black',fontSize:24}}>FlatListData</Text>
-      <Text style={{color:'black',fontSize:24}}>FlatListData</Text>
-      <Text style={{color:'black',fontSize:24}}>FlatListData</Text>
-      <Text style={{color:'black',fontSize:24}}>FlatListData</Text>
-      <Text style={{color:'black',fontSize:24}}>FlatListData</Text>
-      <Text style={{color:'black',fontSize:24}}>FlatListData</Text>
-      <Text style={{color:'black',fontSize:24}}>FlatListData</Text>
-      <Text style={{color:'black',fontSize:24}}>FlatListData</Text>
-      <Text style={{color:'black',fontSize:24}}>FlatListData</Text>
-      <Text style={{color:'black',fontSize:24}}>FlatListData</Text>
-      <Text style={{color:'black',fontSize:24}}>FlatListData</Text>
-      <Text style={{color:'black',fontSize:24}}>FlatListData</Text>
-      <Text style={{color:'black',fontSize:24}}>FlatListData</Text>
-      <Text style={{color:'black',fontSize:24}}>FlatListData</Text>
+      <Animatable.View animation={animationButton} iterationCount={1} direction="alternate" onAnimationEnd={()=>{setAnimationButton("")}}>
+        <TouchableOpacity onPress={()=>{
+            setAnimationButton("shake")
+        }}>
+          <Text style={{fontSize:45}}>Up and down you go</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={()=>{
+            setAnimationButton("shake")
+        }}>
+          <Text style={{fontSize:43}}>Up and down you go</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={()=>{
+            setAnimationButton("shake")
+        }}>
+          <Text style={{fontSize:42}}>Up and down you go</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={()=>{
+            setAnimationButton("shake")
+        }}>
+          <Text style={{fontSize:41}}>Up and down you go</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={()=>{
+            setAnimationButton("shake")
+        }}>
+          <Text style={{fontSize:40}}>Up and down you go</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={()=>{
+            setAnimationButton("shake")
+        }}>
+          <Text style={{fontSize:40}}>Up and down you go</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={()=>{
+            setAnimationButton("shake")
+        }}>
+          <Text style={{fontSize:40}}>Up and down you go</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={()=>{
+            setAnimationButton("shake")
+        }}>
+          <Text style={{fontSize:40}}>Up and down you go</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={()=>{
+            setAnimationButton("shake")
+        }}>
+          <Text style={{fontSize:40}}>Up and down you go</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={()=>{
+            setAnimationButton("shake")
+        }}>
+          <Text style={{fontSize:40}}>Up and down you go</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={()=>{
+            setAnimationButton("shake")
+        }}>
+          <Text style={{fontSize:40}}>Up and down you go</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={()=>{
+            setAnimationButton("shake")
+        }}>
+          <Text style={{fontSize:40}}>Up and down you go</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={()=>{
+            setAnimationButton("shake")
+        }}>
+          <Text style={{fontSize:40}}>Up and down you go</Text>
+        </TouchableOpacity>
+      </Animatable.View>
     </View>
   )
+  var modalBackgroundStyle = {
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    
+  };
 
   return (
     <View style={styles.container}>
@@ -99,27 +177,18 @@ export default function App(props) {
         onRequestClose={() => {
           setModalVisible(false);
         }}>
-      <View style={{backgroundColor:'grey',borderTopLeftRadius:20,borderTopRightRadius:20,height:100,marginTop:'140%'}}>
+      <View style={[styles.containerModal, modalBackgroundStyle]}/>
+      <View style={{backgroundColor:'rgba(0, 0, 0, 0.5)',height:150,alignItems:'center',justifyContent:'center'}}>
+      <Animatable.View animation={"rubberBand"} iterationCount={1} direction="alternate" onAnimationEnd={()=>{setAnimationButton("")}} style={{backgroundColor:'white',borderRadius:10,height:100,width:'90%',alignItems:'center',justifyContent:'center'}}>
+
         <TouchableOpacity onPress={()=>{alert('test')}}>
           <View style={{alignItems:'center'}}>
-            <Ionicons name="ios-add-circle-outline" size={35} color="white" />
+            <Ionicons name="ios-add-circle-outline" size={35} color="black" />
             <Text>List</Text>
           </View>
         </TouchableOpacity>
-
-        {/* <TouchableOpacity onPress={()=>{alert('test')}}>
-          <View style={{justifyContent:'center',alignItems:'center'}}>
-            <Ionicons name="md-timer" size={35} color="grey" />
-            <Text>Timeline</Text>
-          </View>
-        </TouchableOpacity>
-
-        <TouchableOpacity onPress={()=>{alert('test')}}>
-          <View style={{justifyContent:'center',alignItems:'center'}}>
-            <Ionicons name="md-settings" size={35} color="grey" />
-            <Text>Setting</Text>
-          </View>
-        </TouchableOpacity> */}
+         
+        </Animatable.View>
       </View>
       </Modal>
 
@@ -181,8 +250,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+  containerModal:{
+    flex:1,alignItems:'center',justifyContent:'center',
+  },
   contentContainer: {
-    flexGrow: 1,
+    flexGrow: 1
+    
   },
   navContainer: {
     height: HEADER_HEIGHT,
@@ -206,4 +279,12 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 25,
   },
+  boxContainer: {
+    backgroundColor: "#3BD0F5",
+    height: 100,
+    width: 100,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  
 });
