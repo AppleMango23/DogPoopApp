@@ -18,20 +18,8 @@ export default function App(props) {
 
   const [modalVisible, setModalVisible] = useState(false);
   const [animationButton, setAnimationButton] = useState("");
-  const zoomOut = {
-    0: {
-      opacity: 1,
-      scale: 1,
-    },
-    0.5: {
-      opacity: 1,
-      scale: 0.3,
-    },
-    1: {
-      opacity: 0,
-      scale: 0,
-    },
-  };
+  const [tickAnimation, setTickAnimation] = useState("");
+
   renderNavBar = () => (
     <View style={styles.navContainer}>
       <View style={styles.statusBar} />
@@ -49,6 +37,25 @@ export default function App(props) {
       </View>
     </View>
   )
+
+  tickOrNo = () =>{
+    if(tickAnimation == 'rubberBand'){
+      return(
+        <>
+        <Animatable.View animation={tickAnimation} iterationCount={1} direction="alternate" style={{alignItems:'center'}}>
+            <Ionicons name="ios-checkmark-circle" size={125} color="white" />
+        </Animatable.View>
+        <Text style={{color:'white',fontSize:20}}>Thank you for telling us that!</Text>
+        </>
+      )
+    }
+    else{
+      null
+    }
+    
+    
+  }
+
   handleClick = () => setAnimationButton(true)
 
   contentInsdie = () => 
@@ -135,7 +142,6 @@ export default function App(props) {
           </TouchableOpacity>
       }
         titleStyle={styles.titleStyle}
-        // backgroundImage={images.background}
         backgroundColor="#404040"
         backgroundImageScale={1.2}
         renderNavBar={renderNavBar}
@@ -144,8 +150,6 @@ export default function App(props) {
         contentContainerStyle={styles.contentContainer}
         innerContainerStyle={styles.container}
         scrollViewProps={{
-          // onScrollBeginDrag: () => 
-          // alert('onScrollBeginDrag'),
           onScrollEndDrag: () => console.log('onScrollEndDrag'),
         }}
         alwaysShowTitle={false}
@@ -156,17 +160,45 @@ export default function App(props) {
         transparent={true}
         visible={modalVisible}
         onRequestClose={() => {
+          setTickAnimation("");
           setModalVisible(false);
         }}>
       
-      <TouchableOpacity activeOpacity={1.0} style={[styles.containerModal, modalBackgroundStyle]} onPress={()=>{setModalVisible(false)}}></TouchableOpacity>
+      <TouchableOpacity activeOpacity={1.0} style={[styles.containerModal, modalBackgroundStyle]} onPress={()=>{
+        setModalVisible(false);
+        setTickAnimation("");
+      }}>
+        {tickOrNo()}
+      </TouchableOpacity>
+
       <View style={{backgroundColor:'rgba(0, 0, 0, 0.5)',height:150,alignItems:'center',justifyContent:'center'}}>
-      <Animatable.View animation={"rubberBand"} iterationCount={1} direction="alternate" onAnimationEnd={()=>{setAnimationButton("")}} style={{backgroundColor:'white',borderRadius:10,height:100,width:'90%',alignItems:'center',justifyContent:'center'}}>
+      <Animatable.View animation={"rubberBand"} iterationCount={1} direction="alternate" onAnimationEnd={()=>{setAnimationButton("")}} style={{backgroundColor:'white',justifyContent:'space-between',flexDirection:'row',borderRadius:10,height:100,width:'90%',alignItems:'center',paddingLeft:15,paddingRight:25}}>
 
         <TouchableOpacity onPress={()=>{alert('test')}}>
           <View style={{alignItems:'center'}}>
             <Ionicons name="ios-add-circle-outline" size={35} color="black" />
-            <Text>List</Text>
+            <Text>Status</Text>
+          </View>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={()=>{alert('test')}}>
+          <View style={{alignItems:'center'}}>
+            <Ionicons name="ios-sunny" size={35} color="black" />
+            <Text>Morning walk</Text>
+          </View>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={()=>{alert('test')}}>
+          <View style={{alignItems:'center'}}>
+            <Ionicons name="ios-cloudy-night" size={35} color="black" />
+            <Text>Night walk</Text>
+          </View>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={()=>{setTickAnimation('rubberBand')}}>
+          <View style={{alignItems:'center'}}>
+            <Ionicons name="ios-walk" size={35} color="black" />
+            <Text>Extra walk</Text>
           </View>
         </TouchableOpacity>
          
@@ -175,7 +207,7 @@ export default function App(props) {
       </Modal>
 
       {/* Bottom navigation */}
-      <View style={{backgroundColor:'white',height:64,borderTopColor:'black',borderTopWidth:0.2,flexDirection:'row',justifyContent:'space-between',padding:5,paddingLeft:26,paddingRight:26}}>
+      <View style={{backgroundColor:'white',height:64,borderTopColor:'black',borderTopWidth:0.2,flexDirection:'row',justifyContent:'space-between',padding:5,paddingLeft:76,paddingRight:76}}>
       <TouchableOpacity onPress={()=>{alert('test')}}>
         <View style={{justifyContent:'center',alignItems:'center'}}>
           <Ionicons name="md-list-box" size={35} color="grey" />
