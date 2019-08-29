@@ -55,83 +55,63 @@ export default function App(props) {
   (
     <View>
       <Animatable.View animation={animationButton} iterationCount={1} direction="alternate" onAnimationEnd={()=>{setAnimationButton("")}}>
-        <TouchableOpacity onPress={()=>{
+        <TouchableOpacity style={{flexDirection:'row',marginTop:15}} onPress={()=>{
             setAnimationButton("shake")
         }}>
-          <Text style={{fontSize:45}}>Up and down you go</Text>
+          <View style={{width:60,height:60,borderRadius:100,backgroundColor:'orange',marginLeft:15,justifyContent:'center',alignItems:'center'}}><Foundation name="guide-dog" size={39} color="white" /></View>
+          <Text style={{fontSize:25,paddingTop:10,paddingLeft:8}}>Up and down you go</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={()=>{
+        <TouchableOpacity style={{flexDirection:'row',marginTop:15}} onPress={()=>{
             setAnimationButton("shake")
         }}>
-          <Text style={{fontSize:43}}>Up and down you go</Text>
+          <View style={{width:60,height:60,borderRadius:100,backgroundColor:'cyan',marginLeft:15}}></View>
+          <Text style={{fontSize:25,paddingTop:10,paddingLeft:8}}>Up and down you go</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={()=>{
+        <TouchableOpacity style={{flexDirection:'row',marginTop:15}} onPress={()=>{
             setAnimationButton("shake")
         }}>
-          <Text style={{fontSize:42}}>Up and down you go</Text>
+          <View style={{width:60,height:60,borderRadius:100,backgroundColor:'blue',marginLeft:15}}></View>
+          <Text style={{fontSize:25,paddingTop:10,paddingLeft:8}}>Up and down you go</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={()=>{
+        <TouchableOpacity style={{flexDirection:'row',marginTop:15}} onPress={()=>{
             setAnimationButton("shake")
         }}>
-          <Text style={{fontSize:41}}>Up and down you go</Text>
+          <View style={{width:60,height:60,borderRadius:100,backgroundColor:'purple',marginLeft:15}}></View>
+          <Text style={{fontSize:25,paddingTop:10,paddingLeft:8}}>Up and down you go</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={()=>{
+        <TouchableOpacity style={{flexDirection:'row',marginTop:15}} onPress={()=>{
             setAnimationButton("shake")
         }}>
-          <Text style={{fontSize:40}}>Up and down you go</Text>
+          <View style={{width:60,height:60,borderRadius:100,backgroundColor:'orange',marginLeft:15}}></View>
+          <Text style={{fontSize:25,paddingTop:10,paddingLeft:8}}>Up and down you go</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={()=>{
+        <TouchableOpacity style={{flexDirection:'row',marginTop:15}} onPress={()=>{
             setAnimationButton("shake")
         }}>
-          <Text style={{fontSize:40}}>Up and down you go</Text>
+          <View style={{width:60,height:60,borderRadius:100,backgroundColor:'yellow',marginLeft:15}}></View>
+          <Text style={{fontSize:25,paddingTop:10,paddingLeft:8}}>Up and down you go</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={()=>{
+        <TouchableOpacity style={{flexDirection:'row',marginTop:15}} onPress={()=>{
             setAnimationButton("shake")
         }}>
-          <Text style={{fontSize:40}}>Up and down you go</Text>
+          <View style={{width:60,height:60,borderRadius:100,backgroundColor:'orange',marginLeft:15}}></View>
+          <Text style={{fontSize:25,paddingTop:10,paddingLeft:8}}>Up and down you go</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={()=>{
+        <TouchableOpacity style={{flexDirection:'row',marginTop:15}} onPress={()=>{
             setAnimationButton("shake")
         }}>
-          <Text style={{fontSize:40}}>Up and down you go</Text>
+          <View style={{width:60,height:60,borderRadius:100,backgroundColor:'orange',marginLeft:15}}></View>
+          <Text style={{fontSize:25,paddingTop:10,paddingLeft:8}}>Up and down you go</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={()=>{
-            setAnimationButton("shake")
-        }}>
-          <Text style={{fontSize:40}}>Up and down you go</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity onPress={()=>{
-            setAnimationButton("shake")
-        }}>
-          <Text style={{fontSize:40}}>Up and down you go</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity onPress={()=>{
-            setAnimationButton("shake")
-        }}>
-          <Text style={{fontSize:40}}>Up and down you go</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity onPress={()=>{
-            setAnimationButton("shake")
-        }}>
-          <Text style={{fontSize:40}}>Up and down you go</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity onPress={()=>{
-            setAnimationButton("shake")
-        }}>
-          <Text style={{fontSize:40}}>Up and down you go</Text>
-        </TouchableOpacity>
+        
       </Animatable.View>
     </View>
   )
@@ -148,6 +128,7 @@ export default function App(props) {
         headerMaxHeight={400}
         extraScrollHeight={20}
         navbarColor="#989898"
+        backgroundImage={{uri: 'https://w.wallhaven.cc/full/4g/wallhaven-4g3xzd.jpg'}}
         title={
           <TouchableOpacity onPress={()=>{setModalVisible(true)}}>
           <Image source={require('./assets/images/angelPro.jpg')} style={{width:310,height:310,borderRadius:150}} />
@@ -177,7 +158,8 @@ export default function App(props) {
         onRequestClose={() => {
           setModalVisible(false);
         }}>
-      <View style={[styles.containerModal, modalBackgroundStyle]}/>
+      
+      <TouchableOpacity activeOpacity={1.0} style={[styles.containerModal, modalBackgroundStyle]} onPress={()=>{setModalVisible(false)}}></TouchableOpacity>
       <View style={{backgroundColor:'rgba(0, 0, 0, 0.5)',height:150,alignItems:'center',justifyContent:'center'}}>
       <Animatable.View animation={"rubberBand"} iterationCount={1} direction="alternate" onAnimationEnd={()=>{setAnimationButton("")}} style={{backgroundColor:'white',borderRadius:10,height:100,width:'90%',alignItems:'center',justifyContent:'center'}}>
 
