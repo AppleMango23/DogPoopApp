@@ -6,18 +6,45 @@ import { Ionicons,Foundation } from '@expo/vector-icons';
 // import AppNavigator from './navigation/AppNavigator';
 import ReactNativeParallaxHeader from 'react-native-parallax-header';
 import * as Animatable from 'react-native-animatable';
+import * as firebase from "firebase";
+
 
 const IS_IPHONE_X = 812;
 const STATUS_BAR_HEIGHT = Platform.OS === 'ios' ? (IS_IPHONE_X ? 44 : 20) : 0;
 const HEADER_HEIGHT = Platform.OS === 'ios' ? (IS_IPHONE_X ? 88 : 64) : 64;
 const NAV_BAR_HEIGHT = HEADER_HEIGHT - STATUS_BAR_HEIGHT;
 
+console.disableYellowBox = true;
+
 export default function App(props) {
-
-
   const [modalVisible, setModalVisible] = useState(false);
   const [animationButton, setAnimationButton] = useState("");
   const [tickAnimation, setTickAnimation] = useState("");
+  
+  //Setting up Firebase connection
+  const config = {
+    apiKey: "AIzaSyA6iPmdMQFyBmH7aPiukZ71srz9vHw0uSs",
+    authDomain: "angelapp-6b5e0.firebaseapp.com",
+    databaseURL: "https://angelapp-6b5e0.firebaseio.com",
+    projectId: "angelapp-6b5e0",
+    storageBucket: "angelapp-6b5e0.appspot.com",
+    messagingSenderId: "154350512943",
+    appId: "1:154350512943:web:76db72c57a2132b726cfda",
+    measurementId: "G-G8KDJNWBDG"
+  };
+
+  try {
+    firebase.initializeApp(config);
+    console.log("Logged into app");
+  } catch (e) {
+      console.log('App reloaded, so firebase did not re-initialize');
+  }
+
+  firebase.database().ref('test').on('value', (snapshot) => {
+    snapshot.forEach((child) => {
+      console.log(child.val())
+    })
+  })
 
   renderNavBar = () => (
     <View style={styles.navContainer}>
