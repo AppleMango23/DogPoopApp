@@ -1,10 +1,14 @@
 # DogPoopApp
 
 ## Present
--Right now on changing it to, stack navigation + havent check can or not yet.<br>
+-working on firebase connecting currently<br>
 
 ## Future function
--otw<br>
+-firebase connect<br>
+-firebase chat system<br>
+-firebase Authentication<br>
+-expo camera<br>
+
 
 ## Done function
 -Animation of flatlist<br>
