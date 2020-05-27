@@ -1,4 +1,3 @@
-import { AppLoading } from 'expo';
 import { Asset } from 'expo-asset';
 import * as Font from 'expo-font';
 import React, { useState } from 'react';
@@ -138,7 +137,7 @@ export default function App(props) {
         backgroundImage={{uri: 'https://w.wallhaven.cc/full/4g/wallhaven-4g3xzd.jpg'}}
         title={
           <TouchableOpacity onPress={()=>{setModalVisible(true)}}>
-          <Image source={require('./assets/images/angelPro.jpg')} style={{width:310,height:310,borderRadius:150}} />
+          <Image source={require('../assets/images/angelPro.jpg')} style={{width:310,height:310,borderRadius:150}} />
           </TouchableOpacity>
       }
         titleStyle={styles.titleStyle}
@@ -237,15 +236,15 @@ export default function App(props) {
 async function loadResourcesAsync() {
   await Promise.all([
     Asset.loadAsync([
-      require('./assets/images/robot-dev.png'),
-      require('./assets/images/robot-prod.png'),
+      require('../assets/images/robot-dev.png'),
+      require('../assets/images/robot-prod.png'),
     ]),
     Font.loadAsync({
       // This is the font that we are using for our tab bar
       ...Ionicons.font,
       // We include SpaceMono because we use it in HomeScreen.js. Feel free to
       // remove this if you are not using it in your app
-      'space-mono': require('./assets/fonts/SpaceMono-Regular.ttf'),
+      'space-mono': require('../assets/fonts/SpaceMono-Regular.ttf'),
     }),
   ]);
 }
