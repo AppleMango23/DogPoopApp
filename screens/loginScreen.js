@@ -8,7 +8,6 @@ import ReactNativeParallaxHeader from 'react-native-parallax-header';
 import * as Animatable from 'react-native-animatable';
 import * as firebase from "firebase";
 
-
 const IS_IPHONE_X = 812;
 const STATUS_BAR_HEIGHT = Platform.OS === 'ios' ? (IS_IPHONE_X ? 44 : 20) : 0;
 const HEADER_HEIGHT = Platform.OS === 'ios' ? (IS_IPHONE_X ? 88 : 64) : 64;
@@ -78,8 +77,6 @@ export default function App(props) {
     else{
       null
     }
-    
-    
   }
 
   handleClick = () => setAnimationButton(true)
@@ -233,24 +230,17 @@ export default function App(props) {
       </Modal>
 
       {/* Bottom navigation */}
-      <View style={{backgroundColor:'white',height:64,borderTopColor:'black',borderTopWidth:0.2,flexDirection:'row',justifyContent:'space-between',padding:5,paddingLeft:76,paddingRight:76}}>
+      <View style={{backgroundColor:'white',height:56,borderTopColor:'black',borderTopWidth:0.2,flexDirection:'row',justifyContent:'space-between',padding:5,paddingLeft:76,paddingRight:76}}>
       <TouchableOpacity onPress={()=>{alert('test')}}>
         <View style={{justifyContent:'center',alignItems:'center'}}>
-          <Ionicons name="md-list-box" size={35} color="grey" />
+          <Ionicons name="md-list-box" size={25} color="grey" />
           <Text>List</Text>
         </View>
       </TouchableOpacity>
 
       <TouchableOpacity onPress={()=>{alert('test')}}>
         <View style={{justifyContent:'center',alignItems:'center'}}>
-          <Ionicons name="md-timer" size={35} color="grey" />
-          <Text>Timeline</Text>
-        </View>
-      </TouchableOpacity>
-
-      <TouchableOpacity onPress={()=>{alert('test')}}>
-        <View style={{justifyContent:'center',alignItems:'center'}}>
-          <Ionicons name="md-settings" size={35} color="grey" />
+          <Ionicons name="md-settings" size={25} color="grey" />
           <Text>Setting</Text>
         </View>
       </TouchableOpacity>
