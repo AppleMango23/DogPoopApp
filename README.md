@@ -7,6 +7,9 @@
 -firebase cloud firestore <br>
 -firebase chat system<br>
 -firebase Authentication<br>
+-daily analysis<br>
+-weekly analysis<br>
+-monthly analysis<br>
 -expo camera<br>
 
 ## Done function
