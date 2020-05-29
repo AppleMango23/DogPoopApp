@@ -4,7 +4,6 @@ import React, { useState, useEffect } from 'react';
 import { Platform, StyleSheet, View, Text, TouchableOpacity, Image, Modal, FlatList, } from 'react-native';
 import { Ionicons, Foundation } from '@expo/vector-icons';
 // import AppNavigator from './navigation/AppNavigator';
-import ReactNativeParallaxHeader from 'react-native-parallax-header';
 import * as Animatable from 'react-native-animatable';
 import * as firebase from 'firebase'
 import 'firebase/firestore';
