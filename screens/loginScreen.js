@@ -48,7 +48,7 @@ export default function App(props) {
   }, []);
   
 
-   getTheData = async () => {
+   const getTheData = async () => {
      var items=[];
     firebase.database().ref('testL1/').on('value', function (snapshot) {
       
@@ -73,7 +73,7 @@ export default function App(props) {
   }
 
 
-  renderNavBar = () => (
+  const renderNavBar = () => (
     <View style={styles.navContainer}>
       <View style={styles.statusBar} />
       <View style={styles.navBar}>
@@ -91,7 +91,7 @@ export default function App(props) {
     </View>
   )
 
-  tickOrNo = () => {
+  const tickOrNo = () => {
     if (tickAnimation == 'rubberBand') {
       return (
         <>
@@ -107,9 +107,9 @@ export default function App(props) {
     }
   }
 
-  handleClick = () => setAnimationButton(true)
+  const handleClick = () => setAnimationButton(true)
 
-  contentInsdie = () =>
+  const contentInsdie = () =>
     (
       <>
         <View style={{ backgroundColor: 'grey', borderRadius: 20, height: 80 }}>
@@ -129,7 +129,7 @@ export default function App(props) {
 
   };
 
-  test=()=>
+  const test=()=>
   {
     console.log(testHello.toString().substring(testHello.root.toString().length-1))
 

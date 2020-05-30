@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import { Platform, StyleSheet, View, Text,TouchableOpacity,Image,Modal} from 'react-native';
 import { Ionicons,Foundation } from '@expo/vector-icons';
 // import AppNavigator from './navigation/AppNavigator';
-import ReactNativeParallaxHeader from 'react-native-parallax-header';
+// import ReactNativeParallaxHeader from 'react-native-parallax-header';
 import * as Animatable from 'react-native-animatable';
 
 const IS_IPHONE_X = 812;
@@ -130,31 +130,6 @@ export default function App(props) {
   return (
     <View style={styles.container}>
       {/* Flatlist will setting up here */}
-      <ReactNativeParallaxHeader
-        headerMinHeight={HEADER_HEIGHT+13}
-        headerMaxHeight={400}
-        extraScrollHeight={20}
-        navbarColor="#989898"
-        backgroundImage={{uri: 'https://w.wallhaven.cc/full/4g/wallhaven-4g3xzd.jpg'}}
-        title={
-          <TouchableOpacity onPress={()=>{setModalVisible(true)}}>
-          {/* <Image source={require('./assets/images/angelPro.jpg')} style={{width:310,height:310,borderRadius:150}} /> */}
-          </TouchableOpacity>
-      }
-        titleStyle={styles.titleStyle}
-        backgroundColor="#404040"
-        backgroundImageScale={1.2}
-        renderNavBar={renderNavBar}
-        renderContent={contentInsdie}
-        containerStyle={styles.container}
-        contentContainerStyle={styles.contentContainer}
-        innerContainerStyle={styles.container}
-        scrollViewProps={{
-          onScrollEndDrag: () => console.log('onScrollEndDrag'),
-        }}
-        alwaysShowTitle={false}
-        alwaysShowNavBar={false}
-      />
       <Modal
         animationType="fade"
         transparent={true}
