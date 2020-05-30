@@ -31,7 +31,7 @@
 <img src="./assets/images/ss1.jpg" width="250" height="470">
 </p>
 
-<p>
+<p align="center">
 <img src="./assets/images/ss2.jpg" width="250" height="470">
 </p>
 
