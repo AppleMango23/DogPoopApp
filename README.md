@@ -27,11 +27,13 @@
 - [x] firebase realtime database<br>
 
 ## Screenshot
-<p align="center">
+<p>This is the first screen where we are able to check the dog's information.</p>
+<p align="left">
 <img src="./assets/images/ss1.jpg" width="250" height="470">
 </p>
 
-<p align="center">
+<p>This is the settings screen where we are able to set something from the app.</p>
+<p align="left">
 <img src="./assets/images/ss2.jpg" width="250" height="470">
 </p>
 
