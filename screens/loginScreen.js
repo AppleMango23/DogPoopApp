@@ -1,5 +1,3 @@
-import { Asset } from "expo-asset";
-import * as Font from "expo-font";
 import React, { useState, useEffect } from "react";
 import {
   Platform,
@@ -11,11 +9,14 @@ import {
   Modal,
   FlatList,
 } from "react-native";
-import { Ionicons, Foundation } from "@expo/vector-icons";
-// import AppNavigator from './navigation/AppNavigator';
+import { Ionicons} from "@expo/vector-icons";
 import * as Animatable from "react-native-animatable";
 import * as firebase from "firebase";
 import "firebase/firestore";
+
+//if just no type {} means take the default one
+//if got put {} means take specific one
+//import {TabBarIcon} from "../components/TabBarIcon";
 
 const IS_IPHONE_X = 812;
 const STATUS_BAR_HEIGHT = Platform.OS === "ios" ? (IS_IPHONE_X ? 44 : 20) : 0;
@@ -83,7 +84,7 @@ export default function App(props) {
             direction="alternate"
             style={{ alignItems: "center" }}
           >
-            <Ionicons name="ios-checkmark-circle" size={125} color="white" />
+            <Ionicons name="ios-checkmark-circle" size={125} color="#00FF00" />
           </Animatable.View>
           <Text style={{ color: "white", fontSize: 20 }}>
             Thank you for telling us that!
@@ -256,32 +257,6 @@ export default function App(props) {
       </View>
     </View>
   );
-}
-
-async function loadResourcesAsync() {
-  await Promise.all([
-    Asset.loadAsync([
-      require("../assets/images/robot-dev.png"),
-      require("../assets/images/robot-prod.png"),
-    ]),
-    Font.loadAsync({
-      // This is the font that we are using for our tab bar
-      ...Ionicons.font,
-      // We include SpaceMono because we use it in HomeScreen.js. Feel free to
-      // remove this if you are not using it in your app
-      "space-mono": require("../assets/fonts/SpaceMono-Regular.ttf"),
-    }),
-  ]);
-}
-
-function handleLoadingError(error) {
-  // In this case, you might want to report the error to your error reporting
-  // service, for example Sentry
-  console.warn(error);
-}
-
-function handleFinishLoading(setLoadingComplete) {
-  setLoadingComplete(true);
 }
 
 const styles = StyleSheet.create({

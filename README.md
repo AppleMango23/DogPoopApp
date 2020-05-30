@@ -28,6 +28,7 @@
 
 ## Screenshot
 <p align="center">
-<img src="./assests/images/ss1.jpg" width="250" height="470">
+<img src="./assests/images/ss1.jpg" width="250" height="470" align="left">
+<img src="./assests/images/ss2.jpg" width="250" height="470" align="right">
 </p>
 
