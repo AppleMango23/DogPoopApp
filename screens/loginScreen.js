@@ -65,7 +65,7 @@ const DATA = [
   }, []);
   
 
-   getTheData = async () => {
+   const getTheData = async () => {
      var items=[];
     firebase.database().ref('testL1/').on('value', function (snapshot) {
       
@@ -90,7 +90,7 @@ const DATA = [
   }
 
 
-  renderNavBar = () => (
+  const renderNavBar = () => (
     <View style={styles.navContainer}>
       <View style={styles.statusBar} />
       <View style={styles.navBar}>
@@ -108,7 +108,7 @@ const DATA = [
     </View>
   )
 
-  tickOrNo = () => {
+  const tickOrNo = () => {
     if (tickAnimation == 'rubberBand') {
       return (
         <>
@@ -124,9 +124,9 @@ const DATA = [
     }
   }
 
-  handleClick = () => setAnimationButton(true)
+  const handleClick = () => setAnimationButton(true)
 
-  contentInsdie = () =>
+  const contentInsdie = () =>
     (
       <>
         <View style={{ backgroundColor: 'grey', borderRadius: 20, height: 80 }}>
@@ -146,7 +146,7 @@ const DATA = [
 
   };
 
-  test=()=>
+  const test=()=>
   {
     console.log(testHello.toString().substring(testHello.root.toString().length-1))
 
