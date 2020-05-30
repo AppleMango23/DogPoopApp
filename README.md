@@ -28,11 +28,7 @@
 
 ## Screenshot
 <p align="center">
-<<<<<<< HEAD
-<img src="./assests/images/ss1.jpg" width="250" height="470" align="left">
-<img src="./assests/images/ss2.jpg" width="250" height="470" align="right">
-=======
-<img src="./assets/images/ss1.jpg" width="250" height="470">
->>>>>>> 5e2717fb82873a95f2c37e5fbc1b48c940aed658
+<img src="./assets/images/ss1.jpg" width="250" height="470" align="left">
+<img src="./assets/images/ss2.jpg" width="250" height="470" align="right">
 </p>
 
