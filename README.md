@@ -28,7 +28,10 @@
 
 ## Screenshot
 <p align="center">
-<img src="./assets/images/ss1.jpg" width="250" height="470" align="left">
-<img src="./assets/images/ss2.jpg" width="250" height="470" align="right">
+<img src="./assets/images/ss1.jpg" width="250" height="470">
+</p>
+
+<p>
+<img src="./assets/images/ss2.jpg" width="250" height="470">
 </p>
 
