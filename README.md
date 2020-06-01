@@ -1,12 +1,12 @@
 # DogPoopApp
 
 ## Present
+- [ ] arrange the codes make it easy access<br>
+
+## Future function
 - [ ] Developing save record function to database<br>
 - [ ] Developing modify record function to database<br>
 - [ ] Developing delete record function to database<br>
-
-## Future function
-- [ ] arrange the codes make it easy access<br>
 - [ ] automation test<br>
 - [ ] navigation to settings screen<br>
 - [ ] swipe to delete implementation<br>
@@ -15,9 +15,8 @@
 - [ ] firebase chat system<br>
 - [ ] firebase Authentication<br>
 - [ ] daily analysis<br>
-- [ ] weekly analysis<br>
+- [ ] push notification<br>
 - [ ] monthly analysis<br>
-- [ ] add tensorflow lite to train data<br>
 - [ ] expo camera<br>
 - [ ] dark mode<br>
 - [ ] bark if u completed 1 walk<br>

@@ -12,7 +12,7 @@ import {
 import { Ionicons} from "@expo/vector-icons";
 import * as Animatable from "react-native-animatable";
 import * as firebase from "firebase";
-import "firebase/firestore";
+import {getTheData} from "../components/FirebaseControl";
 
 //if just no type {} means take the default one
 //if got put {} means take specific one
@@ -31,48 +31,11 @@ export default function App(props) {
   const [tickAnimation, setTickAnimation] = useState("");
   const [testHello, setTest] = useState([]);
 
-  //Setting up Firebase connection
-  const config = {
-    apiKey: "AIzaSyA6iPmdMQFyBmH7aPiukZ71srz9vHw0uSs",
-    authDomain: "angelapp-6b5e0.firebaseapp.com",
-    databaseURL: "https://angelapp-6b5e0.firebaseio.com",
-    projectId: "angelapp-6b5e0",
-    storageBucket: "angelapp-6b5e0.appspot.com",
-    messagingSenderId: "154350512943",
-    appId: "1:154350512943:web:76db72c57a2132b726cfda",
-    measurementId: "G-G8KDJNWBDG",
-  };
-
-  try {
-    firebase.initializeApp(config);
-    console.log("Logged into app");
-  } catch (e) {
-    console.log("App reloaded, so firebase did not re-initialize");
-  }
-
+  //Kind of like constructor
   useEffect(() => {
-    getTheData();
-    console.log(
-      "This only happens ONCE.  But it happens AFTER the initial render."
-    );
+    setTest(getTheData());
+    
   }, []);
-
-  const getTheData = async () => {
-    var items = [];
-    firebase
-      .database()
-      .ref("testL1/")
-      .on("value", function (snapshot) {
-        snapshot.forEach((child1) => {
-          console.log(child1.key);
-          console.log(child1.val());
-
-          items.push(child1.val());
-        });
-
-        setTest(items);
-      });
-  };
 
   const tickOrNo = () => {
     if (tickAnimation == "rubberBand") {
@@ -104,8 +67,8 @@ export default function App(props) {
     console.log(
       testHello.toString().substring(testHello.root.toString().length - 1)
     );
+    //testFunction('123')
   };
-
   return (
     <View style={styles.container}>
       <TouchableOpacity
@@ -128,10 +91,21 @@ export default function App(props) {
       <FlatList
         data={testHello}
         renderItem={({ item }) => (
-          <TouchableOpacity style={{ marginTop: 15, alignSelf: "center" }}>
+          <TouchableOpacity style={{ marginTop: 15, marginLeft:24}}>
+            
             <Text>{item.Status}</Text>
             <Text>{item.Date}</Text>
             <Text></Text>
+            <View
+              style={{
+                width: 100,
+                height: 3,
+                backgroundColor: 'red',
+                paddingTop: 0,
+                marginTop: 2,
+                marginBottom: 0
+              }}
+            />
           </TouchableOpacity>
         )}
         keyExtractor={(item) => item.ID.toString()}
