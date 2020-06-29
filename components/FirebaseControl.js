@@ -1,6 +1,4 @@
-import React from "react";
 import * as firebase from "firebase";
-import { render } from "react-dom";
 
 //Setting up Firebase connection
 const config = {
@@ -36,7 +34,7 @@ export function getTheData() {
     .ref("testL1/")
     .on("value", function (snapshot) {
       snapshot.forEach((child1) => {
-        console.log(child1.key);
+        // console.log(child1.key);
         items.push(child1.val());
       });
 

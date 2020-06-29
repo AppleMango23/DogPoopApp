@@ -11,7 +11,6 @@ import {
 } from "react-native";
 import { Ionicons} from "@expo/vector-icons";
 import * as Animatable from "react-native-animatable";
-import * as firebase from "firebase";
 import {getTheData} from "../components/FirebaseControl";
 
 //if just no type {} means take the default one
@@ -23,7 +22,7 @@ const STATUS_BAR_HEIGHT = Platform.OS === "ios" ? (IS_IPHONE_X ? 44 : 20) : 0;
 const HEADER_HEIGHT = Platform.OS === "ios" ? (IS_IPHONE_X ? 88 : 64) : 64;
 const NAV_BAR_HEIGHT = HEADER_HEIGHT - STATUS_BAR_HEIGHT;
 
-console.disableYellowBox = true;
+console.disableYellowBox = false;
 
 export default function App(props) {
   const [modalVisible, setModalVisible] = useState(false);
@@ -33,7 +32,10 @@ export default function App(props) {
 
   //Kind of like constructor
   useEffect(() => {
-    setTest(getTheData());
+    // Create an scoped async function in the hook
+   test();
+
+    
     
   }, []);
 
@@ -64,9 +66,10 @@ export default function App(props) {
   };
 
   const test = () => {
-    console.log(
-      testHello.toString().substring(testHello.root.toString().length - 1)
-    );
+    setTest(getTheData());
+    // console.log(
+    //   testHello.toString().substring(testHello.root.toString().length - 1)
+    // );
     //testFunction('123')
   };
   return (
@@ -95,10 +98,11 @@ export default function App(props) {
             
             <Text>{item.Status}</Text>
             <Text>{item.Date}</Text>
+            <Text>{item.Time}</Text>
             <Text></Text>
             <View
               style={{
-                width: 100,
+                width: 120,
                 height: 3,
                 backgroundColor: 'red',
                 paddingTop: 0,
@@ -220,7 +224,7 @@ export default function App(props) {
 
         <TouchableOpacity
           onPress={() => {
-            test();
+            // test();
           }}
         >
           <View style={{ justifyContent: "center", alignItems: "center" }}>

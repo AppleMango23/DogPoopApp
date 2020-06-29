@@ -2,12 +2,15 @@
 
 ## Present
 - [ ] arrange the codes make it easy access<br>
+- [ ] push notification<br>
+- [ ] navigation codes<br>
 
 ## Future function
 - [ ] Developing save record function to database<br>
 - [ ] Developing modify record function to database<br>
 - [ ] Developing delete record function to database<br>
 - [ ] automation test<br>
+- [ ] navigation from register screen<br>
 - [ ] navigation to settings screen<br>
 - [ ] swipe to delete implementation<br>
 - [ ] grid view<br>
@@ -15,7 +18,6 @@
 - [ ] firebase chat system<br>
 - [ ] firebase Authentication<br>
 - [ ] daily analysis<br>
-- [ ] push notification<br>
 - [ ] monthly analysis<br>
 - [ ] expo camera<br>
 - [ ] dark mode<br>
