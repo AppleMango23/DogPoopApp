@@ -11,7 +11,7 @@ import {
 } from "react-native";
 import { Ionicons} from "@expo/vector-icons";
 import * as Animatable from "react-native-animatable";
-import {getTheData} from "../components/FirebaseControl";
+import { useFirebaseData } from "../components/FirebaseControl";
 
 //if just no type {} means take the default one
 //if got put {} means take specific one
@@ -28,16 +28,7 @@ export default function App(props) {
   const [modalVisible, setModalVisible] = useState(false);
   const [animationButton, setAnimationButton] = useState("");
   const [tickAnimation, setTickAnimation] = useState("");
-  const [testHello, setTest] = useState([]);
-
-  //Kind of like constructor
-  useEffect(() => {
-    // Create an scoped async function in the hook
-   test();
-
-    
-    
-  }, []);
+  const data = useFirebaseData();
 
   const tickOrNo = () => {
     if (tickAnimation == "rubberBand") {
@@ -65,13 +56,6 @@ export default function App(props) {
     backgroundColor: "rgba(0, 0, 0, 0.5)",
   };
 
-  const test = () => {
-    setTest(getTheData());
-    // console.log(
-    //   testHello.toString().substring(testHello.root.toString().length - 1)
-    // );
-    //testFunction('123')
-  };
   return (
     <View style={styles.container}>
       <TouchableOpacity
@@ -92,7 +76,7 @@ export default function App(props) {
         />
       </TouchableOpacity>
       <FlatList
-        data={testHello}
+        data={data}
         renderItem={({ item }) => (
           <TouchableOpacity style={{ marginTop: 15, marginLeft:24}}>
             
@@ -112,7 +96,7 @@ export default function App(props) {
             />
           </TouchableOpacity>
         )}
-        keyExtractor={(item) => item.ID.toString()}
+        keyExtractor={(item) => item.id}
       />
       <Modal
         animationType="fade"

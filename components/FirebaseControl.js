@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import * as firebase from "firebase";
 
 //Setting up Firebase connection
@@ -12,35 +13,26 @@ const config = {
   measurementId: "G-G8KDJNWBDG",
 };
 
-try {
-  firebase.initializeApp(config);
-  console.log("Logged into app");
-} catch (e) {
-  console.log("App reloaded, so firebase did not re-initialize");
-}
+export function useFirebaseData() {
+  const [data, setData] = useState([]);
 
-//Example
-// example for default function, if return something then put in render
-// export default function FirebaseControlFunc(props) {
-//   console.log("test");
-// }
-
-export function getTheData() {
-  var items = [];
-
-  //From this function back to the first function
-  return firebase
-    .database()
-    .ref("testL1/")
-    .on("value", function (snapshot) {
-      snapshot.forEach((child1) => {
-        // console.log(child1.key);
-        items.push(child1.val());
+  useEffect(() => {
+    try {
+      firebase.initializeApp(config);
+      console.log('Logged into app');
+    } catch (e) {
+      console.log('App reloaded, so firebase did not re-initialize');
+    }
+    firebase
+      .database()
+      .ref('testL1/')
+      .on('value', function (snapshot) {
+        snapshot.forEach((child1) => {
+          if (child1.val()) {
+            setData([...data, child1.val()]);
+          }
+        });
       });
-
-      //Return back to the function
-      return(items);
-    });
+  });
+  return data;
 }
-
-
