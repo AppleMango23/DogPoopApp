@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 import * as firebase from "firebase";
 
 //Setting up Firebase connection
@@ -15,56 +15,50 @@ const config = {
 
 try {
   firebase.initializeApp(config);
-  console.log('Logged into app');
+  console.log("Logged into app");
 } catch (e) {
-  console.log('App reloaded, so firebase did not re-initialize');
+  console.log("App reloaded, so firebase did not re-initialize");
 }
 
 export function useFirebaseData() {
   const [data, setData] = useState([]);
   var items = [];
 
+  function test2() {
+    firebase
+      .database()
+      .ref("testL1/")
+      .on("value", function (snapshot) {
+        snapshot.forEach((child1) => {
+          items.push(child1.val());
+        });
+
+        setData(items);
+      });
+  }
   useEffect(() => {
     test2();
-    
-  },[items]);
+  }, []);
 
-  async function test2(){
-    await firebase
-    .database()
-    .ref('testL1/')
-    .on('value', function (snapshot) {
-      snapshot.forEach((child1) => {
-        items.push(child1.val());
-        
-
-        // if (child1.val()) {
-        //   setData([...data, child1.val()]);
-        // }
-      });
-    });
-
-  }
- 
-  return items;
+  return data;
 }
-
-
 
 export function pushTheData() {
   const newReference = firebase.database().ref("testL1/").push();
   var today = new Date();
-  var date = today.getDate() + '-'+(today.getMonth()+1)+'-'+today.getFullYear();
+  var date =
+    today.getDate() + "-" + (today.getMonth() + 1) + "-" + today.getFullYear();
   var time = today.getHours() + ":" + today.getMinutes();
-  
-  
+
   console.log("Auto generated key: ", newReference.key);
 
   newReference
     .set({
       Date: date,
-      Status:"Good",
-      Time: time
+      Status: "Good",
+      Time: time,
     })
-    .then(() => {alert("Data updated.")});
+    .then(() => {
+      alert("Data updated.");
+    });
 }

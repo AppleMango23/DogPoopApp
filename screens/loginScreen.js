@@ -9,7 +9,7 @@ import {
   Modal,
   FlatList,
 } from "react-native";
-import { Ionicons} from "@expo/vector-icons";
+import { Ionicons } from "@expo/vector-icons";
 import * as Animatable from "react-native-animatable";
 import { useFirebaseData, pushTheData } from "../components/FirebaseControl";
 
@@ -26,7 +26,6 @@ console.disableYellowBox = false;
 
 export default function App(props) {
   const [modalVisible, setModalVisible] = useState(false);
-  const [animationButton, setAnimationButton] = useState("");
   const [tickAnimation, setTickAnimation] = useState("");
   const data = useFirebaseData();
 
@@ -52,10 +51,6 @@ export default function App(props) {
     }
   };
 
-  var modalBackgroundStyle = {
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
-  };
-
   return (
     <View style={styles.container}>
       <TouchableOpacity
@@ -78,8 +73,7 @@ export default function App(props) {
       <FlatList
         data={data}
         renderItem={({ item }) => (
-          <TouchableOpacity style={{ marginTop: 15, marginLeft:24}}>
-            
+          <TouchableOpacity style={{ marginTop: 15, marginLeft: 24 }}>
             <Text>{item.Status}</Text>
             <Text>{item.Date}</Text>
             <Text>{item.Time}</Text>
@@ -88,10 +82,10 @@ export default function App(props) {
               style={{
                 width: 120,
                 height: 3,
-                backgroundColor: 'red',
+                backgroundColor: "red",
                 paddingTop: 0,
                 marginTop: 2,
-                marginBottom: 0
+                marginBottom: 0,
               }}
             />
           </TouchableOpacity>
@@ -109,7 +103,10 @@ export default function App(props) {
       >
         <TouchableOpacity
           activeOpacity={1.0}
-          style={[styles.containerModal, modalBackgroundStyle]}
+          style={[
+            styles.containerModal,
+            { backgroundColor: "rgba(0, 0, 0, 0.5)" },
+          ]}
           onPress={() => {
             setModalVisible(false);
             setTickAnimation("");
@@ -130,9 +127,6 @@ export default function App(props) {
             animation={"rubberBand"}
             iterationCount={1}
             direction="alternate"
-            onAnimationEnd={() => {
-              setAnimationButton("");
-            }}
             style={{
               backgroundColor: "white",
               justifyContent: "space-between",
