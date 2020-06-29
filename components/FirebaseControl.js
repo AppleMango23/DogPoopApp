@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import * as firebase from "firebase";
+import { render } from "react-dom";
 
 //Setting up Firebase connection
 const config = {
@@ -35,4 +36,22 @@ export function useFirebaseData() {
       });
   });
   return data;
+}
+
+export function pushTheData() {
+  const newReference = firebase.database().ref("testL1/").push();
+  var today = new Date();
+  var date = today.getDate() + '-'+(today.getMonth()+1)+'-'+today.getFullYear();
+  var time = today.getHours() + ":" + today.getMinutes();
+  
+  
+  console.log("Auto generated key: ", newReference.key);
+
+  newReference
+    .set({
+      Date: date,
+      Status:"Good",
+      Time: time
+    })
+    .then(() => alert("Data updated."));
 }

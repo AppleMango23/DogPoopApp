@@ -4,6 +4,7 @@
 - [ ] arrange the codes make it easy access<br>
 - [ ] push notification<br>
 - [ ] navigation codes<br>
+- [ ] on scroll minimize<br>
 
 ## Future function
 - [ ] Developing save record function to database<br>

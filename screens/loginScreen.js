@@ -11,7 +11,7 @@ import {
 } from "react-native";
 import { Ionicons} from "@expo/vector-icons";
 import * as Animatable from "react-native-animatable";
-import { useFirebaseData } from "../components/FirebaseControl";
+import { useFirebaseData, pushTheData } from "../components/FirebaseControl";
 
 //if just no type {} means take the default one
 //if got put {} means take specific one
@@ -96,7 +96,7 @@ export default function App(props) {
             />
           </TouchableOpacity>
         )}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item) => item.key}
       />
       <Modal
         animationType="fade"
@@ -147,7 +147,7 @@ export default function App(props) {
           >
             <TouchableOpacity
               onPress={() => {
-                alert("test");
+                pushTheData();
               }}
             >
               <View style={{ alignItems: "center" }}>
@@ -208,7 +208,7 @@ export default function App(props) {
 
         <TouchableOpacity
           onPress={() => {
-            // test();
+            pushTheData();
           }}
         >
           <View style={{ justifyContent: "center", alignItems: "center" }}>
