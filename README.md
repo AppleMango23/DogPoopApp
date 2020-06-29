@@ -18,6 +18,8 @@
 - [ ] firebase chat system<br>
 - [ ] firebase Authentication<br>
 - [ ] daily analysis<br>
+- [ ] add user<br>
+- [ ] push notification if no one walk dog<br>
 - [ ] monthly analysis<br>
 - [ ] expo camera<br>
 - [ ] dark mode<br>
