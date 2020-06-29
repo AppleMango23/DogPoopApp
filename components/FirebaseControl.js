@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import * as firebase from "firebase";
-import { render } from "react-dom";
 
 //Setting up Firebase connection
 const config = {
@@ -14,29 +13,43 @@ const config = {
   measurementId: "G-G8KDJNWBDG",
 };
 
+try {
+  firebase.initializeApp(config);
+  console.log('Logged into app');
+} catch (e) {
+  console.log('App reloaded, so firebase did not re-initialize');
+}
+
 export function useFirebaseData() {
   const [data, setData] = useState([]);
+  var items = [];
 
   useEffect(() => {
-    try {
-      firebase.initializeApp(config);
-      console.log('Logged into app');
-    } catch (e) {
-      console.log('App reloaded, so firebase did not re-initialize');
-    }
-    firebase
-      .database()
-      .ref('testL1/')
-      .on('value', function (snapshot) {
-        snapshot.forEach((child1) => {
-          if (child1.val()) {
-            setData([...data, child1.val()]);
-          }
-        });
+    test2();
+    
+  },[items]);
+
+  async function test2(){
+    await firebase
+    .database()
+    .ref('testL1/')
+    .on('value', function (snapshot) {
+      snapshot.forEach((child1) => {
+        items.push(child1.val());
+        
+
+        // if (child1.val()) {
+        //   setData([...data, child1.val()]);
+        // }
       });
-  });
-  return data;
+    });
+
+  }
+ 
+  return items;
 }
+
+
 
 export function pushTheData() {
   const newReference = firebase.database().ref("testL1/").push();
@@ -53,5 +66,5 @@ export function pushTheData() {
       Status:"Good",
       Time: time
     })
-    .then(() => alert("Data updated."));
+    .then(() => {alert("Data updated.")});
 }
