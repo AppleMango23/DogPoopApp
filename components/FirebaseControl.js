@@ -44,6 +44,8 @@ export function useFirebaseData() {
 }
 
 export function pushTheData() {
+
+  //use the time to set the key date year and time that one
   const newReference = firebase.database().ref("testL1/").push();
   var today = new Date();
   var date =

@@ -13,6 +13,7 @@ import { Ionicons } from "@expo/vector-icons";
 import * as Animatable from "react-native-animatable";
 import { useFirebaseData, pushTheData } from "../components/FirebaseControl";
 
+
 //if just no type {} means take the default one
 //if got put {} means take specific one
 //import {TabBarIcon} from "../components/TabBarIcon";
@@ -73,7 +74,11 @@ export default function App(props) {
       <FlatList
         data={data}
         renderItem={({ item }) => (
-          <TouchableOpacity style={{ marginTop: 15, marginLeft: 24 }}>
+          <TouchableOpacity 
+          style={{ marginTop: 15, marginLeft: 24 }} 
+          onPress={() => {
+            setModalVisible(true);
+          }} >
             <Text>{item.val1.Status}</Text>
             <Text>{item.val1.Date}</Text>
             <Text>{item.val1.Time}</Text>
