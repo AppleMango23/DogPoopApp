@@ -74,9 +74,9 @@ export default function App(props) {
         data={data}
         renderItem={({ item }) => (
           <TouchableOpacity style={{ marginTop: 15, marginLeft: 24 }}>
-            <Text>{item.Status}</Text>
-            <Text>{item.Date}</Text>
-            <Text>{item.Time}</Text>
+            <Text>{item.val1.Status}</Text>
+            <Text>{item.val1.Date}</Text>
+            <Text>{item.val1.Time}</Text>
             <Text></Text>
             <View
               style={{
@@ -90,7 +90,7 @@ export default function App(props) {
             />
           </TouchableOpacity>
         )}
-        keyExtractor={(item) => item.key}
+        keyExtractor={(item) => item.key1}
       />
       <Modal
         animationType="fade"

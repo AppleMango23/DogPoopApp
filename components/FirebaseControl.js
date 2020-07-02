@@ -30,7 +30,7 @@ export function useFirebaseData() {
       .ref("testL1/")
       .on("value", function (snapshot) {
         snapshot.forEach((child1) => {
-          items.push(child1.val());
+          items.push({val1:child1.val(),key1:child1.key});
         });
 
         setData(items);

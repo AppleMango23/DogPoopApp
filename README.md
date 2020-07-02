@@ -5,9 +5,9 @@
 - [ ] push notification<br>
 - [ ] navigation codes<br>
 - [ ] on scroll minimize<br>
+- [ ] Developing UI for saving decision<br>
 
 ## Future function
-- [ ] Developing save record function to database<br>
 - [ ] Developing modify record function to database<br>
 - [ ] Developing delete record function to database<br>
 - [ ] automation test<br>
@@ -27,6 +27,7 @@
 - [ ] bark if u completed 1 walk<br>
 
 ## Done function
+- [x] Developing save record function to database<br>
 - [x] read record from database<br>
 - [x] firebase realtime database<br>
 
