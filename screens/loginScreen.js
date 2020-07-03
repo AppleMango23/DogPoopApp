@@ -8,11 +8,11 @@ import {
   Image,
   Modal,
   FlatList,
+  ScrollView,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import * as Animatable from "react-native-animatable";
 import { useFirebaseData, pushTheData } from "../components/FirebaseControl";
-
 
 //if just no type {} means take the default one
 //if got put {} means take specific one
@@ -71,6 +71,9 @@ export default function App(props) {
           }}
         />
       </TouchableOpacity>
+      <ScrollView
+      onScroll={()=>{alert("hey")}}
+      >
       <FlatList
         data={data}
         renderItem={({ item }) => (
@@ -97,6 +100,7 @@ export default function App(props) {
         )}
         keyExtractor={(item) => item.key1}
       />
+      </ScrollView>
       <Modal
         animationType="fade"
         transparent={true}

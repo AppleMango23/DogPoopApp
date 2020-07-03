@@ -2,8 +2,11 @@
 
 ## Present
 - [ ] navigation codes<br>
-- [ ] on scroll minimize photo<br>
-- [ ] Developing UI for saving decision<br>
+- [ ] working on parralax navigation<br>
+  - [x] Onscroll created
+  - [x] Minimize photo created
+  - [ ] moving with animation to the header<br>
+- [ ] Developing UI for user's decision<br>
 
 ## Future function
 - [ ] Arrange the flatlist to another file<br>
