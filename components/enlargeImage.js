@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
+import React, { Component,useState, useEffect } from 'react'
 import { Animated, View, TouchableOpacity, Easing, Text } from 'react-native'
 
 
 const backgroundImage =require("../assets/images/angelPro.jpg")
 
 
-export default function App(props) {
+export function PhotoAnimation(props) {
  
   const animatedValue = new Animated.Value(0)
 
@@ -16,25 +16,28 @@ export default function App(props) {
         easing: Easing.ease
     }).start()
   }
+
+  useEffect(() => {
+    console.log("Welcome props")
+    console.log(props.hello);
+  }, []);
   
 
   return (
-    <View style={{ flex: 1 }}>
-        <Text></Text>
-        
+    <View >        
         <Animated.Image
             source={backgroundImage}
             resizeMode='cover'
             style={{
-                position: 'absolute',
-                left: 40,
-                top: 100,
-                height: 250,
-                width: 250,
+                width: 235,
+                height: 235,
+                borderRadius: 150,
+                alignSelf: "center",
+                marginTop: 24,
                 transform: [
                     {
                         translateX: animatedValue.interpolate({
-                            inputRange: [1, 2],
+                            inputRange: [1, 3],
                             outputRange: [2, 0.2]
                         })
                     },
@@ -53,7 +56,7 @@ export default function App(props) {
                 ]
             }}
         />
-        <TouchableOpacity onPress={()=>{handleAnimation()}}>
+        <TouchableOpacity onPress={()=>{handleAnimation()}} style = {{marginTop:20}}>
             <Text>Transform</Text>
         </TouchableOpacity>
     </View>

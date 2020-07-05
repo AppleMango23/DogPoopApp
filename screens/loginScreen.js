@@ -13,6 +13,7 @@ import {
 import { Ionicons } from "@expo/vector-icons";
 import * as Animatable from "react-native-animatable";
 import { useFirebaseData, pushTheData } from "../components/FirebaseControl";
+import { PhotoAnimation } from "../components/enlargeImage";
 
 //if just no type {} means take the default one
 //if got put {} means take specific one
@@ -60,7 +61,7 @@ export default function App(props) {
         }}
         style={{ backgroundColor: "white" }}
       >
-        <Image
+        {/* <Image
           source={require("../assets/images/angelPro.jpg")}
           style={{
             width: 310,
@@ -69,10 +70,12 @@ export default function App(props) {
             alignSelf: "center",
             marginTop: 24,
           }}
-        />
+        /> */}
+        <PhotoAnimation hello={"test"}/>
+
       </TouchableOpacity>
       <ScrollView
-      onScroll={()=>{alert("hey")}}
+      onScroll={()=>{}}
       >
       <FlatList
         data={data}
