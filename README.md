@@ -6,7 +6,7 @@
   - [x] Onscroll created
   - [x] Minimize photo created
   - [x] Connected to main screen
-  - [ ] Need to study the how it work(youtube video how the website)
+  - [ ] Need to study the how it work(youtube video, website, library from internets)
   - [ ] moving with animation to the header<br>
 - [ ] Developing UI for user's decision<br>
 
