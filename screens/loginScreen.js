@@ -19,10 +19,7 @@ import { PhotoAnimation } from "../components/enlargeImage";
 //if got put {} means take specific one
 //import {TabBarIcon} from "../components/TabBarIcon";
 
-const IS_IPHONE_X = 812;
-const STATUS_BAR_HEIGHT = Platform.OS === "ios" ? (IS_IPHONE_X ? 44 : 20) : 0;
-const HEADER_HEIGHT = Platform.OS === "ios" ? (IS_IPHONE_X ? 88 : 64) : 64;
-const NAV_BAR_HEIGHT = HEADER_HEIGHT - STATUS_BAR_HEIGHT;
+
 
 console.disableYellowBox = false;
 
@@ -96,7 +93,7 @@ export default function App(props) {
 
       {/* This is set and then throw the props to the file */}
       {/* <OverlayUI1 onTick={() => setTickAnimation()}/> */}
-      
+
       <Modal
         animationType="fade"
         transparent={true}
@@ -229,36 +226,5 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  contentContainer: {
-    flexGrow: 1,
-  },
-  navContainer: {
-    height: HEADER_HEIGHT,
-    marginHorizontal: 10,
-  },
-  statusBar: {
-    height: STATUS_BAR_HEIGHT,
-    backgroundColor: "transparent",
-  },
-  navBar: {
-    paddingTop: 27,
-    height: NAV_BAR_HEIGHT,
-    justifyContent: "space-between",
-    alignItems: "center",
-    flexDirection: "row",
-    backgroundColor: "transparent",
-  },
-  titleStyle: {
-    paddingTop: 5,
-    color: "white",
-    fontWeight: "bold",
-    fontSize: 25,
-  },
-  boxContainer: {
-    backgroundColor: "#3BD0F5",
-    height: 100,
-    width: 100,
-    alignItems: "center",
-    justifyContent: "center",
-  },
+
 });
