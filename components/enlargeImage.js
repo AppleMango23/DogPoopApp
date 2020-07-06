@@ -6,10 +6,10 @@ const backgroundImage =require("../assets/images/angelPro.jpg")
 
 
 export function PhotoAnimation(props) {
- 
   const animatedValue = new Animated.Value(0)
+//   const [shorter, setShorter] = useState(235);
 
-  const handleAnimation = () => {
+  const handleAnimation = async() => {
     Animated.timing(animatedValue, {
         toValue: 1,
         duration: 1000,
@@ -17,9 +17,13 @@ export function PhotoAnimation(props) {
     }).start()
   }
 
+//   const shorterTheHeight = () => {
+//     setShorter(100)
+//   }
+
   useEffect(() => {
-    console.log("Welcome props")
-    console.log(props.hello);
+    // console.log("Welcome props")
+    // console.log(props.hello);
   }, []);
   
 
@@ -56,7 +60,9 @@ export function PhotoAnimation(props) {
                 ]
             }}
         />
-        <TouchableOpacity onPress={()=>{handleAnimation()}} style = {{marginTop:20}}>
+        <TouchableOpacity onPress={()=>{
+            handleAnimation()
+        }} style = {{marginTop:20}}>
             <Text>Transform</Text>
         </TouchableOpacity>
     </View>

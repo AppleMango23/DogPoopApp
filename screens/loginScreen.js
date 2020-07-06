@@ -61,18 +61,7 @@ export default function App(props) {
         }}
         style={{ backgroundColor: "white" }}
       >
-        {/* <Image
-          source={require("../assets/images/angelPro.jpg")}
-          style={{
-            width: 310,
-            height: 310,
-            borderRadius: 150,
-            alignSelf: "center",
-            marginTop: 24,
-          }}
-        /> */}
         <PhotoAnimation hello={"test"}/>
-
       </TouchableOpacity>
       <ScrollView
       onScroll={()=>{}}
