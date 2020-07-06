@@ -8,8 +8,12 @@
   - [ ] Need to study the how it work(youtube video, website, library from internets)
   - [ ] moving with animation to the header<br>
 - [ ] Developing UI for user's decision<br>
-- [ ] Arrange the overlay decision to new file<br>
+  - [ ] User interface<br>
+  - [ ] Arrange the overlay decision to new file<br>
 - [ ] scroll and smaller pic and shift to top
+  - [x] ScrollView Attached
+  - [x] Smaller animation Attached
+  - [ ] Go left side animation
 
 ## Future function
 - [ ] navigation codes<br>

@@ -93,6 +93,10 @@ export default function App(props) {
         keyExtractor={(item) => item.key1}
       />
       </ScrollView>
+
+      {/* This is set and then throw the props to the file */}
+      {/* <OverlayUI1 onTick={() => setTickAnimation()}/> */}
+      
       <Modal
         animationType="fade"
         transparent={true}
