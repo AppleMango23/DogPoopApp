@@ -2,7 +2,8 @@
 
 ## Present
 - [ ] Reload Error: the setState from home screen to the useFirebase.js got some error<br><br>
-- [ ] working on parralax navigation<br>
+- [ ] use this for https://www.youtube.com/watch?v=LP6zmnMcHR0 header. Plan change.
+- [ ] CANCEL PLAN working on parralax navigation<br>
   - [x] Onscroll created
   - [x] Minimize photo created
   - [x] Connected to main screen

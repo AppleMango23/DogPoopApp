@@ -161,7 +161,7 @@ export default function App(props) {
 
             <TouchableOpacity
               onPress={() => {
-                alert("test");
+                pushTheData();
               }}
             >
               <View style={{ alignItems: "center" }}>
@@ -172,7 +172,10 @@ export default function App(props) {
 
             <TouchableOpacity
               onPress={() => {
-                setTickAnimation("rubberBand");
+                pushTheData();
+
+                //This will come out something that we previously use for overlay
+                // setTickAnimation("rubberBand");
               }}
             >
               <View style={{ alignItems: "center" }}>
