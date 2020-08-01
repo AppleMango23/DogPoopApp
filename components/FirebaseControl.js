@@ -27,7 +27,7 @@ export function useFirebaseData() {
   function test2() {
     firebase
       .database()
-      .ref("testL1/")
+      .ref("List/")
       .on("value", function (snapshot) {
         snapshot.forEach((child1) => {
           items.push({val1:child1.val(),key1:child1.key});
@@ -44,20 +44,20 @@ export function useFirebaseData() {
 }
 
 export function pushTheData() {
+  var unix = Math.round(+new Date()/1000);
+
 
   //use the time to set the key date year and time that one
-  const newReference = firebase.database().ref("testL1/").push();
+  const newReference = firebase.database().ref("List/" + unix);
   var today = new Date();
-  var date =
-    today.getDate() + "-" + (today.getMonth() + 1) + "-" + today.getFullYear();
-  var time = today.getHours() + ":" + today.getMinutes();
-
-  console.log("Auto generated key: ", newReference.key);
+  var date = today.getDate() + "-" + (today.getMonth() + 1) + "-" + today.getFullYear();
+  //Set a better time for am and pm
+  var time =  today.getHours() + ":" + today.getMinutes();
 
   newReference
     .set({
       Date: date,
-      Status: "Good",
+      Status: "GOOD",
       Time: time,
     })
     .then(() => {

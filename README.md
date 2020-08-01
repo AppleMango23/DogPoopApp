@@ -1,6 +1,7 @@
 # DogPoopApp
 
 ## Present
+- [ ] Reload Error: the setState from home screen to the useFirebase.js got some error<br><br>
 - [ ] working on parralax navigation<br>
   - [x] Onscroll created
   - [x] Minimize photo created
@@ -16,6 +17,7 @@
   - [ ] Go left side animation
 
 ## Future function
+- [ ] Add state on the icon<br>
 - [ ] navigation codes<br>
 - [ ] Arrange the flatlist to another file<br>
 - [ ] Arrange the bottom navigation to another file<br>
@@ -41,6 +43,7 @@
 - [x] Developing save record function to database<br>
 - [x] read record from database<br>
 - [x] firebase realtime database<br>
+- [x] Added icon<br>
 
 ## Screenshot
 <p>This is the first screen where we are able to check the dog's information.</p>

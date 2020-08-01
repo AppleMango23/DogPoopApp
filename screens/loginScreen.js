@@ -26,29 +26,29 @@ console.disableYellowBox = false;
 export default function App(props) {
   const [modalVisible, setModalVisible] = useState(false);
   const [tickAnimation, setTickAnimation] = useState("");
-  const data = useFirebaseData();
+  var data = useFirebaseData();
 
-  const tickOrNo = () => {
-    if (tickAnimation == "rubberBand") {
-      return (
-        <>
-          <Animatable.View
-            animation={tickAnimation}
-            iterationCount={1}
-            direction="alternate"
-            style={{ alignItems: "center" }}
-          >
-            <Ionicons name="ios-checkmark-circle" size={125} color="#00FF00" />
-          </Animatable.View>
-          <Text style={{ color: "white", fontSize: 20 }}>
-            Thank you for telling us that!
-          </Text>
-        </>
-      );
-    } else {
-      null;
-    }
-  };
+  // const tickOrNo = () => {
+  //   if (tickAnimation == "rubberBand") {
+  //     return (
+  //       <>
+  //         <Animatable.View
+  //           animation={tickAnimation}
+  //           iterationCount={1}
+  //           direction="alternate"
+  //           style={{ alignItems: "center" }}
+  //         >
+  //           <Ionicons name="ios-checkmark-circle" size={125} color="#00FF00" />
+  //         </Animatable.View>
+  //         <Text style={{ color: "white", fontSize: 20 }}>
+  //           Thank you for telling us that!
+  //         </Text>
+  //       </>
+  //     );
+  //   } else {
+  //     null;
+  //   }
+  // };
 
   return (
     <View style={styles.container}>
@@ -71,15 +71,22 @@ export default function App(props) {
           onPress={() => {
             setModalVisible(true);
           }} >
-            <Text>{item.val1.Status}</Text>
-            <Text>{item.val1.Date}</Text>
-            <Text>{item.val1.Time}</Text>
-            <Text></Text>
+            <View flexDirection="row">
+              <View>
+                <Text>Condition:   {item.val1.Status}</Text>
+                <Text>Date:            {item.val1.Date}</Text>
+                <Text>Time:           {item.val1.Time}</Text>
+                <Text></Text>
+              </View>  
+              <View style={{position: 'absolute', right: 35, marginTop:10}}>
+                <Ionicons name="ios-checkmark-circle" size={45} color="grey" />
+              </View>
+            </View>
             <View
               style={{
-                width: 120,
-                height: 3,
-                backgroundColor: "red",
+                width: 155,
+                height: 2,
+                backgroundColor: "grey",
                 paddingTop: 0,
                 marginTop: 2,
                 marginBottom: 0,
@@ -114,7 +121,7 @@ export default function App(props) {
             setTickAnimation("");
           }}
         >
-          {tickOrNo()}
+          {/* {tickOrNo()} */}
         </TouchableOpacity>
 
         <View

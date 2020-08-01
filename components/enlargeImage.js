@@ -60,11 +60,11 @@ export function PhotoAnimation(props) {
                 ]
             }}
         />
-        <TouchableOpacity onPress={()=>{
+        {/* <TouchableOpacity onPress={()=>{
             handleAnimation()
         }} style = {{marginTop:20}}>
             <Text>Transform</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
     </View>
 )
 }
