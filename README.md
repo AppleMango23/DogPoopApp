@@ -1,9 +1,6 @@
 # DogPoopApp
 
-## Present
-- [ ] Reload Error: the setState from home screen to the useFirebase.js got some error<br>
-  - [ ] Identify the error using console log first<br>
-  
+## Present  
 - [ ] use this for https://www.youtube.com/watch?v=LP6zmnMcHR0 header. Plan change.<br>
 - [ ] CANCEL PLAN working on parralax navigation<br>
   - [x] Onscroll created
@@ -20,8 +17,6 @@
   - [ ] Go left side animation
 
 ## Future function
-- [ ] Overlay do not have sorted flatlist<br>
-- [ ] Add state on the icon<br>
 - [ ] navigation codes<br>
 - [ ] Arrange the flatlist to another file<br>
 - [ ] Arrange the bottom navigation to another file<br>
@@ -40,9 +35,12 @@
 - [ ] monthly analysis<br>
 - [ ] expo camera<br>
 - [ ] dark mode<br>
-- [ ] bark if u completed 1 walk<br>
+
 
 ## Done function
+- [x] bark if u completed 1 walk<br>
+- [x] Reload Error: the setState from home screen to the useFirebase.js got some error<br>
+  - [x] Identify the error using console log first<br>
 - [x] Sort the flatlist<br>
 - [x] Solved key on flatlist
 - [x] Developing save record function to database<br>
