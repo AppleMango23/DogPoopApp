@@ -1,9 +1,10 @@
 # DogPoopApp
 
 ## Present
-- [ ] Reload Error: the setState from home screen to the useFirebase.js got some error<br><br>
-
-- [ ] use this for https://www.youtube.com/watch?v=LP6zmnMcHR0 header. Plan change.
+- [ ] Reload Error: the setState from home screen to the useFirebase.js got some error<br>
+  - [ ] Identify the error using console log first<br>
+  
+- [ ] use this for https://www.youtube.com/watch?v=LP6zmnMcHR0 header. Plan change.<br>
 - [ ] CANCEL PLAN working on parralax navigation<br>
   - [x] Onscroll created
   - [x] Minimize photo created

@@ -26,9 +26,10 @@ export default function App(props) {
   const [tickAnimation, setTickAnimation] = useState("");
   const data = useFirebaseData();
 
-  useEffect(() => {
-    console.log("changes happened!")
-  }, [data]);
+  //Dont know why this will disable the sorting
+  // useEffect(() => {
+  //   console.log("changes happened!")
+  // }, [data]);
 
   const iconColour = (test) => {
     if(test == "GOOD")
