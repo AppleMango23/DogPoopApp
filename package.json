@@ -31,7 +31,8 @@
     "react-navigation": "^3.13.0",
     "react-navigation-drawer": "^1.4.0",
     "react-navigation-stack": "^1.10.3",
-    "react-navigation-tabs": "^1.2.0"
+    "react-navigation-tabs": "^1.2.0",
+    "expo-av": "~8.1.0"
   },
   "devDependencies": {
     "babel-preset-expo": "^8.1.0",

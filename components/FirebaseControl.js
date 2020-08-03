@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import * as firebase from "firebase";
+import { Audio } from 'expo-av';
 
 //Setting up Firebase connection
 const config = {
@@ -22,13 +23,16 @@ try {
 
 export function useFirebaseData() {
   const [data, setData] = useState([]);
-  var items = [];
 
   function test2() {
+    
+
     firebase
       .database()
       .ref("List/")
       .on("value", function (snapshot) {
+
+        const items = [];
         snapshot.forEach((child1) => {
           items.push({val1:child1.val(),key1:child1.key});
         });
@@ -39,10 +43,12 @@ export function useFirebaseData() {
     test2();
   }, []);
 
+
   return data;
 }
 
-export function pushTheData() {
+export function pushTheData(props) {
+  // console.log(props.Status)
   var unix = Math.round(+new Date()/1000);
 
   //use the time to set the key date year and time that one
@@ -50,15 +56,26 @@ export function pushTheData() {
   var today = new Date();
   var date = today.getDate() + "-" + (today.getMonth() + 1) + "-" + today.getFullYear();
   //Set a better time for am and pm
-  var time =  today.getHours() + ":" + today.getMinutes();
+
+  var Hour=today.getHours();
+  var AmOrPM = (Hour>=12 ? "PM" : "AM");
+  var time =  (Hour>12 ? Hour-12 : Hour) + ":" + today.getMinutes() + AmOrPM;
 
   newReference
     .set({
       Date: date,
-      Status: "GOOD",
+      Status: (props.status == "Poop" ? "GOOD" : "BAD"),
       Time: time,
     })
-    .then(() => {
+    .then(async () => {
       alert("Data updated.");
+      const soundObject = new Audio.Sound();
+      try {
+        await soundObject.loadAsync(require('../assets/music.mp3'));
+        await soundObject.playAsync();
+        // Your sound is playing!
+      } catch (error) {
+        // An error occurred!
+      }
     });
 }

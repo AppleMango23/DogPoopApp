@@ -23,7 +23,7 @@ console.disableYellowBox = true;
 
 export default function App(props) {
   const [modalVisible, setModalVisible] = useState(false);
-  const [tickAnimation, setTickAnimation] = useState("");
+  const [condition, setCondition] = useState("");
   const data = useFirebaseData();
 
   //Dont know why this will disable the sorting
@@ -34,12 +34,12 @@ export default function App(props) {
   const iconColour = (test) => {
     if(test == "GOOD")
     return(
-      <Ionicons name="ios-checkmark-circle" size={45} color="green" />
+      <Ionicons name="ios-checkmark-circle" size={48} color="green" />
     )
 
     else{
       return(
-        <Entypo name="circle-with-cross" size={45} color="red" />
+        <Entypo name="circle-with-cross" size={48} color="red" />
       )
     }
 
@@ -61,18 +61,24 @@ export default function App(props) {
       >
       <FlatList
         data={data.sort((a, b) => {
-          return a.val1.Date.localeCompare(b.Date)
+          return b.key1.localeCompare(a.key1)
         })}
         renderItem={({ item }) => (
           <TouchableOpacity 
           style={{ marginTop: 15, marginLeft: 24 }} 
           onPress={() => {
-            // setModalVisible(true);
-            // alert("Dog: Angel\nAge: 7 years\nCondition:",item.val1.Status)
+            var output = "Dog: Angel\nAge: 7 years\nCondition: " + item.val1.Status + "\nDate: " + item.val1.Date + "\nTime: " + item.val1.Time;
+            alert(output)
           }} >
             <View flexDirection="row">
-              <View>
-                <Text>Condition:   {item.val1.Status}</Text>
+              <View style={{marginTop:6}}>
+                <Ionicons name="md-person" size={42} color="black" />
+              </View>
+
+              <View style={{marginLeft:24, marginTop:2}}>
+                <View style={{borderRadius:20, backgroundColor:"black"}}>
+                  <Text style={{color:"white"}}>  Condition:   {item.val1.Status}</Text>
+                </View>
                 <Text>Date:            {item.val1.Date}</Text>
                 <Text>Time:           {item.val1.Time}</Text>
                 <Text></Text>
@@ -83,11 +89,11 @@ export default function App(props) {
             </View>
             <View
               style={{
-                width: 155,
-                height: 2,
+                
+                borderBottomWidth: 0.3,
                 backgroundColor: "grey",
                 paddingTop: 0,
-                marginTop: 2,
+                marginTop: -4,
                 marginBottom: 0,
               }}
             />
@@ -98,14 +104,12 @@ export default function App(props) {
       </ScrollView>
 
       {/* This is set and then throw the props to the file */}
-      {/* <OverlayUI1 onTick={() => setTickAnimation()}/> */}
 
       <Modal
         animationType="fade"
         transparent={true}
         visible={modalVisible}
         onRequestClose={() => {
-          setTickAnimation("");
           setModalVisible(false);
         }}
       >
@@ -117,7 +121,6 @@ export default function App(props) {
           ]}
           onPress={() => {
             setModalVisible(false);
-            setTickAnimation("");
           }}
         >
           {/* {tickOrNo()} */}
@@ -132,56 +135,110 @@ export default function App(props) {
           }}
         >
           <Animatable.View
-            animation={"rubberBand"}
+            animation={"bounceInUp"}
             iterationCount={1}
             direction="alternate"
             style={{
               backgroundColor: "white",
-              justifyContent: "space-between",
-              flexDirection: "row",
-              borderRadius: 10,
-              height: 100,
-              width: "90%",
+              borderTopLeftRadius:15,
+              borderTopRightRadius:15,
+              height: 150,
+              width: "100%",
               alignItems: "center",
-              paddingLeft: 15,
-              paddingRight: 25,
+              justifyContent:"center"
+             
             }}
-          >
-            <TouchableOpacity
-              onPress={() => {
-                pushTheData();
-              }}
-            >
-              <View style={{ alignItems: "center" }}>
-                <Ionicons name="ios-sunny" size={35} color="black" />
-                <Text>Morning walk</Text>
-              </View>
-            </TouchableOpacity>
+          > 
+            <Text style={{fontSize:22}}>Activity Dog Today</Text>
 
-            <TouchableOpacity
+            <View flexDirection="row" style={{marginTop:15}}>
+              <TouchableOpacity 
+              style={{marginLeft:20,marginRight:20,backgroundColor:(condition == "Poop" ? "green" : 'grey'),width:60, borderRadius:15, height:25}}
               onPress={() => {
-                pushTheData();
+                if(condition == "Poop")
+                {
+                  setCondition("")
+                }
+                else{
+                  setCondition("Poop")
+                }
               }}
-            >
-              <View style={{ alignItems: "center" }}>
-                <Ionicons name="ios-cloudy-night" size={35} color="black" />
-                <Text>Night walk</Text>
-              </View>
-            </TouchableOpacity>
+              >
+                <Text style={{color:"white",marginTop:2}}>   Poop</Text>
+              </TouchableOpacity>
+              
 
-            <TouchableOpacity
+              <TouchableOpacity 
+              style={{marginRight:20,marginLeft:20,backgroundColor:(condition == "No Poop" ? "green" : 'grey'),width:70, borderRadius:15, height:25}}
               onPress={() => {
-                pushTheData();
-
-                //This will come out something that we previously use for overlay
-                // setTickAnimation("rubberBand");
+                if(condition == "No Poop")
+                {
+                  setCondition("")
+                }
+                else{
+                  setCondition("No Poop")
+                }
               }}
-            >
-              <View style={{ alignItems: "center" }}>
-                <Ionicons name="ios-walk" size={35} color="black" />
-                <Text>Extra walk</Text>
-              </View>
-            </TouchableOpacity>
+              >
+                <Text style={{color:"white",marginTop:2}}>  No Poop</Text>
+              </TouchableOpacity>
+            </View>
+
+            {/* <View flexDirection="row" style={{marginTop:14}}>
+              <TouchableOpacity style={{marginRight:35}}>
+                <Text>No Poop</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity style={{marginRight:35,marginLeft:35}}>
+                <Text>Run</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity style={{marginLeft:35}}>
+                <Text>Eat grass</Text>
+              </TouchableOpacity>
+            </View> */}
+
+            <View flexDirection="row" style={{marginTop:5}}>
+              <TouchableOpacity
+                onPress={() => {
+                  pushTheData({status:condition});
+                  setModalVisible(false);
+                }}
+                style={{marginRight:35}}
+              >
+                <View style={{ alignItems: "center" }}>
+                  <Ionicons name="ios-sunny" size={35} color="black" />
+                  <Text>Morning walk</Text>
+                </View>
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                onPress={() => {
+                  pushTheData({status:condition});
+                  setModalVisible(false);
+                }}
+                style={{marginRight:15,marginLeft:15}}
+              >
+                <View style={{ alignItems: "center" }}>
+                  <Ionicons name="ios-cloudy-night" size={35} color="black" />
+                  <Text>Night walk</Text>
+                </View>
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                onPress={() => {
+                  pushTheData({status:condition});
+                  setModalVisible(false);
+                }}
+                style={{marginLeft:35}}
+              >
+                <View style={{ alignItems: "center" }}>
+                  <Ionicons name="ios-walk" size={35} color="black" />
+                  <Text>Extra walk</Text>
+                </View>
+              </TouchableOpacity>
+            </View>
+            
           </Animatable.View>
         </View>
       </Modal>
@@ -202,7 +259,7 @@ export default function App(props) {
       >
         <TouchableOpacity
           onPress={() => {
-            alert("test");
+            // alert("test");
           }}
         >
           <View style={{ justifyContent: "center", alignItems: "center" }}>
@@ -213,7 +270,8 @@ export default function App(props) {
 
         <TouchableOpacity
           onPress={() => {
-            pushTheData();
+            // pushTheData();
+            alert("Next update")
           }}
         >
           <View style={{ justifyContent: "center", alignItems: "center" }}>
