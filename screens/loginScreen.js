@@ -10,7 +10,7 @@ import {
   FlatList,
   ScrollView,
 } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
+import { Ionicons, Entypo } from "@expo/vector-icons";
 import * as Animatable from "react-native-animatable";
 import { useFirebaseData, pushTheData } from "../components/FirebaseControl";
 import { PhotoAnimation } from "../components/enlargeImage";
@@ -19,36 +19,31 @@ import { PhotoAnimation } from "../components/enlargeImage";
 //if got put {} means take specific one
 //import {TabBarIcon} from "../components/TabBarIcon";
 
-
-
-console.disableYellowBox = false;
+console.disableYellowBox = true;
 
 export default function App(props) {
   const [modalVisible, setModalVisible] = useState(false);
   const [tickAnimation, setTickAnimation] = useState("");
-  var data = useFirebaseData();
+  const data = useFirebaseData();
 
-  // const tickOrNo = () => {
-  //   if (tickAnimation == "rubberBand") {
-  //     return (
-  //       <>
-  //         <Animatable.View
-  //           animation={tickAnimation}
-  //           iterationCount={1}
-  //           direction="alternate"
-  //           style={{ alignItems: "center" }}
-  //         >
-  //           <Ionicons name="ios-checkmark-circle" size={125} color="#00FF00" />
-  //         </Animatable.View>
-  //         <Text style={{ color: "white", fontSize: 20 }}>
-  //           Thank you for telling us that!
-  //         </Text>
-  //       </>
-  //     );
-  //   } else {
-  //     null;
-  //   }
-  // };
+  useEffect(() => {
+    console.log("changes happened!")
+  }, [data]);
+
+  const iconColour = (test) => {
+    if(test == "GOOD")
+    return(
+      <Ionicons name="ios-checkmark-circle" size={45} color="green" />
+    )
+
+    else{
+      return(
+        <Entypo name="circle-with-cross" size={45} color="red" />
+      )
+    }
+
+
+  }
 
   return (
     <View style={styles.container}>
@@ -64,12 +59,15 @@ export default function App(props) {
       onScroll={()=>{}}
       >
       <FlatList
-        data={data}
+        data={data.sort((a, b) => {
+          return a.val1.Date.localeCompare(b.Date)
+        })}
         renderItem={({ item }) => (
           <TouchableOpacity 
           style={{ marginTop: 15, marginLeft: 24 }} 
           onPress={() => {
-            setModalVisible(true);
+            // setModalVisible(true);
+            // alert("Dog: Angel\nAge: 7 years\nCondition:",item.val1.Status)
           }} >
             <View flexDirection="row">
               <View>
@@ -79,7 +77,7 @@ export default function App(props) {
                 <Text></Text>
               </View>  
               <View style={{position: 'absolute', right: 35, marginTop:10}}>
-                <Ionicons name="ios-checkmark-circle" size={45} color="grey" />
+                {iconColour(item.val1.Status)}
               </View>
             </View>
             <View

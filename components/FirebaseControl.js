@@ -32,7 +32,6 @@ export function useFirebaseData() {
         snapshot.forEach((child1) => {
           items.push({val1:child1.val(),key1:child1.key});
         });
-
         setData(items);
       });
   }
@@ -45,7 +44,6 @@ export function useFirebaseData() {
 
 export function pushTheData() {
   var unix = Math.round(+new Date()/1000);
-
 
   //use the time to set the key date year and time that one
   const newReference = firebase.database().ref("List/" + unix);
