@@ -53,11 +53,16 @@
 ## Screenshot
 <p>This is the first screen where we are able to check the dog's information.</p>
 <p align="left">
-<img src="./assets/images/ss1.jpg" width="250" height="470">
+<img src="./assets/images/ss3.jpg" width="250" height="470">
 </p>
 
-<p>This is the settings screen where we are able to set something from the app.</p>
+<p>This is the screen where we are able to check the information clearly</p>
 <p align="left">
-<img src="./assets/images/ss2.jpg" width="250" height="470">
+<img src="./assets/images/ss4.jpg" width="250" height="470">
+</p>
+
+<p>This is the overlay where we are able to save the dog activities</p>
+<p align="left">
+<img src="./assets/images/ss5.jpg" width="250" height="470">
 </p>
 
