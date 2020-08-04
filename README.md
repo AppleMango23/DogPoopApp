@@ -10,6 +10,7 @@
   - [ ] moving with animation to the header<br>
 - [ ] Developing UI for user's decision<br>
   - [ ] User interface<br>
+  - [ ] Organize the database for users
   - [ ] Arrange the overlay decision to new file<br>
 - [ ] scroll and smaller pic and shift to top
   - [x] ScrollView Attached
@@ -17,6 +18,7 @@
   - [ ] Go left side animation
 
 ## Future function
+- [ ] Join Groups<br>
 - [ ] navigation codes<br>
 - [ ] Arrange the flatlist to another file<br>
 - [ ] Arrange the bottom navigation to another file<br>
@@ -30,7 +32,6 @@
 - [ ] firebase chat system<br>
 - [ ] firebase Authentication<br>
 - [ ] daily analysis<br>
-- [ ] add user to a group<br>
 - [ ] push notification if no one walk dog<br>
 - [ ] monthly analysis<br>
 - [ ] expo camera<br>
