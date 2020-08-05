@@ -42,13 +42,10 @@ export function useFirebaseData() {
   useEffect(() => {
     test2();
   }, []);
-
-
   return data;
 }
 
 export function pushTheData(props) {
-  // console.log(props.Status)
   var unix = Math.round(+new Date()/1000);
 
   //use the time to set the key date year and time that one
@@ -68,14 +65,12 @@ export function pushTheData(props) {
       Time: time,
     })
     .then(async () => {
-      alert("Data updated.");
+      alert("Data saved.");
       const soundObject = new Audio.Sound();
       try {
         await soundObject.loadAsync(require('../assets/music.mp3'));
         await soundObject.playAsync();
-        // Your sound is playing!
       } catch (error) {
-        // An error occurred!
       }
     });
 }

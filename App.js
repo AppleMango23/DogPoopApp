@@ -1,18 +1,19 @@
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
-import loginScreen from './screens/loginScreen.js';
-import contentsScreen from './screens/contentsScreen.js';
+import Contents from './screens/Contents.js';
+// import Login from './screens/Login.js';
 
 const AppNavigator = createStackNavigator(
   {
-    loginScreen: loginScreen,
-    contentScreen:contentsScreen,
+    Contents: Contents,
+    //This still in development...
+    //Login:Login,
     
   },
   {
-    initialRouteName: "loginScreen",
-    headerMode: 'none',
+    initialRouteName: "Contents",
+     headerMode: 'none',
   }
 );
 export default createAppContainer(AppNavigator);

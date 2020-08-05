@@ -12,12 +12,11 @@ import {
 } from "react-native";
 import { Ionicons, Entypo } from "@expo/vector-icons";
 import * as Animatable from "react-native-animatable";
+
+//if just no type {} means take the default one, put {} means take specific one
 import { useFirebaseData, pushTheData } from "../components/FirebaseControl";
 import { PhotoAnimation } from "../components/enlargeImage";
 
-//if just no type {} means take the default one
-//if got put {} means take specific one
-//import {TabBarIcon} from "../components/TabBarIcon";
 
 console.disableYellowBox = true;
 
@@ -26,24 +25,16 @@ export default function App(props) {
   const [condition, setCondition] = useState("");
   const data = useFirebaseData();
 
-  //Dont know why this will disable the sorting
-  // useEffect(() => {
-  //   console.log("changes happened!")
-  // }, [data]);
-
-  const iconColour = (test) => {
-    if(test == "GOOD")
+  const iconColour = (status) => {
+    if(status == "GOOD")
     return(
       <Ionicons name="ios-checkmark-circle" size={48} color="green" />
     )
-
     else{
       return(
         <Entypo name="circle-with-cross" size={48} color="red" />
       )
     }
-
-
   }
 
   return (
@@ -56,9 +47,6 @@ export default function App(props) {
       >
         <PhotoAnimation hello={"test"}/>
       </TouchableOpacity>
-      <ScrollView
-      onScroll={()=>{}}
-      >
       <FlatList
         data={data.sort((a, b) => {
           return b.key1.localeCompare(a.key1)
@@ -101,10 +89,8 @@ export default function App(props) {
         )}
         keyExtractor={(item) => item.key1}
       />
-      </ScrollView>
-
-      {/* This is set and then throw the props to the file */}
-
+      
+      {/* Transfer this to .js file */}
       <Modal
         animationType="fade"
         transparent={true}
@@ -150,7 +136,6 @@ export default function App(props) {
             }}
           > 
             <Text style={{fontSize:22}}>Activity Dog Today</Text>
-
             <View flexDirection="row" style={{marginTop:15}}>
               <TouchableOpacity 
               style={{marginLeft:20,marginRight:20,backgroundColor:(condition == "Poop" ? "green" : 'grey'),width:60, borderRadius:15, height:25}}
@@ -183,20 +168,6 @@ export default function App(props) {
                 <Text style={{color:"white",marginTop:2}}>  No Poop</Text>
               </TouchableOpacity>
             </View>
-
-            {/* <View flexDirection="row" style={{marginTop:14}}>
-              <TouchableOpacity style={{marginRight:35}}>
-                <Text>No Poop</Text>
-              </TouchableOpacity>
-
-              <TouchableOpacity style={{marginRight:35,marginLeft:35}}>
-                <Text>Run</Text>
-              </TouchableOpacity>
-
-              <TouchableOpacity style={{marginLeft:35}}>
-                <Text>Eat grass</Text>
-              </TouchableOpacity>
-            </View> */}
 
             <View flexDirection="row" style={{marginTop:5}}>
               <TouchableOpacity
@@ -243,7 +214,7 @@ export default function App(props) {
         </View>
       </Modal>
 
-      {/* Bottom navigation */}
+      {/* Bottom navigation.js transfering */}
       <View
         style={{
           backgroundColor: "white",
@@ -259,7 +230,6 @@ export default function App(props) {
       >
         <TouchableOpacity
           onPress={() => {
-            // alert("test");
           }}
         >
           <View style={{ justifyContent: "center", alignItems: "center" }}>
@@ -270,7 +240,6 @@ export default function App(props) {
 
         <TouchableOpacity
           onPress={() => {
-            // pushTheData();
             alert("Next update")
           }}
         >
@@ -293,5 +262,4 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-
 });
