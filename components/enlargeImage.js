@@ -1,20 +1,10 @@
-import React, { Component,useState, useEffect } from 'react'
-import { Animated, View, TouchableOpacity, Easing, Text } from 'react-native'
-
+import React from 'react'
+import { Animated, View } from 'react-native'
 
 const backgroundImage =require("../assets/images/angelPro.jpg")
 
-
 export function PhotoAnimation(props) {
-  const animatedValue = new Animated.Value(0)
 
-  const handleAnimation = async() => {
-    Animated.timing(animatedValue, {
-        toValue: 1,
-        duration: 1000,
-        easing: Easing.ease
-    }).start()
-  }
   return (
     <View >        
         <Animated.Image
@@ -26,26 +16,6 @@ export function PhotoAnimation(props) {
                 borderRadius: 150,
                 alignSelf: "center",
                 marginTop: 24,
-                transform: [
-                    {
-                        translateX: animatedValue.interpolate({
-                            inputRange: [1, 3],
-                            outputRange: [2, 0.2]
-                        })
-                    },
-                    {
-                        translateY:animatedValue.interpolate({
-                            inputRange: [1, 1],
-                            outputRange: [0, 0.2]
-                        })
-                    },
-                    {
-                        scale:animatedValue.interpolate({
-                            inputRange: [0, 1.2],
-                            outputRange: [1, 0.1]
-                        })
-                    }
-                ]
             }}
         />
 

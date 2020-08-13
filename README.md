@@ -9,12 +9,13 @@
 - [ ] Join Groups<br>
 - [ ] navigation codes<br>
 - [ ] Arrange the flatlist to another file<br>
+- [ ] Arrange the Modal to another file<br>
+- [ ] automation test<br>
+- [ ] expo camera<br>
 
 ## Future function
-- [ ] Arrange the bottom navigation to another file<br>
 - [ ] Developing modify record function to database<br>
 - [ ] Developing delete record function to database<br>
-- [ ] automation test<br>
 - [ ] navigation from register screen<br>
 - [ ] navigation to settings screen<br>
 - [ ] swipe to delete implementation<br>
@@ -24,7 +25,6 @@
 - [ ] daily analysis<br>
 - [ ] push notification if no one walk dog<br>
 - [ ] monthly analysis<br>
-- [ ] expo camera<br>
 - [ ] dark mode<br>
 - [ ] Create screen for profile<br>
 
@@ -38,6 +38,8 @@
 - [x] read record from database<br>
 - [x] firebase realtime database<br>
 - [x] Added icon<br>
+- [x] Arrange the bottom navigation to another file<br>
+
 
 ## Screenshot
 <p>Gif of the Application</p>
