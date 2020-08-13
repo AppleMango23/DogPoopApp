@@ -6,11 +6,11 @@
   - [ ] User interface<br>
   - [ ] Organize the database for users
   - [ ] Arrange the overlay decision to new file<br>
-
-## Future function
 - [ ] Join Groups<br>
 - [ ] navigation codes<br>
 - [ ] Arrange the flatlist to another file<br>
+
+## Future function
 - [ ] Arrange the bottom navigation to another file<br>
 - [ ] Developing modify record function to database<br>
 - [ ] Developing delete record function to database<br>
@@ -26,7 +26,7 @@
 - [ ] monthly analysis<br>
 - [ ] expo camera<br>
 - [ ] dark mode<br>
-
+- [ ] Create screen for profile<br>
 
 ## Done function
 - [x] bark if u completed 1 walk<br>
