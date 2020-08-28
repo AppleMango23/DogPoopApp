@@ -1,14 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState,useEffect,useRef } from "react";
 import {
-  Platform,
   StyleSheet,
   View,
   Text,
   TouchableOpacity,
-  Image,
   Modal,
   FlatList,
-  ScrollView,
+  ActivityIndicator,
 } from "react-native";
 import { Ionicons, Entypo } from "@expo/vector-icons";
 import * as Animatable from "react-native-animatable";
@@ -23,7 +21,10 @@ console.disableYellowBox = true;
 export default function App(props) {
   const [modalVisible, setModalVisible] = useState(false);
   const [condition, setCondition] = useState("");
+  const [toggleLoading, setToggleLoading] = useState(true);
   const data = useFirebaseData();
+  const firstUpdate = useRef(true);
+
 
   const iconColour = (status) => {
     if (status == "GOOD")
@@ -32,6 +33,13 @@ export default function App(props) {
       return <Entypo name="circle-with-cross" size={48} color="red" />;
     }
   };
+  useEffect(() => {
+    if (firstUpdate.current) {
+      firstUpdate.current = false;
+      return;
+    }
+    setToggleLoading(false)
+  }, [data]);
 
   return (
     <View style={styles.container}>
@@ -45,10 +53,12 @@ export default function App(props) {
         <PhotoAnimation hello={"test"} />
       </TouchableOpacity>
 
+      {/* <ActivityIndicator size="large" color="black" animating= {toggleLoading} style={{marginTop:10, flex:1}}/> */}
       {/* This is flatlist location */}
       <FlatList
         data={data.sort((a, b) => {
           return b.key1.localeCompare(a.key1);
+
         })}
         renderItem={({ item }) => (
           <TouchableOpacity
@@ -86,7 +96,7 @@ export default function App(props) {
             </View>
             <View
               style={{
-                borderBottomWidth: 0.3,
+                borderBottomWidth: 0.5,
                 backgroundColor: "grey",
                 paddingTop: 0,
                 marginTop: -4,
@@ -96,6 +106,9 @@ export default function App(props) {
           </TouchableOpacity>
         )}
         keyExtractor={(item) => item.key1}
+   
+
+    
       />
 
       {/* This is the whole modal transfer this to .js file */}

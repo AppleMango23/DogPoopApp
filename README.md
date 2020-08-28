@@ -1,23 +1,25 @@
 # DogPoopApp
 
 ## Present  
-- [ ] use this for https://www.youtube.com/watch?v=LP6zmnMcHR0 header. Plan change.<br>
 - [ ] Developing UI for user's decision<br>
   - [ ] User interface<br>
   - [ ] Organize the database for users
   - [ ] Arrange the overlay decision to new file<br>
 - [ ] Join Groups<br>
-- [ ] navigation codes<br>
 - [ ] Arrange the flatlist to another file<br>
 - [ ] Arrange the Modal to another file<br>
 - [ ] automation test<br>
 - [ ] expo camera<br>
 
+- [ ] use this for https://www.youtube.com/watch?v=LP6zmnMcHR0 header. Plan change.<br>
+- [x] Add loading screen<br>
+- [ ] navigation codes<br>
+- [ ] navigation from register screen<br>
+- [ ] navigation to settings screen<br>
+
 ## Future function
 - [ ] Developing modify record function to database<br>
 - [ ] Developing delete record function to database<br>
-- [ ] navigation from register screen<br>
-- [ ] navigation to settings screen<br>
 - [ ] swipe to delete implementation<br>
 - [ ] grid view<br>
 - [ ] firebase chat system<br>
