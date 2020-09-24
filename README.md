@@ -10,6 +10,7 @@
 - [ ] Arrange the Modal to another file<br>
 - [ ] automation test<br>
 - [ ] expo camera<br>
+- [ ] use flex to arrange the pop ui<br>
 
 - [ ] use this for https://www.youtube.com/watch?v=LP6zmnMcHR0 header. Plan change.<br>
 - [x] Add loading screen<br>

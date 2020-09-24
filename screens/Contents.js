@@ -43,6 +43,7 @@ export default function App(props) {
 
   return (
     <View style={styles.container}>
+      
       {/* Photo section */}
       <TouchableOpacity
         onPress={() => {
@@ -53,7 +54,7 @@ export default function App(props) {
         <PhotoAnimation hello={"test"} />
       </TouchableOpacity>
 
-      {/* <ActivityIndicator size="large" color="black" animating= {toggleLoading} style={{marginTop:10, flex:1}}/> */}
+      <ActivityIndicator size="large" color="black" animating= {toggleLoading} style={{marginTop:10, flex:1}}/>
       {/* This is flatlist location */}
       <FlatList
         data={data.sort((a, b) => {
