@@ -13,7 +13,6 @@
 - [ ] use flex to arrange the pop ui<br>
 
 - [ ] use this for https://www.youtube.com/watch?v=LP6zmnMcHR0 header. Plan change.<br>
-- [x] Add loading screen<br>
 - [ ] navigation codes<br>
 - [ ] navigation from register screen<br>
 - [ ] navigation to settings screen<br>
@@ -22,6 +21,7 @@
 - [ ] Developing modify record function to database<br>
 - [ ] Developing delete record function to database<br>
 - [ ] swipe to delete implementation<br>
+- [ ] UI arrangement reorganized for neat<br>
 - [ ] grid view<br>
 - [ ] firebase chat system<br>
 - [ ] firebase Authentication<br>
@@ -32,6 +32,7 @@
 - [ ] Create screen for profile<br>
 
 ## Done function
+- [x] Add loading screen<br>
 - [x] bark if u completed 1 walk<br>
 - [x] Reload Error: the setState from home screen to the useFirebase.js got some error<br>
   - [x] Identify the error using console log first<br>
@@ -42,7 +43,7 @@
 - [x] firebase realtime database<br>
 - [x] Added icon<br>
 - [x] Arrange the bottom navigation to another file<br>
-
+- [x]fixed the UI arrangement on poop and no poop with a proper colour<br>
 
 ## Screenshot
 <p>Gif of the Application</p>

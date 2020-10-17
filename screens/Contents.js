@@ -15,7 +15,6 @@ import * as Animatable from "react-native-animatable";
 import { useFirebaseData, pushTheData } from "../components/FirebaseControl";
 import { PhotoAnimation } from "../components/enlargeImage";
 import { BotNav } from "../components/botomNav";
-
 console.disableYellowBox = true;
 
 export default function App(props) {
@@ -25,7 +24,7 @@ export default function App(props) {
   const data = useFirebaseData();
   const firstUpdate = useRef(true);
 
-
+  // This function is to toggle the color on the icon in flatlist
   const iconColour = (status) => {
     if (status == "GOOD")
       return <Ionicons name="ios-checkmark-circle" size={48} color="green" />;
@@ -43,7 +42,6 @@ export default function App(props) {
 
   return (
     <View style={styles.container}>
-      
       {/* Photo section */}
       <TouchableOpacity
         onPress={() => {
@@ -54,7 +52,9 @@ export default function App(props) {
         <PhotoAnimation hello={"test"} />
       </TouchableOpacity>
 
+      {/* This is the loading indicator */}
       <ActivityIndicator size="large" color="black" animating= {toggleLoading} style={{marginTop:10, flex:1}}/>
+
       {/* This is flatlist location */}
       <FlatList
         data={data.sort((a, b) => {
@@ -107,9 +107,6 @@ export default function App(props) {
           </TouchableOpacity>
         )}
         keyExtractor={(item) => item.key1}
-   
-
-    
       />
 
       {/* This is the whole modal transfer this to .js file */}
@@ -166,6 +163,7 @@ export default function App(props) {
                   width: 60,
                   borderRadius: 15,
                   height: 25,
+                  alignItems:'center'
                 }}
                 onPress={() => {
                   if (condition == "Poop") {
@@ -182,10 +180,11 @@ export default function App(props) {
                 style={{
                   marginRight: 20,
                   marginLeft: 20,
-                  backgroundColor: condition == "No Poop" ? "green" : "grey",
+                  backgroundColor: condition == "No Poop" ? "red" : "grey",
                   width: 70,
                   borderRadius: 15,
                   height: 25,
+                  alignItems:'center'
                 }}
                 onPress={() => {
                   if (condition == "No Poop") {
@@ -242,6 +241,8 @@ export default function App(props) {
           </Animatable.View>
         </View>
       </Modal>
+      
+      {/* This is the bottom navigation bar*/}
       <BotNav />
     </View>
   );
