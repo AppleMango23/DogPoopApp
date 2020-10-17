@@ -15,6 +15,7 @@ export function BotNav(props) {
       <TouchableOpacity
         onPress={() => {
           alert("Next update");
+          // props.navigate('Login');
         }}
       >
         <View style={styles.containerIcon}>
