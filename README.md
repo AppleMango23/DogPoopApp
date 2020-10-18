@@ -9,7 +9,6 @@
 - [ ] Arrange the flatlist to another file<br>
 - [ ] Arrange the Modal to another file<br>
 - [ ] automation test<br>
-- [ ] expo camera<br>
 - [ ] use flex to arrange the pop ui<br>
 
 - [ ] use this for https://www.youtube.com/watch?v=LP6zmnMcHR0 header. Plan change.<br>
@@ -24,12 +23,13 @@
 - [ ] UI arrangement reorganized for neat<br>
 - [ ] grid view<br>
 - [ ] firebase chat system<br>
-- [ ] firebase Authentication<br>
 - [ ] daily analysis<br>
-- [ ] push notification if no one walk dog<br>
 - [ ] monthly analysis<br>
+- [ ] firebase Authentication<br>
+- [ ] push notification if no one walk dog<br>
 - [ ] dark mode<br>
 - [ ] Create screen for profile<br>
+- [ ] Create a proper database logic, tree and hierachi<br>
 
 ## Done function
 - [x] Add loading screen<br>
@@ -43,7 +43,7 @@
 - [x] firebase realtime database<br>
 - [x] Added icon<br>
 - [x] Arrange the bottom navigation to another file<br>
-- [x]fixed the UI arrangement on poop and no poop with a proper colour<br>
+- [x] Fixed the UI arrangement on poop and no poop with a proper colour<br>
 
 ## Screenshot
 <p>Gif of the Application</p>
