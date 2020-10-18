@@ -12,9 +12,9 @@
 - [ ] use flex to arrange the pop ui<br>
 
 - [ ] use this for https://www.youtube.com/watch?v=LP6zmnMcHR0 header. Plan change.<br>
-- [ ] navigation codes<br>
 - [ ] navigation from register screen<br>
 - [ ] navigation to settings screen<br>
+- [ ] Change the color of the flatlist into same color<br>
 
 ## Future function
 - [ ] Developing modify record function to database<br>
@@ -26,12 +26,15 @@
 - [ ] daily analysis<br>
 - [ ] monthly analysis<br>
 - [ ] firebase Authentication<br>
+
 - [ ] push notification if no one walk dog<br>
 - [ ] dark mode<br>
 - [ ] Create screen for profile<br>
 - [ ] Create a proper database logic, tree and hierachi<br>
 
 ## Done function
+- [x] navigation to Login screen<br>
+- [x] navigation codes<br>
 - [x] Add loading screen<br>
 - [x] bark if u completed 1 walk<br>
 - [x] Reload Error: the setState from home screen to the useFirebase.js got some error<br>

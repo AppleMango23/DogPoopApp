@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import {
-  Platform,
   StyleSheet,
   View,
   Text,
@@ -22,6 +21,7 @@ export default function App({navigation}) {
         title="Go to Details... again"
         onPress={() => navigation.navigate('Home')}
       />
+      
     </View>
   );
 }

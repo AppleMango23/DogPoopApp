@@ -19,7 +19,7 @@ console.disableYellowBox = true;
 
 
 
-export default function App({props}) {
+export default function App({navigation}) {
   const [modalVisible, setModalVisible] = useState(false);
   const [condition, setCondition] = useState("");
   const [toggleLoading, setToggleLoading] = useState(true);
@@ -48,6 +48,7 @@ export default function App({props}) {
       <TouchableOpacity
         onPress={() => {
           setModalVisible(true);
+          navigation.navigate('Details');
         }}
         style={{ backgroundColor: "white" }}
       >
@@ -245,7 +246,7 @@ export default function App({props}) {
       </Modal>
       
       {/* This is the bottom navigation bar*/}
-      <BotNav />
+      <BotNav path={navigation}/>
     </View>
   );
 }
