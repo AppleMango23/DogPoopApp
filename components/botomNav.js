@@ -2,7 +2,8 @@ import React from "react";
 import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
-export function BotNav(props) {
+
+export function BotNav({props}) {
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={() => {}}>
@@ -15,7 +16,6 @@ export function BotNav(props) {
       <TouchableOpacity
         onPress={() => {
           alert("Next update");
-          // props.navigate('Login');
         }}
       >
         <View style={styles.containerIcon}>

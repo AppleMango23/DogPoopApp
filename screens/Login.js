@@ -3,10 +3,12 @@ import {
   Platform,
   StyleSheet,
   View,
+  Text,
+  Button
 } from "react-native";
 
 
-export default function App(props) {
+export default function App({navigation}) {
   const [tickAnimation, setTickAnimation] = useState("");
 
   const tickOrNo = () => {
@@ -15,7 +17,11 @@ export default function App(props) {
 
   return (
     <View style={styles.container}>
-      
+      <Text>Testing</Text>
+      <Button
+        title="Go to Details... again"
+        onPress={() => navigation.navigate('Home')}
+      />
     </View>
   );
 }

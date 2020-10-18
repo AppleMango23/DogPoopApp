@@ -17,7 +17,9 @@ import { PhotoAnimation } from "../components/enlargeImage";
 import { BotNav } from "../components/botomNav";
 console.disableYellowBox = true;
 
-export default function App(props) {
+
+
+export default function App({props}) {
   const [modalVisible, setModalVisible] = useState(false);
   const [condition, setCondition] = useState("");
   const [toggleLoading, setToggleLoading] = useState(true);
