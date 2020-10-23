@@ -14,8 +14,6 @@ import * as Animatable from "react-native-animatable";
 //if just no type {} means take the default one, put {} means take specific one
 import { useFirebaseData, pushTheData } from "../components/FirebaseControl";
 import { PhotoAnimation } from "../components/enlargeImage";
-import { BotNav } from "../components/botomNav";
-console.disableYellowBox = true;
 
 
 
@@ -29,9 +27,17 @@ export default function App({navigation}) {
   // This function is to toggle the color on the icon in flatlist
   const iconColour = (status) => {
     if (status == "GOOD")
-      return <Ionicons name="ios-checkmark-circle" size={48} color="green" />;
+      return (
+      <View style={{justifyContent:'center'}}>
+        <Ionicons name="ios-checkmark-circle" size={48} color="green" />
+      </View>
+      );
     else {
-      return <Entypo name="circle-with-cross" size={48} color="red" />;
+      return(
+        <View style={{justifyContent:'center'}}>
+        <Ionicons name="ios-close-circle" size={48} color="red" />
+      </View>
+      );
     }
   };
   useEffect(() => {
@@ -48,9 +54,8 @@ export default function App({navigation}) {
       <TouchableOpacity
         onPress={() => {
           setModalVisible(true);
-          navigation.navigate('Details');
         }}
-        style={{ backgroundColor: "white" }}
+        // style={{ backgroundColor: "white" }}
       >
         <PhotoAnimation hello={"test"} />
       </TouchableOpacity>
@@ -80,7 +85,7 @@ export default function App({navigation}) {
           >
             <View flexDirection="row">
               <View style={{ marginTop: 6 }}>
-                <Ionicons name="md-person" size={42} color="black" />
+                <Ionicons name="ios-contact" size={42} color="black" />
               </View>
 
               <View style={{ marginLeft: 24, marginTop: 2 }}>
@@ -245,8 +250,27 @@ export default function App({navigation}) {
         </View>
       </Modal>
       
-      {/* This is the bottom navigation bar*/}
-      {/* <BotNav path={navigation}/> */}
+      {/* Floating button */}
+      <TouchableOpacity
+        style={{
+            borderWidth:1,
+            borderColor:'rgba(0,0,0,0.2)',
+            alignItems:'center',
+            justifyContent:'center',
+            width:60,
+            position: 'absolute',                                          
+            bottom: 5,                                                    
+            right: 24,
+            height:60,
+            backgroundColor:'#fff',
+            borderRadius:100,
+          }}
+        onPress={() => {
+          setModalVisible(true);
+        }}
+      >
+        <Entypo name="plus" size={32} color="black" />
+      </TouchableOpacity>
     </View>
   );
 }

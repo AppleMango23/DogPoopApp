@@ -12,11 +12,7 @@
 - [ ] use flex to arrange the pop ui<br>
 
 - [ ] use this for https://www.youtube.com/watch?v=LP6zmnMcHR0 header. Plan change.<br>
-- [ ] navigation from register screen<br>
-- [ ] navigation to settings screen<br>
-- [ ] Change the color of the flatlist into same color<br>
-- [ ] Add a floating button on right side for adding status<br>
-- [ ] settle the nesting navigation<br>
+- [ ] Google log in<br>
 
 ## Future function
 - [ ] Developing modify record function to database<br>
@@ -49,6 +45,13 @@
 - [x] Added icon<br>
 - [x] Arrange the bottom navigation to another file<br>
 - [x] Fixed the UI arrangement on poop and no poop with a proper colour<br>
+
+- [x] settle the nesting navigation<br>
+- [x] Change the color of the flatlist into same color<br>
+- [x] navigation from register screen<br>
+- [x] navigation to settings screen<br>
+- [x] Add a floating button on right side for adding status<br>
+
 
 ## Screenshot
 <p>Gif of the Application</p>

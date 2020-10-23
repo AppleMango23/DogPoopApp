@@ -2,19 +2,19 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Contents from './screens/Contents.js';
-import Login from './screens/Login.js';
+import Profile from './screens/Profile.js';
+import Settings from './screens/Settings.js';
 import React from 'react';
-import { MaterialCommunityIcons, Ionicons } from '@expo/vector-icons';
-
+import { MaterialCommunityIcons, Ionicons, AntDesign } from '@expo/vector-icons';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
-function Testing() {
+function HomeScreen() {
   return (
     <Stack.Navigator initialRouteName="Home">
       <Stack.Screen name="Home" component={Contents} />
-      <Stack.Screen name="Details" component={Login} />
+      <Stack.Screen name="Details" component={Settings} />
     </Stack.Navigator>
   );
 }
@@ -22,12 +22,10 @@ function Testing() {
 function App() {
   return (
     <NavigationContainer>
-      
-
       <Tab.Navigator>
         <Tab.Screen
           name="Home"
-          component={Testing}
+          component={HomeScreen}
           options={{
             tabBarLabel: 'Home',
             tabBarIcon: ({ color }) => (
@@ -37,8 +35,18 @@ function App() {
         />
         {/* Profile here */}
         <Tab.Screen
+          name="Profile"
+          component={Profile}
+          options={{
+            tabBarLabel: 'Profile',
+            tabBarIcon: ({ color }) => (
+              <AntDesign name="profile" color={color} size={30} />
+            ),
+          }}
+        />
+        <Tab.Screen
           name="Settings"
-          component={Login}
+          component={Settings}
           options={{
             tabBarLabel: 'Settings',
             tabBarIcon: ({ color }) => (

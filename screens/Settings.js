@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import {
-  Platform,
   StyleSheet,
   View,
+  Text,
 } from "react-native";
 
 
@@ -15,7 +15,7 @@ export default function App(props) {
 
   return (
     <View style={styles.container}>
-      
+      <Text>Settings screen</Text>
     </View>
   );
 }
@@ -23,6 +23,7 @@ export default function App(props) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    justifyContent:'center'
   },
   
 });
