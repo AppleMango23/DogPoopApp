@@ -27,8 +27,22 @@
 
 - [ ] push notification if no one walk dog<br>
 - [ ] dark mode<br>
-- [ ] Create screen for profile<br>
 - [ ] Create a proper database logic, tree and hierachi<br>
+- [ ] Add login user token maybe 5 weeks<br>
+- [ ] Screen for Profile<br>
+  - [ ] Show dog photo<br>
+  - [ ] Show dog name<br>
+  - [ ] Show dog age<br>
+  - [ ] Show user photo<br>
+  - [ ] Show user name<br>
+  - [ ] Show user age<br>
+- [ ] Screen for Settings<br>
+  - [ ] Register dog photo<br>
+  - [ ] Register dog name<br>
+  - [ ] Register dog age<br>
+  - [ ] Register user photo<br>
+  - [ ] Register user name<br>
+  - [ ] Register user age<br>
 
 ## Done function
 - [x] navigation to Login screen<br>
@@ -48,10 +62,10 @@
 
 - [x] settle the nesting navigation<br>
 - [x] Change the color of the flatlist into same color<br>
+- [x] Change the icon to better looking icon<br>
 - [x] navigation from register screen<br>
 - [x] navigation to settings screen<br>
 - [x] Add a floating button on right side for adding status<br>
-
 
 ## Screenshot
 <p>Gif of the Application</p>

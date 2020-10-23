@@ -3,10 +3,11 @@ import {
   StyleSheet,
   View,
   Text,
+  TouchableOpacity,
 } from "react-native";
 
 
-export default function App(props) {
+export default function App({navigation}) {
   const [tickAnimation, setTickAnimation] = useState("");
 
   const tickOrNo = () => {
@@ -16,6 +17,13 @@ export default function App(props) {
   return (
     <View style={styles.container}>
       <Text>Settings screen</Text>
+      <TouchableOpacity
+      onPress={() => {
+        navigation.navigate("Login")
+        }}
+      >
+        <Text>Logout</Text>
+      </TouchableOpacity>
     </View>
   );
 }

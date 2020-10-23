@@ -15,6 +15,7 @@ export default function App(props) {
 
   return (
     <View style={styles.container}>
+      <Text>Welcome to doggo App user!</Text>
       <Text>Profile screen</Text>
     </View>
   );

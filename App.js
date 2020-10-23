@@ -4,6 +4,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Contents from './screens/Contents.js';
 import Profile from './screens/Profile.js';
 import Settings from './screens/Settings.js';
+import Login from './screens/Login.js';
 import React from 'react';
 import { MaterialCommunityIcons, Ionicons, AntDesign } from '@expo/vector-icons';
 
@@ -12,20 +13,11 @@ const Tab = createBottomTabNavigator();
 
 function HomeScreen() {
   return (
-    <Stack.Navigator initialRouteName="Home">
-      <Stack.Screen name="Home" component={Contents} />
-      <Stack.Screen name="Details" component={Settings} />
-    </Stack.Navigator>
-  );
-}
-
-function App() {
-  return (
-    <NavigationContainer>
+    
       <Tab.Navigator>
         <Tab.Screen
           name="Home"
-          component={HomeScreen}
+          component={Contents}
           options={{
             tabBarLabel: 'Home',
             tabBarIcon: ({ color }) => (
@@ -33,7 +25,6 @@ function App() {
             ),
           }}
         />
-        {/* Profile here */}
         <Tab.Screen
           name="Profile"
           component={Profile}
@@ -55,9 +46,19 @@ function App() {
           }}
         />
       </Tab.Navigator>
-    </NavigationContainer>
-
     
+  );
+}
+
+function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Login">
+        <Stack.Screen options={{headerShown: false}} name="Login" component={Login} />
+        <Stack.Screen options={{headerLeft: false, headerTitle:"Doggo App"}} name="Home" component={HomeScreen} />
+        {/* <Stack.Screen name="Details" component={Settings} /> */}
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 

@@ -40,6 +40,17 @@ export default function App({navigation}) {
       );
     }
   };
+
+  useEffect(
+    () =>
+      navigation.addListener('beforeRemove', (e) => {
+        // Prompt the user before leaving the screen
+        alert("User logout successfully.")
+      }),
+    [navigation]
+  );
+
+
   useEffect(() => {
     if (firstUpdate.current) {
       firstUpdate.current = false;

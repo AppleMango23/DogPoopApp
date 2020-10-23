@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import {
   StyleSheet,
   View,
+  TouchableOpacity,
   Text,
-  Button
 } from "react-native";
+
 
 export default function App({navigation}) {
   const [tickAnimation, setTickAnimation] = useState("");
-
 
   const tickOrNo = () => {
     
@@ -16,12 +16,15 @@ export default function App({navigation}) {
 
   return (
     <View style={styles.container}>
-      <Text>Testing</Text>
-      <Button
-        title="Go to Details... again"
-        onPress={() => navigation.navigate('Home')}
-      />
-      
+      <Text>Welcome to doggo App user!</Text>
+      <Text>Login screen</Text>
+      <TouchableOpacity
+      onPress={() => {
+        navigation.navigate("Home")
+        }}
+      >
+        <Text>Press me</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -29,6 +32,7 @@ export default function App({navigation}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    justifyContent:'center'
   },
   
 });
