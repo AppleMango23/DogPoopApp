@@ -246,7 +246,7 @@ export default function App({navigation}) {
       </Modal>
       
       {/* This is the bottom navigation bar*/}
-      <BotNav path={navigation}/>
+      {/* <BotNav path={navigation}/> */}
     </View>
   );
 }

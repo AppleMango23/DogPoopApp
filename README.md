@@ -15,6 +15,8 @@
 - [ ] navigation from register screen<br>
 - [ ] navigation to settings screen<br>
 - [ ] Change the color of the flatlist into same color<br>
+- [ ] Add a floating button on right side for adding status<br>
+- [ ] settle the nesting navigation<br>
 
 ## Future function
 - [ ] Developing modify record function to database<br>
@@ -53,5 +55,3 @@
 <p align="left">
   <img src="./assets/images/video2.gif" width="250" height="470">
 </p>
-
-

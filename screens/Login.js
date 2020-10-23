@@ -6,9 +6,9 @@ import {
   Button
 } from "react-native";
 
-
 export default function App({navigation}) {
   const [tickAnimation, setTickAnimation] = useState("");
+
 
   const tickOrNo = () => {
     
