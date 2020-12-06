@@ -25,7 +25,7 @@ Sub Task<br>
 - [ ] long press to do special action<br>
 - [ ] flatlist animation reload<br>
 - [ ] push notification if no one walk dog<br>
------------------------------------------------------------------<br>
+-----------------------------------------------------------------------------------------------------------------<br>
 - [ ] Create a proper database logic, tree and hierachi<br>
 - [ ] reset the stack<br>
 - [ ] Developing UI for group<br>
