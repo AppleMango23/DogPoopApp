@@ -1,13 +1,7 @@
 # DogPoopApp
 
-## Present  
-- [ ] Developing UI for group<br>
-  - [ ] User interface<br>
-  - [ ] Organize the database for users
-  - [ ] Arrange the overlay decision to new file<br>
-- [ ] Join Groups<br>
-- [ ] Arrange the flatlist to another file<br>
-- [ ] Arrange the Modal to another file<br>
+## Present 
+Screens Task<br>
 - [ ] Screen for Profile<br>
   - [ ] Show dog photo<br>
   - [ ] Show dog name<br>
@@ -23,11 +17,24 @@
   - [ ] Register user name<br>
   - [ ] Register user age<br>
   - [ ] grid view<br>
+- [ ] First register<br>
+  - [ ] Setting up<br>
+  - [ ] Tutoriral<br>
+
+Sub Task<br>
 - [ ] long press to do special action<br>
 - [ ] flatlist animation reload<br>
 - [ ] push notification if no one walk dog<br>
+-----------------------------------------------------------------<br>
 - [ ] Create a proper database logic, tree and hierachi<br>
 - [ ] reset the stack<br>
+- [ ] Developing UI for group<br>
+  - [ ] User interface<br>
+  - [ ] Organize the database for users
+  - [ ] Arrange the overlay decision to new file<br>
+- [ ] Join Groups<br>
+- [ ] Arrange the flatlist to another file<br>
+- [ ] Arrange the Modal to another file<br>
 
 ## Future function
 - [ ] automation test<br>
