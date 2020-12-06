@@ -13,7 +13,6 @@ const Tab = createBottomTabNavigator();
 
 function HomeScreen() {
   return (
-    
       <Tab.Navigator>
         <Tab.Screen
           name="Home"
@@ -46,7 +45,6 @@ function HomeScreen() {
           }}
         />
       </Tab.Navigator>
-    
   );
 }
 

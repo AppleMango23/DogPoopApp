@@ -6,16 +6,21 @@ import {
   TouchableOpacity,
   Modal,
   FlatList,
+  ScrollView,
   ActivityIndicator,
 } from "react-native";
-import { Ionicons, Entypo } from "@expo/vector-icons";
+import { Ionicons, Entypo, MaterialIcons, AntDesign } from "@expo/vector-icons";
 import * as Animatable from "react-native-animatable";
+import { BlurView } from 'expo-blur';
 
 //if just no type {} means take the default one, put {} means take specific one
 import { useFirebaseData, pushTheData } from "../components/FirebaseControl";
-import { PhotoAnimation } from "../components/enlargeImage";
+import { HomePhoto,PhotoAnimation, MaleAvatar, FemaleAvatar } from "../components/enlargeImage";
+import { YellowBox } from 'react-native'
 
-
+YellowBox.ignoreWarnings([
+  'VirtualizedLists should never be nested', // TODO: Remove when fixed
+])
 
 export default function App({navigation}) {
   const [modalVisible, setModalVisible] = useState(false);
@@ -44,8 +49,12 @@ export default function App({navigation}) {
   useEffect(
     () =>
       navigation.addListener('beforeRemove', (e) => {
+        // It will apply to all the tab screen therefore it is weird
+        // Prevent default behavior of leaving the screen
+        // e.preventDefault();
+
         // Prompt the user before leaving the screen
-        alert("User logout successfully.")
+        alert("User logout success.")
       }),
     [navigation]
   );
@@ -62,27 +71,51 @@ export default function App({navigation}) {
   return (
     <View style={styles.container}>
       {/* Photo section */}
-      <TouchableOpacity
-        onPress={() => {
-          setModalVisible(true);
-        }}
-        // style={{ backgroundColor: "white" }}
-      >
-        <PhotoAnimation hello={"test"} />
-      </TouchableOpacity>
+      <ScrollView>
+      
+      <HomePhoto/>
+      
+        <ScrollView horizontal={true}>
+          <View style={{height:155,paddingTop:5}} flexDirection="row" justifyContent="space-around">
+            <TouchableOpacity style={{width:90,height:90,borderRadius:150,alignItems:"center",backgroundColor:"white"}}>
+              <MaleAvatar/>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={{width:100,height:100,alignItems:"center"}}>
+              <FemaleAvatar/>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={{width:100,height:100,alignItems:"center"}}>
+              <MaleAvatar/>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={{width:100,height:100,alignItems:"center"}}>
+              <FemaleAvatar/>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={{width:90,height:90,borderRadius:150,alignItems:"center",backgroundColor:"#DCDCDC",marginTop:5,alignItems:'center',justifyContent:'center'}}>
+              <AntDesign name="plus" size={35} color="white" />
+            </TouchableOpacity>
+
+            
+
+
+          </View>
+        </ScrollView>
+      
 
       {/* This is the loading indicator */}
-      <ActivityIndicator size="large" color="black" animating= {toggleLoading} style={{marginTop:10, flex:1}}/>
+      {/* <ActivityIndicator size="large" color="black" animating= {toggleLoading} style={{marginTop:10, flex:1}}/> */}
+      <View style={{height:10}}/>
 
       {/* This is flatlist location */}
       <FlatList
         data={data.sort((a, b) => {
           return b.key1.localeCompare(a.key1);
-
         })}
         renderItem={({ item }) => (
           <TouchableOpacity
-            style={{ marginTop: 15, marginLeft: 24 }}
+            style={{ marginTop: 15, marginLeft: 10, marginRight: 10, paddingTop:5, paddingBottom:5, backgroundColor:"white",borderRadius:10}}
             onPress={() => {
               var output =
                 "Dog: Angel\nAge: 7 years\nCondition: " +
@@ -96,37 +129,36 @@ export default function App({navigation}) {
           >
             <View flexDirection="row">
               <View style={{ marginTop: 6 }}>
-                <Ionicons name="ios-contact" size={42} color="black" />
+                <PhotoAnimation/>
               </View>
 
               <View style={{ marginLeft: 24, marginTop: 2 }}>
-                <View style={{ borderRadius: 20, backgroundColor: "black" }}>
-                  <Text style={{ color: "white" }}>
-                    {" "}
+                <View >
+                  <Text style={{ color: "black", fontWeight:"bold",fontSize:16 }}>
                     Condition: {item.val1.Status}
                   </Text>
                 </View>
-                <Text>Date: {item.val1.Date}</Text>
-                <Text>Time: {item.val1.Time}</Text>
+                <View flexDirection="row" style={{paddingTop:5}}>
+                  <MaterialIcons name="date-range" size={22} color="gray" />
+                  <Text style={{color:"gray"}}> {item.val1.Date}</Text>
+                </View>
+                <View flexDirection="row" style={{paddingTop:5}}>
+                  <AntDesign name="clockcircleo" size={22} color="gray" />
+                  <Text style={{color:"gray"}}>  {item.val1.Time}</Text>
+                </View>
+                
                 <Text></Text>
               </View>
               <View style={{ position: "absolute", right: 35, marginTop: 10 }}>
                 {iconColour(item.val1.Status)}
               </View>
             </View>
-            <View
-              style={{
-                borderBottomWidth: 0.5,
-                backgroundColor: "grey",
-                paddingTop: 0,
-                marginTop: -4,
-                marginBottom: 0,
-              }}
-            />
+            
           </TouchableOpacity>
         )}
         keyExtractor={(item) => item.key1}
       />
+      </ScrollView>
 
       {/* This is the whole modal transfer this to .js file */}
       <Modal
@@ -288,6 +320,7 @@ export default function App({navigation}) {
 
 const styles = StyleSheet.create({
   container: {
+    // backgroundColor: '#C3E4ED',
     flex: 1,
   },
   containerModal: {

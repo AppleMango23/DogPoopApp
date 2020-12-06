@@ -4,35 +4,154 @@ import {
   View,
   TouchableOpacity,
   Text,
+  TextInput,
+  KeyboardAvoidingView ,
 } from "react-native";
+import { AntDesign,MaterialCommunityIcons } from "@expo/vector-icons";
+import * as Facebook from 'expo-facebook';
+import { LoginPhoto,FacebookLoginButton,HomePhoto } from "../components/enlargeImage";
 
 
 export default function App({navigation}) {
-  const [tickAnimation, setTickAnimation] = useState("");
+  const [isImageLoading, setImageLoadStatus] = useState(false);
 
-  const tickOrNo = () => {
-    
-  };
+  facebookLogIn = async () => {
+    navigation.navigate('Home')
+    // try {
+    //   await Facebook.initializeAsync({
+    //     appId: '2893493817548941',
+    //   });
+
+    //   const {
+    //     type, 
+    //     token, 
+    //   } = await Facebook.logInWithReadPermissionsAsync({
+    //     permissions: ['public_profile'],
+    //   });
+    //   if (type === 'success') {
+    //     const response = await fetch(`https://graph.facebook.com/me?access_token=${token}`);
+
+    //     let userInfo = await response.json(); 
+    //     alert(`Welcome ${userInfo.name} \nData will be: ${userInfo.id}`);
+
+    //     // Check got registered before or not if no then create a new account.
+        
+
+
+    //   } else {
+
+    //   }
+
+
+    // } catch ({ message }) {
+    //   alert(`Facebook Login Error: ${message}`);
+    // }
+  }
+
+  
+
+  logout = () => {
+    setLoggedinStatus(false);
+    setUserData(null);
+    setImageLoadStatus(false);
+  }
+
+  logoutFunction = () => {
+    Facebook.logOutAsync();
+  }
 
   return (
-    <View style={styles.container}>
-      <Text>Welcome to doggo App user!</Text>
-      <Text>Login screen</Text>
-      <TouchableOpacity
-      onPress={() => {
-        navigation.navigate("Home")
-        }}
-      >
-        <Text>Press me</Text>
-      </TouchableOpacity>
-    </View>
+      <View style={styles.container}>
+        <KeyboardAvoidingView
+          behavior={Platform.OS == "ios" ? "padding" : "height"}
+          style={styles.container}
+        >
+        <LoginPhoto/>
+          <Text style={{paddingTop:18,fontFamily: 'AmericanTypewriter-Bold',fontSize:28 }}>My Doggo App</Text>
+          <Text style={{paddingTop:10,fontFamily: 'American Typewriter',fontSize:18 }}>Please Log in</Text>
+          <View style={styles.searchSection}>
+            <MaterialCommunityIcons style={styles.searchIcon} name="contact-mail-outline" size={25} color="#000"/>
+            <TextInput
+                style={styles.input}
+                placeholder="User Nickname"
+                // onChangeText={(searchString) => {this.setState({searchString})}}
+                underlineColorAndroid="transparent"
+            />
+          </View>
+
+          <View style={styles.searchSection}>
+            <AntDesign style={styles.searchIcon} name="lock" size={25} color="#000"/>
+            <TextInput
+                style={styles.input}
+                placeholder="Password"
+                // onChangeText={(searchString) => {this.setState({searchString})}}
+                underlineColorAndroid="transparent"
+                secureTextEntry={true}
+            />
+          </View>
+
+        <TouchableOpacity style={styles.loginBtn} onPress={()=>{alert("Still in development")}}>
+          <Text style={{ color: "white", fontSize:18 }}>Login</Text>
+        </TouchableOpacity>
+
+        
+        <View style={{height:20}}/>
+
+        <TouchableOpacity onPress={()=>{facebookLogIn()}}>
+          <FacebookLoginButton/>
+        </TouchableOpacity>
+        
+        </KeyboardAvoidingView>
+      </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent:'center'
+    // backgroundColor: '#C3E4ED',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  loginBtn: {
+    backgroundColor: '#66CCCC',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 80,
+    width:300,
+    height:45,
+    marginTop:20,
+    alignItems:'center',
+  },
+  logoutBtn: {
+    backgroundColor: 'grey',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 20,
+    position: "absolute",
+    bottom: 0
+  },
+  searchSection: {
+    marginTop:15,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+    width:'80%',
+    borderRadius:150,
+  },
+  searchIcon: {
+      padding: 10,
+  },
+  input: {
+      flex: 1,
+      paddingTop: 10,
+      paddingRight: 10,
+      paddingBottom: 10,
+      paddingLeft: 0,
+      backgroundColor: '#fff',
+      color: '#424242',
+      borderRadius:150,
   },
   
 });

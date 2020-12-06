@@ -21,17 +21,14 @@ try {
   console.log("App reloaded, so firebase did not re-initialize");
 }
 
+//Read
 export function useFirebaseData() {
   const [data, setData] = useState([]);
-
   function test2() {
-    
-
     firebase
       .database()
       .ref("List/")
       .on("value", function (snapshot) {
-
         const items = [];
         snapshot.forEach((child1) => {
           items.push({val1:child1.val(),key1:child1.key});
@@ -45,6 +42,7 @@ export function useFirebaseData() {
   return data;
 }
 
+//Push
 export function pushTheData(props) {
   var unix = Math.round(+new Date()/1000);
 
@@ -53,7 +51,6 @@ export function pushTheData(props) {
   var today = new Date();
   var date = today.getDate() + "-" + (today.getMonth() + 1) + "-" + today.getFullYear();
   //Set a better time for am and pm
-
   var Hour=today.getHours();
   var AmOrPM = (Hour>=12 ? "PM" : "AM");
   var time =  (Hour>12 ? Hour-12 : Hour) + ":" + today.getMinutes() + AmOrPM;

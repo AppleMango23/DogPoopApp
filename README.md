@@ -1,34 +1,13 @@
 # DogPoopApp
 
 ## Present  
-- [ ] Developing UI for user's decision<br>
+- [ ] Developing UI for group<br>
   - [ ] User interface<br>
   - [ ] Organize the database for users
   - [ ] Arrange the overlay decision to new file<br>
 - [ ] Join Groups<br>
 - [ ] Arrange the flatlist to another file<br>
 - [ ] Arrange the Modal to another file<br>
-- [ ] automation test<br>
-- [ ] use flex to arrange the pop ui<br>
-
-- [ ] use this for https://www.youtube.com/watch?v=LP6zmnMcHR0 header. Plan change.<br>
-- [ ] Google log in<br>
-
-## Future function
-- [ ] Developing modify record function to database<br>
-- [ ] Developing delete record function to database<br>
-- [ ] swipe to delete implementation<br>
-- [ ] UI arrangement reorganized for neat<br>
-- [ ] grid view<br>
-- [ ] firebase chat system<br>
-- [ ] daily analysis<br>
-- [ ] monthly analysis<br>
-- [ ] firebase Authentication<br>
-
-- [ ] push notification if no one walk dog<br>
-- [ ] dark mode<br>
-- [ ] Create a proper database logic, tree and hierachi<br>
-- [ ] Add login user token maybe 5 weeks<br>
 - [ ] Screen for Profile<br>
   - [ ] Show dog photo<br>
   - [ ] Show dog name<br>
@@ -43,6 +22,24 @@
   - [ ] Register user photo<br>
   - [ ] Register user name<br>
   - [ ] Register user age<br>
+  - [ ] grid view<br>
+- [ ] long press to do special action<br>
+- [ ] flatlist animation reload<br>
+- [ ] push notification if no one walk dog<br>
+- [ ] Create a proper database logic, tree and hierachi<br>
+- [ ] reset the stack<br>
+
+## Future function
+- [ ] automation test<br>
+- [ ] swipe to delete implementation<br>
+- [ ] firebase chat system<br>
+- [ ] Google log in<br>
+- [ ] daily analysis<br>
+- [ ] monthly analysis<br>
+- [ ] Developing modify record function to database<br>
+- [ ] Developing delete record function to database<br>
+- [ ] firebase Authentication<br>
+- [ ] dark mode<br>
 
 ## Done function
 - [x] navigation to Login screen<br>
@@ -59,13 +56,22 @@
 - [x] Added icon<br>
 - [x] Arrange the bottom navigation to another file<br>
 - [x] Fixed the UI arrangement on poop and no poop with a proper colour<br>
-
 - [x] settle the nesting navigation<br>
 - [x] Change the color of the flatlist into same color<br>
 - [x] Change the icon to better looking icon<br>
 - [x] navigation from register screen<br>
 - [x] navigation to settings screen<br>
 - [x] Add a floating button on right side for adding status<br>
+- [x] UI arrangement reorganized for neat<br>
+- [x] Add the img in<br>
+- [x] remove the library for google login<br>
+- [x] add scrollview<br>
+- [x] using normal login UI<br>
+- [x] Create Ui for the login screen<br>
+- [x] Facebook getting the userId<br>
+- [x] use flex to arrange the pop ui<br>
+
+
 
 ## Screenshot
 <p>Gif of the Application</p>

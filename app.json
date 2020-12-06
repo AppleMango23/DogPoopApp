@@ -21,7 +21,14 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.applemangoo23.angelapp",
+      "config": {
+        "googleSignIn": {
+          "reservedClientId": "com.googleusercontent.apps.154350512943-n56qo6aemugf9sdtmeavj7f89phe72kb"
+        }
+      },
+      "googleServicesFile": "./GoogleService-Info.plist"
     }
   }
 }

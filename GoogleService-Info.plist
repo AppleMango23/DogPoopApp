@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>154350512943-n56qo6aemugf9sdtmeavj7f89phe72kb.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.154350512943-n56qo6aemugf9sdtmeavj7f89phe72kb</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAfIsmAh8Qx5oPziuWxppAOfPiAx7rMOCA</string>
+	<key>GCM_SENDER_ID</key>
+	<string>154350512943</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.applemangoo23.angelapp</string>
+	<key>PROJECT_ID</key>
+	<string>angelapp-6b5e0</string>
+	<key>STORAGE_BUCKET</key>
+	<string>angelapp-6b5e0.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:154350512943:ios:931aca10b96e02a926cfda</string>
+	<key>DATABASE_URL</key>
+	<string>https://angelapp-6b5e0.firebaseio.com</string>
+</dict>
+</plist>
