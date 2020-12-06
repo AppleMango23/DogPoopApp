@@ -28,6 +28,11 @@ export function PhotoAnimation(props) {
 }
 
 export function HomePhoto(props) {
+let heighVolume = 140;
+
+  if(props.size == "big"){
+    heighVolume = 200;
+  }
   return (
     <View>
       <Animated.Image
@@ -35,7 +40,7 @@ export function HomePhoto(props) {
         resizeMode="cover"
         style={{
           width: "100%",
-          height: 140,
+          height: heighVolume,
           borderRadius: 0,
           alignSelf: "center",
           marginTop: 0,

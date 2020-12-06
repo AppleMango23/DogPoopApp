@@ -9,6 +9,8 @@ Screens Task<br>
   - [ ] Show user photo<br>
   - [ ] Show user name<br>
   - [ ] Show user age<br>
+  - [ ] Walk quantity<br>
+  - [ ] Walk goal (graph)<br>
 - [ ] Screen for Settings<br>
   - [ ] Register dog photo<br>
   - [ ] Register dog name<br>
@@ -25,6 +27,8 @@ Sub Task<br>
 - [ ] long press to do special action<br>
 - [ ] flatlist animation reload<br>
 - [ ] push notification if no one walk dog<br>
+- [ ] Float up on the image when want to login<br>
+- [ ] Fingerprint on off<br>
 -----------------------------------------------------------------------------------------------------------------<br>
 - [ ] Create a proper database logic, tree and hierachi<br>
 - [ ] reset the stack<br>

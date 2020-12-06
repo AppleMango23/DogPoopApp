@@ -28,7 +28,6 @@ export default function App({navigation}) {
   const data = useFirebaseData();
   const firstUpdate = useRef(true);
   
-
   // This function is to toggle the color on the icon in flatlist
   const iconColour = (status) => {
     if (status == "GOOD")
@@ -49,11 +48,6 @@ export default function App({navigation}) {
   useEffect(
     () =>
       navigation.addListener('beforeRemove', (e) => {
-        // It will apply to all the tab screen therefore it is weird
-        // Prevent default behavior of leaving the screen
-        // e.preventDefault();
-
-        // Prompt the user before leaving the screen
         alert("User logout success.")
       }),
     [navigation]
@@ -61,8 +55,6 @@ export default function App({navigation}) {
 
 
   useEffect(() => {
-    
-
     if (firstUpdate.current) {
       firstUpdate.current = false;
       return;
@@ -74,9 +66,7 @@ export default function App({navigation}) {
     <View style={styles.container}>
       {/* Photo section */}
       <ScrollView>
-      
       <HomePhoto/>
-      
         <ScrollView horizontal={true}>
           <View style={{height:105,paddingTop:5}} flexDirection="row" justifyContent="space-around">
             <TouchableOpacity style={{width:90,height:90,borderRadius:150,alignItems:"center",backgroundColor:"white"}}>
@@ -99,13 +89,9 @@ export default function App({navigation}) {
               <AntDesign name="plus" size={35} color="white" />
             </TouchableOpacity>
 
-            
-
-
           </View>
         </ScrollView>
       
-
       {/* This is the loading indicator */}
       {/* <ActivityIndicator size="large" color="black" animating= {toggleLoading} style={{marginTop:10, flex:1}}/> */}
       <View style={{height:10}}/>
