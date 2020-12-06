@@ -8,7 +8,6 @@ Screens Task<br>
   - [ ] Show dog age<br>
   - [ ] Show user photo<br>
   - [ ] Show user name<br>
-  - [ ] Show user age<br>
   - [ ] Walk quantity<br>
   - [ ] Walk goal (graph)<br>
 - [ ] Screen for Settings<br>
@@ -17,11 +16,9 @@ Screens Task<br>
   - [ ] Register dog age<br>
   - [ ] Register user photo<br>
   - [ ] Register user name<br>
-  - [ ] Register user age<br>
-  - [ ] grid view<br>
 - [ ] First register<br>
   - [ ] Setting up<br>
-  - [ ] Tutoriral<br>
+  - [ ] Tutorial<br>
 
 Sub Task<br>
 - [ ] long press to do special action<br>
@@ -40,6 +37,7 @@ Sub Task<br>
 - [ ] Arrange the flatlist to another file<br>
 - [ ] Arrange the Modal to another file<br>
 - [ ] History screen<br>
+- [ ] Save the auth section to asyncStorage<br>
 
 ## Future function
 - [ ] automation test<br>

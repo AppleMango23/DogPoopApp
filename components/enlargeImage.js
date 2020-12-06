@@ -28,9 +28,9 @@ export function PhotoAnimation(props) {
 }
 
 export function HomePhoto(props) {
-let heighVolume = 140;
+  let heighVolume = 140;
 
-  if(props.size == "big"){
+  if (props.size == "big") {
     heighVolume = 200;
   }
   return (
@@ -70,7 +70,7 @@ export function LoginPhoto(props) {
           height: size2,
           borderRadius: 300,
           alignSelf: "center",
-          marginLeft: (props.size == "small" ? 15 : 0),
+          marginLeft: props.size == "small" ? 15 : 0,
         }}
       />
     </View>
@@ -94,13 +94,21 @@ export function FacebookLoginButton(props) {
 }
 
 export function MaleAvatar(props) {
+  let size1 = 100;
+  let size2 = 100;
+
+  if (props.size == "big") {
+    size1 = 220;
+    size2 = size1;
+  }
+
   return (
     <View>
       <Animated.Image
         source={image5}
         style={{
-          width: 100,
-          height: 100,
+          width: size1,
+          height: size2,
           alignSelf: "center",
         }}
       />

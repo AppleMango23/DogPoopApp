@@ -85,6 +85,7 @@ export default function App({navigation}) {
               <FemaleAvatar/>
             </TouchableOpacity>
 
+            {/* Join or create */}
             <TouchableOpacity style={{width:90,height:90,borderRadius:150,alignItems:"center",backgroundColor:"#DCDCDC",marginTop:5,alignItems:'center',justifyContent:'center'}}>
               <AntDesign name="plus" size={35} color="white" />
             </TouchableOpacity>
