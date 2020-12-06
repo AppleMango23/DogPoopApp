@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Animated, View } from "react-native";
 
 const image = require("../assets/images/angelPro.jpg");
@@ -35,7 +35,7 @@ export function HomePhoto(props) {
         resizeMode="cover"
         style={{
           width: "100%",
-          height: 180,
+          height: 140,
           borderRadius: 0,
           alignSelf: "center",
           marginTop: 0,
@@ -47,16 +47,25 @@ export function HomePhoto(props) {
 }
 
 export function LoginPhoto(props) {
+  let size1 = 280;
+  let size2 = 265;
+
+  if (props.size == "small") {
+    size1 = 70;
+    size2 = 30;
+  }
+
   return (
     <View>
       <Animated.Image
         source={image3}
         resizeMode="cover"
         style={{
-          width: 280,
-          height: 265,
+          width: size1,
+          height: size2,
           borderRadius: 300,
           alignSelf: "center",
+          marginLeft: (props.size == "small" ? 15 : 0),
         }}
       />
     </View>

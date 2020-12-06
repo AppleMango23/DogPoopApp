@@ -12,11 +12,10 @@ import {
 import { Ionicons, Entypo, MaterialIcons, AntDesign } from "@expo/vector-icons";
 import * as Animatable from "react-native-animatable";
 import { BlurView } from 'expo-blur';
-
-//if just no type {} means take the default one, put {} means take specific one
 import { useFirebaseData, pushTheData } from "../components/FirebaseControl";
 import { HomePhoto,PhotoAnimation, MaleAvatar, FemaleAvatar } from "../components/enlargeImage";
 import { YellowBox } from 'react-native'
+import { StackActions } from '@react-navigation/native';
 
 YellowBox.ignoreWarnings([
   'VirtualizedLists should never be nested', // TODO: Remove when fixed
@@ -28,6 +27,7 @@ export default function App({navigation}) {
   const [toggleLoading, setToggleLoading] = useState(true);
   const data = useFirebaseData();
   const firstUpdate = useRef(true);
+  
 
   // This function is to toggle the color on the icon in flatlist
   const iconColour = (status) => {
@@ -61,6 +61,8 @@ export default function App({navigation}) {
 
 
   useEffect(() => {
+    
+
     if (firstUpdate.current) {
       firstUpdate.current = false;
       return;
@@ -76,7 +78,7 @@ export default function App({navigation}) {
       <HomePhoto/>
       
         <ScrollView horizontal={true}>
-          <View style={{height:155,paddingTop:5}} flexDirection="row" justifyContent="space-around">
+          <View style={{height:105,paddingTop:5}} flexDirection="row" justifyContent="space-around">
             <TouchableOpacity style={{width:90,height:90,borderRadius:150,alignItems:"center",backgroundColor:"white"}}>
               <MaleAvatar/>
             </TouchableOpacity>

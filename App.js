@@ -6,7 +6,11 @@ import Profile from './screens/Profile.js';
 import Settings from './screens/Settings.js';
 import Login from './screens/Login.js';
 import React from 'react';
+import Text from 'react-native';
 import { MaterialCommunityIcons, Ionicons, AntDesign } from '@expo/vector-icons';
+import { LoginPhoto } from "./components/enlargeImage";
+import { MaterialIcons } from "@expo/vector-icons";
+
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -47,13 +51,32 @@ function HomeScreen() {
       </Tab.Navigator>
   );
 }
+  function NameApplication() {
+    return(
+      <Text style={{paddingTop:18,fontFamily: 'AmericanTypewriter-Bold',fontSize:28 }}>My Doggo App</Text>
+    )
+  }
 
 function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Login">
         <Stack.Screen options={{headerShown: false}} name="Login" component={Login} />
-        <Stack.Screen options={{headerLeft: false, headerTitle:"Doggo App"}} name="Home" component={HomeScreen} />
+        <Stack.Screen options={{
+        headerLeft: ()=>(
+          <LoginPhoto size={"small"}/>
+
+        ), 
+        headerRight: ()=>(
+          <MaterialIcons name="history" size={35} color="black" style={{marginRight:15}} />
+        ), 
+        headerTitle:"My Doggo App",
+        headerTitleStyle:{
+          fontFamily:'AmericanTypewriter-Bold',
+          fontSize:22
+        }
+        }}
+        name="Home" component={HomeScreen} />
         {/* <Stack.Screen name="Details" component={Settings} /> */}
       </Stack.Navigator>
     </NavigationContainer>

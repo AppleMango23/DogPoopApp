@@ -9,14 +9,15 @@ import {
 } from "react-native";
 import { AntDesign,MaterialCommunityIcons } from "@expo/vector-icons";
 import * as Facebook from 'expo-facebook';
-import { LoginPhoto,FacebookLoginButton,HomePhoto } from "../components/enlargeImage";
+import { LoginPhoto,FacebookLoginButton } from "../components/enlargeImage";
+import { StackActions } from '@react-navigation/native';
 
 
 export default function App({navigation}) {
-  const [isImageLoading, setImageLoadStatus] = useState(false);
-
   facebookLogIn = async () => {
-    navigation.navigate('Home')
+    navigation.dispatch(
+      StackActions.replace('Home')
+    )
     // try {
     //   await Facebook.initializeAsync({
     //     appId: '2893493817548941',
@@ -35,13 +36,6 @@ export default function App({navigation}) {
     //     alert(`Welcome ${userInfo.name} \nData will be: ${userInfo.id}`);
 
     //     // Check got registered before or not if no then create a new account.
-        
-
-
-    //   } else {
-
-    //   }
-
 
     // } catch ({ message }) {
     //   alert(`Facebook Login Error: ${message}`);
@@ -49,11 +43,9 @@ export default function App({navigation}) {
   }
 
   
-
   logout = () => {
     setLoggedinStatus(false);
     setUserData(null);
-    setImageLoadStatus(false);
   }
 
   logoutFunction = () => {

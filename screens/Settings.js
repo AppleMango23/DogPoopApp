@@ -5,21 +5,18 @@ import {
   Text,
   TouchableOpacity,
 } from "react-native";
-
+import { StackActions } from '@react-navigation/native';
 
 export default function App({navigation}) {
-  const [tickAnimation, setTickAnimation] = useState("");
-
-  const tickOrNo = () => {
-    
-  };
 
   return (
     <View style={styles.container}>
       <Text>Settings screen</Text>
       <TouchableOpacity
       onPress={() => {
-        navigation.navigate("Login")
+        navigation.dispatch(
+          StackActions.replace('Login')
+        )
         }}
       >
         <Text>Logout</Text>

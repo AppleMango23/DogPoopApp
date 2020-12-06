@@ -35,6 +35,7 @@ Sub Task<br>
 - [ ] Join Groups<br>
 - [ ] Arrange the flatlist to another file<br>
 - [ ] Arrange the Modal to another file<br>
+- [ ] History screen<br>
 
 ## Future function
 - [ ] automation test<br>
