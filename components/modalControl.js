@@ -74,8 +74,8 @@ export function ModalFeatures(props) {
       <View flexDirection="row" style={{ marginTop: 5 }}>
         <TouchableOpacity
           onPress={() => {
-            pushTheData({ status: condition });
-            // setModalVisible(false);
+            // True statement is for register
+            pushTheData({ status: condition, firstAttempt: true })
           }}
           style={{ marginRight: 35 }}
         >
@@ -89,8 +89,7 @@ export function ModalFeatures(props) {
 
         <TouchableOpacity
           onPress={() => {
-            pushTheData({ status: condition });
-            // setModalVisible(false);
+            
           }}
           style={{ marginRight: 15, marginLeft: 15 }}
         >
@@ -104,8 +103,7 @@ export function ModalFeatures(props) {
 
         <TouchableOpacity
           onPress={() => {
-            pushTheData({ status: condition });
-            // setModalVisible(false);
+            
           }}
           style={{ marginLeft: 35 }}
         >
