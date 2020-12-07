@@ -7,24 +7,23 @@ import {
   Modal,
   FlatList,
   ScrollView,
+  LogBox,
   ActivityIndicator,
 } from "react-native";
 import { Ionicons, Entypo, MaterialIcons, AntDesign } from "@expo/vector-icons";
 import * as Animatable from "react-native-animatable";
-import { BlurView } from 'expo-blur';
 import { useFirebaseData, pushTheData } from "../components/FirebaseControl";
 import { HomePhoto,PhotoAnimation, MaleAvatar, FemaleAvatar } from "../components/enlargeImage";
-import { YellowBox } from 'react-native'
-import { StackActions } from '@react-navigation/native';
+import { ModalFeatures } from "../components/modalControl";
 
-YellowBox.ignoreWarnings([
-  'VirtualizedLists should never be nested', // TODO: Remove when fixed
-])
+
+LogBox.ignoreAllLogs()
 
 export default function App({navigation}) {
   const [modalVisible, setModalVisible] = useState(false);
   const [condition, setCondition] = useState("");
   const [toggleLoading, setToggleLoading] = useState(true);
+  const [prompt, setPrompt] = useState();
   const data = useFirebaseData();
   const firstUpdate = useRef(true);
   
@@ -45,6 +44,8 @@ export default function App({navigation}) {
     }
   };
 
+
+
   useEffect(
     () =>
       navigation.addListener('beforeRemove', (e) => {
@@ -52,7 +53,6 @@ export default function App({navigation}) {
       }),
     [navigation]
   );
-
 
   useEffect(() => {
     if (firstUpdate.current) {
@@ -65,7 +65,10 @@ export default function App({navigation}) {
   return (
     <View style={styles.container}>
       {/* Photo section */}
+            
+
       <ScrollView>
+
       <HomePhoto/>
         <ScrollView horizontal={true}>
           <View style={{height:105,paddingTop:5}} flexDirection="row" justifyContent="space-around">
@@ -92,12 +95,18 @@ export default function App({navigation}) {
 
           </View>
         </ScrollView>
+
+        
       
       {/* This is the loading indicator */}
-      {/* <ActivityIndicator size="large" color="black" animating= {toggleLoading} style={{marginTop:10, flex:1}}/> */}
+      <ActivityIndicator size="large" color="black" animating= {toggleLoading} style={{marginTop:180, position:'absolute', alignSelf:'center'}}/>
       <View style={{height:10}}/>
 
+
+
       {/* This is flatlist location */}
+      {prompt && <ModalFeatures condition={condition}/>}
+
       <FlatList
         data={data.sort((a, b) => {
           return b.key1.localeCompare(a.key1);
@@ -106,14 +115,18 @@ export default function App({navigation}) {
           <TouchableOpacity
             style={{ marginTop: 15, marginLeft: 10, marginRight: 10, paddingTop:5, paddingBottom:5, backgroundColor:"white",borderRadius:10}}
             onPress={() => {
-              var output =
-                "Dog: Angel\nAge: 7 years\nCondition: " +
-                item.val1.Status +
-                "\nDate: " +
-                item.val1.Date +
-                "\nTime: " +
-                item.val1.Time;
-              alert(output);
+              // var output =
+              //   "Dog: Angel\nAge: 7 years\nCondition: " +
+              //   item.val1.Status +
+              //   "\nDate: " +
+              //   item.val1.Date +
+              //   "\nTime: " +
+              //   item.val1.Time;
+              // alert(output);
+              // alert("test")
+              
+              setPrompt(true)
+
             }}
           >
             <View flexDirection="row">
@@ -129,11 +142,11 @@ export default function App({navigation}) {
                 </View>
                 <View flexDirection="row" style={{paddingTop:5}}>
                   <MaterialIcons name="date-range" size={22} color="gray" />
-                  <Text style={{color:"gray"}}> {item.val1.Date}</Text>
+                  <Text style={{fontFamily: 'American Typewriter',color:"gray"}}> {item.val1.Date}</Text>
                 </View>
                 <View flexDirection="row" style={{paddingTop:5}}>
                   <AntDesign name="clockcircleo" size={22} color="gray" />
-                  <Text style={{color:"gray"}}>  {item.val1.Time}</Text>
+                  <Text style={{fontFamily: 'American Typewriter',color:"gray"}}>  {item.val1.Time}</Text>
                 </View>
                 
                 <Text></Text>
@@ -174,7 +187,7 @@ export default function App({navigation}) {
         <View
           style={{
             backgroundColor: "rgba(0, 0, 0, 0.5)",
-            height: 150,
+            height: 180,
             alignItems: "center",
             justifyContent: "center",
           }}
@@ -187,97 +200,15 @@ export default function App({navigation}) {
               backgroundColor: "white",
               borderTopLeftRadius: 15,
               borderTopRightRadius: 15,
-              height: 150,
+              height: 180,
               width: "100%",
               alignItems: "center",
               justifyContent: "center",
             }}
           >
-            <Text style={{ fontSize: 22 }}>Activity Dog Today</Text>
-            <View flexDirection="row" style={{ marginTop: 15 }}>
-              <TouchableOpacity
-                style={{
-                  marginLeft: 20,
-                  marginRight: 20,
-                  backgroundColor: condition == "Poop" ? "green" : "grey",
-                  width: 60,
-                  borderRadius: 15,
-                  height: 25,
-                  alignItems:'center'
-                }}
-                onPress={() => {
-                  if (condition == "Poop") {
-                    setCondition("");
-                  } else {
-                    setCondition("Poop");
-                  }
-                }}
-              >
-                <Text style={{ color: "white", marginTop: 2 }}> Poop</Text>
-              </TouchableOpacity>
-
-              <TouchableOpacity
-                style={{
-                  marginRight: 20,
-                  marginLeft: 20,
-                  backgroundColor: condition == "No Poop" ? "red" : "grey",
-                  width: 70,
-                  borderRadius: 15,
-                  height: 25,
-                  alignItems:'center'
-                }}
-                onPress={() => {
-                  if (condition == "No Poop") {
-                    setCondition("");
-                  } else {
-                    setCondition("No Poop");
-                  }
-                }}
-              >
-                <Text style={{ color: "white", marginTop: 2 }}> No Poop</Text>
-              </TouchableOpacity>
-            </View>
-
-            <View flexDirection="row" style={{ marginTop: 5 }}>
-              <TouchableOpacity
-                onPress={() => {
-                  pushTheData({ status: condition });
-                  setModalVisible(false);
-                }}
-                style={{ marginRight: 35 }}
-              >
-                <View style={{ alignItems: "center" }}>
-                  <Ionicons name="ios-sunny" size={35} color="black" />
-                  <Text>Morning walk</Text>
-                </View>
-              </TouchableOpacity>
-
-              <TouchableOpacity
-                onPress={() => {
-                  pushTheData({ status: condition });
-                  setModalVisible(false);
-                }}
-                style={{ marginRight: 15, marginLeft: 15 }}
-              >
-                <View style={{ alignItems: "center" }}>
-                  <Ionicons name="ios-cloudy-night" size={35} color="black" />
-                  <Text>Night walk</Text>
-                </View>
-              </TouchableOpacity>
-
-              <TouchableOpacity
-                onPress={() => {
-                  pushTheData({ status: condition });
-                  setModalVisible(false);
-                }}
-                style={{ marginLeft: 35 }}
-              >
-                <View style={{ alignItems: "center" }}>
-                  <Ionicons name="ios-walk" size={35} color="black" />
-                  <Text>Extra walk</Text>
-                </View>
-              </TouchableOpacity>
-            </View>
+            <>
+              <ModalFeatures/>
+            </>
           </Animatable.View>
         </View>
       </Modal>
@@ -303,6 +234,7 @@ export default function App({navigation}) {
       >
         <Entypo name="plus" size={32} color="black" />
       </TouchableOpacity>
+
     </View>
   );
 }

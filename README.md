@@ -18,26 +18,25 @@ Screens Task<br>
   - [ ] Register user name<br>
 - [ ] First register<br>
   - [ ] Setting up<br>
+    - [ ] Ask what group to join<br>
   - [ ] Tutorial<br>
+- [ ] Status screen<br> 
+- [ ] History screen<br>
 
 Sub Task<br>
 - [ ] long press to do special action<br>
 - [ ] flatlist animation reload<br>
-- [ ] push notification if no one walk dog<br>
 - [ ] Float up on the image when want to login<br>
-- [ ] Fingerprint on off<br>
+- [ ] useState interaction with component<br>
 -----------------------------------------------------------------------------------------------------------------<br>
-- [ ] Create a proper database logic, tree and hierachi<br>
-- [ ] reset the stack<br>
 - [ ] Developing UI for group<br>
-  - [ ] User interface<br>
-  - [ ] Organize the database for users
   - [ ] Arrange the overlay decision to new file<br>
 - [ ] Join Groups<br>
-- [ ] Arrange the flatlist to another file<br>
 - [ ] Arrange the Modal to another file<br>
-- [ ] History screen<br>
 - [ ] Save the auth section to asyncStorage<br>
+- [ ] Add UI for the pop out modal at content screen<br>
+- [ ] REPLACE fingeprint push notification if no one walk dog<br>
+- [ ] Graph Analysis<br>
 
 ## Future function
 - [ ] automation test<br>
@@ -80,6 +79,11 @@ Sub Task<br>
 - [x] Create Ui for the login screen<br>
 - [x] Facebook getting the userId<br>
 - [x] use flex to arrange the pop ui<br>
+- [x] reset the stack<br>
+- [x] Create a proper database logic, tree and hierachi<br>
+
+- [x] Fixed issue Loading indicator<br>
+
 
 
 
