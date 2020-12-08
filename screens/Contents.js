@@ -15,7 +15,9 @@ import { Ionicons, Entypo, MaterialIcons, AntDesign } from "@expo/vector-icons";
 import * as Animatable from "react-native-animatable";
 import {
   useFirebaseData,
-  pushTheData,
+  useFirebaseDataUsername,
+  useFirebaseDataDogName,
+  useFirebaseDataDogAge,
   useFirebaseDataGroup,
 } from "../components/FirebaseControl";
 import {
@@ -35,20 +37,23 @@ export default function App({ navigation }) {
   const [prompt, setPrompt] = useState();
   const data = useFirebaseData();
   const dataGroup = useFirebaseDataGroup();
+  const userName = useFirebaseDataUsername();
+  const dogAge = useFirebaseDataDogAge();
+  const dogName = useFirebaseDataDogName();
   const firstUpdate = useRef(true);
 
   // This function is to toggle the color on the icon in flatlist
   const iconColour = (status) => {
     if (status == "GOOD")
       return (
-        <View style={{ justifyContent: "center" }}>
-          <Ionicons name="ios-checkmark-circle" size={48} color="green" />
+        <View style={{ justifyContent: "center"}}>
+          <Ionicons name="ios-checkmark-circle" size={55} color="green" />
         </View>
       );
     else {
       return (
         <View style={{ justifyContent: "center" }}>
-          <Ionicons name="ios-close-circle" size={48} color="red" />
+          <Ionicons name="ios-close-circle" size={55} color="red" />
         </View>
       );
     }
@@ -144,16 +149,24 @@ export default function App({ navigation }) {
                 shadowOpacity: 3, // IOS
                 shadowRadius: 3, //IOS
                 backgroundColor: "#fff",
-                height: 120,
+                height: 105,
               }}
               onPress={() => {
                 var output =
-                  "Dog: Angel\nAge: 7 years\nCondition: " +
+                  "Dog name: " +
+                  dogName +
+                  "\nDog age: " +
+                  dogAge +
+                  "\nCondition: " +
                   item.val1.Status +
                   "\nDate: " +
                   item.val1.Date +
                   "\nTime: " +
-                  item.val1.Time;
+                  item.val1.Time +
+                  "\nUser involved: " +
+                  userName +
+                  "\nDescription: " +
+                  item.val1.Comments;
                 alert(output);
               }}
             >
@@ -202,7 +215,7 @@ export default function App({ navigation }) {
                   <Text></Text>
                 </View>
                 <View
-                  style={{ position: "absolute", right: 35, marginTop: 10 }}
+                  style={{ position: "absolute", right: 20, marginTop: 15 }}
                 >
                   {iconColour(item.val1.Status)}
                 </View>

@@ -11,6 +11,7 @@ import { pushTheData } from "../components/FirebaseControl";
 
 export function ModalFeatures(props) {
   const [condition, setCondition] = useState(props.condition);
+  const [textInputValue, setTextInputValue] = useState("");
 
   return (
     <>
@@ -106,14 +107,14 @@ export function ModalFeatures(props) {
           <TextInput
             style={{ paddingTop: 15, paddingLeft: 20 }}
             placeholder="Extra notes to comments the condition."
-            // onChangeText={(searchString) => {this.setState({searchString})}}
+            onChangeText={(searchString) => {setTextInputValue(searchString)}}
             underlineColorAndroid="transparent"
           />
         </View>
 
         <TouchableOpacity
           onPress={() => {
-            pushTheData({ status: condition});
+            pushTheData({ status: condition, text: textInputValue});
             props.modalVisible(false);
           }}
         >
@@ -130,7 +131,9 @@ export function ModalFeatures(props) {
 }
 
 export function ModalSettingUpUser(props) {
-  const [condition, setCondition] = useState(props.condition);
+  const [userNameState, setUsername] = useState();
+  const [dogNameState, setDogName] = useState();
+  const [dogAgeState, setDogAge] = useState();
 
   return (
     <>
@@ -176,7 +179,7 @@ export function ModalSettingUpUser(props) {
               marginRight: 5,
             }}
             placeholder="Please key in"
-            // onChangeText={(searchString) => {this.setState({searchString})}}
+            onChangeText={(username) => {setUsername(username)}}
             underlineColorAndroid="transparent"
           />
         </View>
@@ -204,7 +207,7 @@ export function ModalSettingUpUser(props) {
               marginRight: 5,
             }}
             placeholder="Please key in"
-            // onChangeText={(searchString) => {this.setState({searchString})}}
+            onChangeText={(dogname) => {setDogName(dogname)}}
             underlineColorAndroid="transparent"
           />
         </View>
@@ -232,13 +235,14 @@ export function ModalSettingUpUser(props) {
               marginRight: 5,
             }}
             placeholder="Please key in"
-            // onChangeText={(searchString) => {this.setState({searchString})}}
+            onChangeText={(dogage) => {setDogAge(dogage)}}
             underlineColorAndroid="transparent"
           />
         </View>
       </View>
       <TouchableOpacity
       onPress={() => {
+        pushTheData({ firstAttempt:true, username:userNameState, dogage:dogAgeState, dogname:dogNameState});
         props.closeUp(false);
       }}
       >

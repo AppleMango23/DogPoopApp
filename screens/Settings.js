@@ -12,12 +12,12 @@ import {
 import * as Animatable from "react-native-animatable";
 import { ModalFeatures, ModalSettingUpUser} from "../components/modalControl";
 
-
-
-
-
 export default function App({ navigation }) {
   const [modalVisible, setModalVisible] = useState(false);
+
+  // useEffect(() => {
+  //   setModalVisible(true)
+  // }, []);
 
   return (
     <View style={styles.container}>
@@ -39,6 +39,11 @@ export default function App({ navigation }) {
             borderRadius: 10,
             justifyContent: "center",
             alignItems: "center",
+            shadowColor: "rgba(0,0,0, .4)", // IOS
+            shadowOffset: { height: 1, width: 3 }, // IOS
+            shadowOpacity: 3, // IOS
+            shadowRadius: 3, //IOS
+            backgroundColor: "#fff",
           }}
           onPress={() => {
             setModalVisible(true)
@@ -66,6 +71,11 @@ export default function App({ navigation }) {
             borderRadius: 10,
             justifyContent: "center",
             alignItems: "center",
+            shadowColor: "rgba(0,0,0, .4)", // IOS
+            shadowOffset: { height: 1, width: 3 }, // IOS
+            shadowOpacity: 3, // IOS
+            shadowRadius: 3, //IOS
+            backgroundColor: "#fff",
           }}
           onPress={() => {
             alert("Still in development");
@@ -94,9 +104,14 @@ export default function App({ navigation }) {
             justifyContent: "center",
             alignItems: "center",
             marginTop: 8,
+            shadowColor: "rgba(0,0,0, .4)", // IOS
+            shadowOffset: { height: 1, width: 3 }, // IOS
+            shadowOpacity: 3, // IOS
+            shadowRadius: 3, //IOS
+            backgroundColor: "#fff",
           }}
           onPress={() => {
-            navigation.dispatch(StackActions.replace("Login"));
+            alert("Still in development")            
           }}
         >
           <Octicons name="checklist" size={42} color="gray" />
@@ -122,6 +137,11 @@ export default function App({ navigation }) {
             justifyContent: "center",
             alignItems: "center",
             marginTop: 8,
+            shadowColor: "rgba(0,0,0, .4)", // IOS
+            shadowOffset: { height: 1, width: 3 }, // IOS
+            shadowOpacity: 3, // IOS
+            shadowRadius: 3, //IOS
+            backgroundColor: "#fff",
           }}
           onPress={() => {
             alert("Still in development");
@@ -148,6 +168,11 @@ export default function App({ navigation }) {
             justifyContent: "center",
             alignItems: "center",
             marginTop: 8,
+            shadowColor: "rgba(0,0,0, .4)", // IOS
+            shadowOffset: { height: 1, width: 3 }, // IOS
+            shadowOpacity: 3, // IOS
+            shadowRadius: 3, //IOS
+            backgroundColor: "#fff",
           }}
           onPress={() => {
             navigation.dispatch(StackActions.replace("Login"));
@@ -226,4 +251,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+
+  
 });

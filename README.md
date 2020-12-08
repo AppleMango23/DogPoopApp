@@ -2,42 +2,35 @@
 
 ## Present 
 Screens Task<br>
-- [ ] Screen for Profile<br>
-  - [ ] Show dog photo<br>
-  - [ ] Show dog name<br>
-  - [ ] Show dog age<br>
-  - [ ] Show user photo<br>
-  - [ ] Show user name<br>
+- [x] Screen for Profile<br>
+  - [x] Show dog name<br>
+  - [x] Show dog age<br>
+  - [x] Show user name<br>
   - [ ] Walk quantity<br>
   - [ ] Walk goal (graph)<br>
 - [ ] Screen for Settings<br>
-  - [ ] Register dog photo<br>
   - [ ] Register dog name<br>
   - [ ] Register dog age<br>
   - [ ] Register user photo<br>
   - [ ] Register user name<br>
 - [ ] First register<br>
   - [ ] Ask what group to join<br>
-  - [ ] Others will prompt Screen for settings<br>
-- [ ] Status screen / pop modal<br> 
-- [ ] History screen<br>
+  - [x] Others will prompt Screen for settings<br>
 
 Sub Task<br>
 - [ ] long press to do special action<br>
 - [ ] flatlist animation reload<br>
 - [ ] Float up on the image when want to login<br>
 - [ ] useState interaction with component<br>
+- [ ] User activities history screen<br>
 -----------------------------------------------------------------------------------------------------------------<br>
 - [ ] Developing UI for group<br>
   - [ ] Arrange the overlay decision to new file<br>
 - [ ] Join Groups<br>
-- [ ] Arrange the Modal to another file<br>
 - [ ] Save the auth section to asyncStorage<br>
 - [ ] Add UI for the pop out modal at content screen<br>
 - [ ] REPLACE fingeprint push notification if no one walk dog<br>
 - [ ] Graph Analysis<br>
-- [ ] Add the new design to login screen<br>
-- [ ] Add the black transparent to the add icon on the group<br>
 
 ## Future function
 - [ ] automation test<br>
@@ -82,9 +75,11 @@ Sub Task<br>
 - [x] use flex to arrange the pop ui<br>
 - [x] reset the stack<br>
 - [x] Create a proper database logic, tree and hierachi<br>
-
 - [x] Fixed issue Loading indicator<br>
 
+- [x] Arrange the Modal to another file<br>
+- [x] Add the black transparent to the add icon on the group<br>
+- [x] Add the new design to login screen<br>
 
 
 
