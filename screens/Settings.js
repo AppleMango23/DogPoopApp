@@ -13,11 +13,9 @@ import * as Animatable from "react-native-animatable";
 import { ModalFeatures, ModalSettingUpUser} from "../components/modalControl";
 
 export default function App({ navigation }) {
-  const [modalVisible, setModalVisible] = useState(false);
+  const [modalVisible, setModalVisible] = useState(true);
 
-  // useEffect(() => {
-  //   setModalVisible(true)
-  // }, []);
+  
 
   return (
     <View style={styles.container}>

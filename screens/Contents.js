@@ -127,10 +127,10 @@ export default function App({ navigation }) {
         />
         <View style={{ height: 10 }} />
 
-        {/* {prompt && <ModalFeatures condition={condition}/>} */}
         {prompt && <ModalSettingUpUser />}
 
         <FlatList
+        
           data={data.sort((a, b) => {
             return b.key1.localeCompare(a.key1);
           })}

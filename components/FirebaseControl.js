@@ -25,7 +25,6 @@ try {
 //Read
 export function useFirebaseData() {
   const [data, setData] = useState([]);
-  
   function test2() {
     firebase
       .database()
@@ -121,16 +120,17 @@ export async function pushTheData(props) {
   let userIDForSave = "";
 
   if (props.firstAttempt == true) {
-    var randomChars =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-
-    var result = "";
-    for (var i = 0; i < 10; i++) {
-      result += randomChars.charAt(
-        Math.floor(Math.random() * randomChars.length)
-      );
-    }
-    const newReference = firebase.database().ref("List/" + result + "/dogs/");
+    alert("Working on the register!")
+    // var randomChars =
+    //   "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    // var result = "";
+    // for (var i = 0; i < 10; i++) {
+    //   result += randomChars.charAt(
+    //     Math.floor(Math.random() * randomChars.length)
+    //   );
+    // }
+    // var result = "abcdefg"
+    const newReference = firebase.database().ref("List/abcdefg/dogs/");
     newReference.set({
       dogA: {
         dogAge: props.dogage,
@@ -138,44 +138,27 @@ export async function pushTheData(props) {
         userName: props.username,
       },
     });
-    await AsyncStorage.setItem("@MySuperStore:GroupCode", result);
+    // await AsyncStorage.setItem("@MySuperStore:GroupCode", result);
     try {
       const value = await AsyncStorage.getItem("@MySuperStore:key1");
-      if (value !== null) {
+      
         userIDForSave = value;
-      }
-    } catch (error) {}
+      
+    } catch (error) {console.log("i am error->",error)}
 
+    console.log(userIDForSave)
     // User registering
     const newReference1 = firebase
       .database()
-      .ref("List/" + result + "/users/" + userIDForSave);
+      .ref("List/abcdefg/users/" + userIDForSave);
     newReference1
       .set({
-        userName: "Still in development",
-        userPhotos: "Still in development",
+        userName: "-",
+        userPhotos: "-",
       })
       .then();
 
-    // History first attempt
-    const newReference2 = firebase
-      .database()
-      .ref("List/" + result + "/history/" + unix);
-    newReference2.set({
-      Activity: "New user arrived!",
-      Date: date,
-      Time: time,
-    });
-
-    // All users add on
-    const newReference3 = firebase.database().ref("All_Users/" + userIDForSave);
-    newReference3
-      .set({
-        userGroup: result,
-        DateRegistered: date,
-        TimeRegistered: time,
-      })
-      .then(alert("completed all."));
+    
   } else {
     // ------------------This one is if it is not first attempt----------------------------
     var unix = Math.round(+new Date() / 1000);

@@ -16,38 +16,38 @@ import { StackActions } from "@react-navigation/native";
 export default function App({ navigation }) {
 
   facebookLogIn = async () => {
-    // try {
-    //   await Facebook.initializeAsync({
-    //     appId: "2893493817548941",
-    //   });
+    try {
+      await Facebook.initializeAsync({
+        appId: "2893493817548941",
+      });
 
-    //   const { type, token } = await Facebook.logInWithReadPermissionsAsync({
-    //     permissions: ["public_profile"],
-    //   });
-    //   if (type === "success") {
-    //     const response = await fetch(
-    //       `https://graph.facebook.com/me?access_token=${token}`
-    //     );
+      const { type, token } = await Facebook.logInWithReadPermissionsAsync({
+        permissions: ["public_profile"],
+      });
+      if (type === "success") {
+        const response = await fetch(
+          `https://graph.facebook.com/me?access_token=${token}`
+        );
 
-    //     let userInfo = await response.json();
-    //     alert(`Welcome to My Doggo App!\n ${userInfo.name}, remember give us a good rating and enjoy having a great time with your doggo!`);
-    //     try {
-    //       await AsyncStorage.setItem(
-    //         "@MySuperStore:key1",
-    //         userInfo.id
-    //       )
-    //       .then(navigation.dispatch(StackActions.replace("Home")));
-    //     } catch (error) {
-    //       // Error saving data
-    //     }
+        let userInfo = await response.json();
+
+        try {
+          await AsyncStorage.setItem(
+            "@MySuperStore:key1",
+            userInfo.id
+          )
+          .then(navigation.dispatch(StackActions.replace("Home")));
+        } catch (error) {
+          // Error saving data
+        }
         
-    //   } else {
-    //   }
-    // } catch ({ message }) {
-    //   alert(`Facebook Login Error: ${message}`);
-    // }
+      } else {
+      }
+    } catch ({ message }) {
+      alert(`Facebook Login Error: ${message}`);
+    }
 
-    navigation.dispatch(StackActions.replace("Home"))
+    // navigation.dispatch(StackActions.replace("Home"))
   };
 
   return (
