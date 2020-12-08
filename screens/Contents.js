@@ -73,7 +73,7 @@ export default function App({navigation}) {
       <HomePhoto/>
         <ScrollView horizontal={true}>
           <View style={{height:105,paddingTop:5}} flexDirection="row" justifyContent="space-around">
-            <TouchableOpacity style={{width:90,height:90,borderRadius:150,alignItems:"center",backgroundColor:"white"}}>
+            <TouchableOpacity style={{width:100,height:100,alignItems:"center"}}>
               <MaleAvatar/>
             </TouchableOpacity>
 
@@ -90,7 +90,7 @@ export default function App({navigation}) {
             </TouchableOpacity>
 
             {/* Join or create */}
-            <TouchableOpacity style={{width:90,height:90,borderRadius:150,alignItems:"center",backgroundColor:"#DCDCDC",marginTop:5,alignItems:'center',justifyContent:'center'}}>
+            <TouchableOpacity style={{width:75,height:75,borderRadius:150,alignItems:"center",backgroundColor:"rgba(0, 0, 0, 0.5)",alignItems:'center',justifyContent:'center'}}>
               <AntDesign name="plus" size={35} color="white" />
             </TouchableOpacity>
 
@@ -186,7 +186,7 @@ export default function App({navigation}) {
         <View
           style={{
             backgroundColor: "rgba(0, 0, 0, 0.5)",
-            height: 300,
+            height: 450,
             alignItems: "center",
             justifyContent: "center",
           }}
@@ -199,7 +199,7 @@ export default function App({navigation}) {
               backgroundColor: "white",
               borderTopLeftRadius: 35,
               borderTopRightRadius: 35,
-              height: 300,
+              height: 450,
               width: "100%",
               alignItems: "center",
               paddingTop:25,

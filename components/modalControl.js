@@ -100,15 +100,18 @@ export function ModalFeatures(props) {
 
         <View
           style={{ flex: 1, marginTop: 5 }}
-          flexDirection="row"
+          flexDirection="column"
           justifyContent="space-around"
         >
+          <View style={styles.input}>
           <TextInput
-            style={styles.input}
-            placeholder="  User Nickname"
+            style={{paddingTop:15, paddingLeft:20}}
+
+            placeholder="Extra notes to comments the condition."
             // onChangeText={(searchString) => {this.setState({searchString})}}
             underlineColorAndroid="transparent"
           />
+          </View>
 
           <TouchableOpacity
             onPress={() => {
@@ -118,7 +121,7 @@ export function ModalFeatures(props) {
             }}
             style={{}}
           >
-            <View style={{ alignItems: "center" }}>
+            <View style={{ alignItems: "center",paddingBottom:20,paddingTop:20}}>
               <Ionicons name="md-send" size={35} color="black" />
               <Text style={{ fontFamily: "American Typewriter" }}>Upload</Text>
             </View>
@@ -138,11 +141,12 @@ const styles = StyleSheet.create({
     flex: 1,
     marginLeft: 10,
     marginRight: 10,
-    height: 50,
+    height: 100,
+    width:370,
     paddingRight: 5,
     paddingBottom: 5,
     backgroundColor: "rgba(0, 0, 0, 0.1)",
     color: "#424242",
-    borderRadius: 150,
+    borderRadius: 30,
   },
 });

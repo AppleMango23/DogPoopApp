@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Animated, View } from "react-native";
 
-const image = require("../assets/images/angelPro.jpg");
+const image = require("../assets/dog1.jpg");
 const image2 = require("../assets/dogPark.png");
 const image3 = require("../assets/doglogo.jpg");
 const image4 = require("../assets/facebookButton.jpg");
-const image5 = require("../assets/male.png");
-const image6 = require("../assets/female.png");
+const image5 = require("../assets/avatar1.png");
+const image6 = require("../assets/avatar2.png");
 
 export function PhotoAnimation(props) {
   return (
@@ -96,8 +96,8 @@ export function FacebookLoginButton(props) {
 }
 
 export function MaleAvatar(props) {
-  let size1 = 100;
-  let size2 = 100;
+  let size1 = 75;
+  let size2 = 75;
 
   if (props.size == "big") {
     size1 = 220;
@@ -124,8 +124,8 @@ export function FemaleAvatar(props) {
       <Animated.Image
         source={image6}
         style={{
-          width: 100,
-          height: 100,
+          width: 75,
+          height: 75,
           alignSelf: "center",
         }}
       />

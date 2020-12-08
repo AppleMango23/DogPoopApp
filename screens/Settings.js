@@ -119,14 +119,14 @@ export default function App({ navigation }) {
             navigation.dispatch(StackActions.replace("Login"));
           }}
         >
-          <MaterialIcons name="fingerprint" size={42} color="gray" />
+          <AntDesign name="delete" size={42} color="gray" />
           <Text
             style={{
               fontFamily: "American Typewriter",
               fontSize: 15,
             }}
           >
-            Fingerprint Auth
+            Clear storage
           </Text>
         </TouchableOpacity>
 
