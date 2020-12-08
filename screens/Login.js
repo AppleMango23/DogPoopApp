@@ -30,7 +30,7 @@ export default function App({ navigation }) {
     //     );
 
     //     let userInfo = await response.json();
-    //     alert(`Welcome ${userInfo.name} \nData will be: ${userInfo.id}`);
+    //     alert(`Welcome to My Doggo App!\n ${userInfo.name}, remember give us a good rating and enjoy having a great time with your doggo!`);
     //     try {
     //       await AsyncStorage.setItem(
     //         "@MySuperStore:key1",
@@ -48,18 +48,6 @@ export default function App({ navigation }) {
     // }
 
     navigation.dispatch(StackActions.replace("Home"))
-
-    
-
-  };
-
-  logout = () => {
-    setLoggedinStatus(false);
-    setUserData(null);
-  };
-
-  logoutFunction = () => {
-    Facebook.logOutAsync();
   };
 
   return (

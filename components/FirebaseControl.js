@@ -43,6 +43,48 @@ export function useFirebaseData() {
   return data;
 }
 
+//Read the group members
+export function useFirebaseDataGroup() {
+  const [data, setData] = useState([]);
+  function test2() {
+    firebase
+      .database()
+      .ref("List/abcdefg/users")
+      .on("value", function (snapshot) {
+        const items = [];
+        snapshot.forEach((child1) => {
+          items.push({val1:child1.val(),key1:child1.key});
+        });
+        setData(items);
+      });
+  }
+  useEffect(() => {
+    test2();
+  }, []);
+  return data;
+}
+
+//Read user name
+export function useFirebaseDataUsername() {
+  const [data, setData] = useState([]);
+  function test2() {
+    firebase
+      .database()
+      .ref("List/abcdefg/users/user1")
+      .on("value", function (snapshot) {
+        const items = [];
+        snapshot.forEach((child1) => {
+          items.push({val1:child1.val(),key1:child1.key});
+        });
+        setData(items);
+      });
+  }
+  useEffect(() => {
+    test2();
+  }, []);
+  return data;
+}
+
 //Push
 export async function pushTheData (props) {
   let userIDForSave = ""

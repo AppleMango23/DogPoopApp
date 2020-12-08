@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
+import { StyleSheet, View, Text, TouchableOpacity,Modal, } from "react-native";
 import { StackActions } from "@react-navigation/native";
 import { HomePhoto } from "../components/enlargeImage";
 import {
@@ -9,8 +9,16 @@ import {
   FontAwesome5,
   AntDesign,
 } from "@expo/vector-icons";
+import * as Animatable from "react-native-animatable";
+import { ModalFeatures, ModalSettingUpUser} from "../components/modalControl";
+
+
+
+
 
 export default function App({ navigation }) {
+  const [modalVisible, setModalVisible] = useState(false);
+
   return (
     <View style={styles.container}>
       <HomePhoto size={"big"} />
@@ -33,7 +41,7 @@ export default function App({ navigation }) {
             alignItems: "center",
           }}
           onPress={() => {
-            navigation.dispatch(StackActions.replace("Login"));
+            setModalVisible(true)
           }}
         >
           <FontAwesome5 name="user-edit" size={42} color="gray" />
@@ -60,7 +68,7 @@ export default function App({ navigation }) {
             alignItems: "center",
           }}
           onPress={() => {
-            navigation.dispatch(StackActions.replace("Login"));
+            alert("Still in development");
           }}
         >
           <AntDesign name="edit" size={42} color="gray" />
@@ -72,7 +80,7 @@ export default function App({ navigation }) {
               fontSize: 15,
             }}
           >
-            Doggo edit
+            Add photo
           </Text>
         </TouchableOpacity>
 
@@ -116,7 +124,7 @@ export default function App({ navigation }) {
             marginTop: 8,
           }}
           onPress={() => {
-            navigation.dispatch(StackActions.replace("Login"));
+            alert("Still in development");
           }}
         >
           <AntDesign name="delete" size={42} color="gray" />
@@ -158,6 +166,58 @@ export default function App({ navigation }) {
           </Text>
         </TouchableOpacity>
       </View>
+
+
+      <Modal
+        animationType="fade"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          setModalVisible(false);
+        }}
+      >
+        <TouchableOpacity
+          activeOpacity={1.0}
+          style={[
+            styles.containerModal,
+            { backgroundColor: "rgba(0, 0, 0, 0.5)" },
+          ]}
+          
+        >
+        </TouchableOpacity>
+
+        <View
+          style={{
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
+            height: 900,
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <Animatable.View
+            animation={"fadeInUp"}
+            iterationCount={1}
+            direction="alternate"
+            style={{
+              backgroundColor: "white",
+              borderTopLeftRadius: 35,
+              borderTopRightRadius: 35,
+              height: 450,
+              width: "100%",
+              alignItems: "center",
+              paddingTop:25,
+            }}
+          >
+            <>
+              <ModalSettingUpUser closeUp = {setModalVisible}/>
+
+            </>
+          </Animatable.View>
+        </View>
+      </Modal>
+
+
+
     </View>
   );
 }
