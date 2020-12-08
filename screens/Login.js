@@ -16,38 +16,38 @@ import { StackActions } from "@react-navigation/native";
 export default function App({ navigation }) {
 
   facebookLogIn = async () => {
-    try {
-      await Facebook.initializeAsync({
-        appId: "2893493817548941",
-      });
+    // try {
+    //   await Facebook.initializeAsync({
+    //     appId: "2893493817548941",
+    //   });
 
-      const { type, token } = await Facebook.logInWithReadPermissionsAsync({
-        permissions: ["public_profile"],
-      });
-      if (type === "success") {
-        const response = await fetch(
-          `https://graph.facebook.com/me?access_token=${token}`
-        );
+    //   const { type, token } = await Facebook.logInWithReadPermissionsAsync({
+    //     permissions: ["public_profile"],
+    //   });
+    //   if (type === "success") {
+    //     const response = await fetch(
+    //       `https://graph.facebook.com/me?access_token=${token}`
+    //     );
 
-        let userInfo = await response.json();
-        alert(`Welcome ${userInfo.name} \nData will be: ${userInfo.id}`);
-        try {
-          await AsyncStorage.setItem(
-            "@MySuperStore:key1",
-            userInfo.id
-          )
-          .then(navigation.dispatch(StackActions.replace("Home")));
-        } catch (error) {
-          // Error saving data
-        }
+    //     let userInfo = await response.json();
+    //     alert(`Welcome ${userInfo.name} \nData will be: ${userInfo.id}`);
+    //     try {
+    //       await AsyncStorage.setItem(
+    //         "@MySuperStore:key1",
+    //         userInfo.id
+    //       )
+    //       .then(navigation.dispatch(StackActions.replace("Home")));
+    //     } catch (error) {
+    //       // Error saving data
+    //     }
         
-      } else {
-      }
-    } catch ({ message }) {
-      alert(`Facebook Login Error: ${message}`);
-    }
+    //   } else {
+    //   }
+    // } catch ({ message }) {
+    //   alert(`Facebook Login Error: ${message}`);
+    // }
 
-   
+    navigation.dispatch(StackActions.replace("Home"))
 
     
 
@@ -69,6 +69,7 @@ export default function App({ navigation }) {
         style={styles.container}
       >
         <LoginPhoto />
+        <View style = {styles.containerInner}>
         <Text
           style={{
             paddingTop: 18,
@@ -136,6 +137,7 @@ export default function App({ navigation }) {
         >
           <FacebookLoginButton />
         </TouchableOpacity>
+        </View>
       </KeyboardAvoidingView>
     </View>
   );
@@ -143,10 +145,17 @@ export default function App({ navigation }) {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    // backgroundColor: '#C3E4ED',
     alignItems: "center",
     justifyContent: "center",
+    backgroundColor:'white'
+  },
+  containerInner:{
+    alignItems: "center",
+    borderTopRightRadius:35,
+    borderTopLeftRadius:35,
+    width:380,
+    height:500,
+    backgroundColor:'rgba(0, 0, 0, 0.1)'
   },
   loginBtn: {
     backgroundColor: "#66CCCC",

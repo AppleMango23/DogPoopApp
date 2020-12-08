@@ -8,6 +8,7 @@ import {
   FlatList,
   ScrollView,
   LogBox,
+  KeyboardAvoidingView,
   ActivityIndicator,
 } from "react-native";
 import { Ionicons, Entypo, MaterialIcons, AntDesign } from "@expo/vector-icons";
@@ -125,7 +126,7 @@ export default function App({navigation}) {
               // alert(output);
               // alert("test")
               
-              setPrompt(true)
+             
 
             }}
           >
@@ -161,8 +162,7 @@ export default function App({navigation}) {
         keyExtractor={(item) => item.key1}
       />
       </ScrollView>
-
-      {/* This is the whole modal transfer this to .js file */}
+      
       <Modal
         animationType="fade"
         transparent={true}
@@ -181,33 +181,32 @@ export default function App({navigation}) {
             setModalVisible(false);
           }}
         >
-          {/* {tickOrNo()} */}
         </TouchableOpacity>
 
         <View
           style={{
             backgroundColor: "rgba(0, 0, 0, 0.5)",
-            height: 180,
+            height: 300,
             alignItems: "center",
             justifyContent: "center",
           }}
         >
           <Animatable.View
-            animation={"bounceInUp"}
+            animation={"fadeInUp"}
             iterationCount={1}
             direction="alternate"
             style={{
               backgroundColor: "white",
-              borderTopLeftRadius: 15,
-              borderTopRightRadius: 15,
-              height: 180,
+              borderTopLeftRadius: 35,
+              borderTopRightRadius: 35,
+              height: 300,
               width: "100%",
               alignItems: "center",
-              justifyContent: "center",
+              paddingTop:25,
             }}
           >
             <>
-              <ModalFeatures/>
+              <ModalFeatures modalVisible={setModalVisible}/>
             </>
           </Animatable.View>
         </View>

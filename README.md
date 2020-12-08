@@ -17,10 +17,9 @@ Screens Task<br>
   - [ ] Register user photo<br>
   - [ ] Register user name<br>
 - [ ] First register<br>
-  - [ ] Setting up<br>
-    - [ ] Ask what group to join<br>
-  - [ ] Tutorial<br>
-- [ ] Status screen<br> 
+  - [ ] Ask what group to join<br>
+  - [ ] Others will prompt Screen for settings<br>
+- [ ] Status screen / pop modal<br> 
 - [ ] History screen<br>
 
 Sub Task<br>
@@ -37,6 +36,8 @@ Sub Task<br>
 - [ ] Add UI for the pop out modal at content screen<br>
 - [ ] REPLACE fingeprint push notification if no one walk dog<br>
 - [ ] Graph Analysis<br>
+- [ ] Add the new design to login screen<br>
+- [ ] Add the black transparent to the add icon on the group<br>
 
 ## Future function
 - [ ] automation test<br>

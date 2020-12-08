@@ -52,12 +52,14 @@ export function HomePhoto(props) {
 }
 
 export function LoginPhoto(props) {
-  let size1 = 280;
-  let size2 = 265;
+  let size1 = 370;
+  let size2 = 300;
+  let borderEdge = 0;
 
   if (props.size == "small") {
     size1 = 70;
     size2 = 30;
+    borderEdge = 300;
   }
 
   return (
@@ -68,7 +70,7 @@ export function LoginPhoto(props) {
         style={{
           width: size1,
           height: size2,
-          borderRadius: 300,
+          borderRadius: borderEdge,
           alignSelf: "center",
           marginLeft: props.size == "small" ? 15 : 0,
         }}

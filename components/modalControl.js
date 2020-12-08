@@ -1,6 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
-import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
+import {
+  StyleSheet,
+  View,
+  Text,
+  TouchableOpacity,
+  TextInput,
+} from "react-native";
+import { Ionicons, FontAwesome5 } from "@expo/vector-icons";
 import { pushTheData } from "../components/FirebaseControl";
 
 export function ModalFeatures(props) {
@@ -8,119 +14,135 @@ export function ModalFeatures(props) {
 
   return (
     <>
-      <Text style={{ fontFamily: "American Typewriter", fontSize: 22 }}>
-        Activity Dog Today
-      </Text>
-      <View flexDirection="row" style={{ marginTop: 15 }}>
-        <TouchableOpacity
-          style={{
-            marginLeft: 20,
-            marginRight: 20,
-            backgroundColor: condition == "Poop" ? "green" : "grey",
-            width: 60,
-            borderRadius: 15,
-            height: 25,
-            alignItems: "center",
-          }}
-          onPress={() => {
-            if (condition == "Poop") {
-              setCondition("");
-            } else {
-              setCondition("Poop");
-            }
-          }}
-        >
-          <Text
+      
+        <Text style={{ fontFamily: "American Typewriter", fontSize: 22 }}>
+          Activity Dog Today
+        </Text>
+        <View flexDirection="row" style={{ marginTop: 15 }}>
+          <TouchableOpacity
             style={{
-              fontFamily: "American Typewriter",
-              color: "white",
-              marginTop: 2,
+              marginLeft: 20,
+              marginRight: 20,
+              backgroundColor: condition == "Poop" ? "green" : "grey",
+              width: 85,
+              borderRadius: 15,
+              height: 28,
+              alignItems: "center",
+            }}
+            onPress={() => {
+              if (condition == "Poop") {
+                setCondition("");
+              } else {
+                setCondition("Poop");
+              }
             }}
           >
-            Poop
-          </Text>
-        </TouchableOpacity>
+            <View flexDirection="row">
+              <FontAwesome5
+                name="poop"
+                size={15}
+                color="white"
+                style={{ marginTop: 5 }}
+              />
+              <Text
+                style={{
+                  fontFamily: "American Typewriter",
+                  color: "white",
+                  marginTop: 2,
+                  fontSize: 18,
+                  paddingLeft: 5,
+                }}
+              >
+                Poop
+              </Text>
+            </View>
+          </TouchableOpacity>
 
-        <TouchableOpacity
-          style={{
-            marginRight: 20,
-            marginLeft: 20,
-            backgroundColor: condition == "No Poop" ? "red" : "grey",
-            width: 70,
-            borderRadius: 15,
-            height: 25,
-            alignItems: "center",
-          }}
-          onPress={() => {
-            if (condition == "No Poop") {
-              setCondition("");
-            } else {
-              setCondition("No Poop");
-            }
-          }}
-        >
-          <Text
+          <TouchableOpacity
             style={{
-              fontFamily: "American Typewriter",
-              color: "white",
-              marginTop: 2,
+              marginRight: 20,
+              marginLeft: 20,
+              backgroundColor: condition == "No Poop" ? "red" : "grey",
+              width: 100,
+              borderRadius: 15,
+              height: 28,
+              alignItems: "center",
+            }}
+            onPress={() => {
+              if (condition == "No Poop") {
+                setCondition("");
+              } else {
+                setCondition("No Poop");
+              }
             }}
           >
-            No Poop
-          </Text>
-        </TouchableOpacity>
-      </View>
+            <View flexDirection="row">
+              <FontAwesome5
+                name="poop"
+                size={15}
+                color="white"
+                style={{ marginTop: 5 }}
+              />
+              <Text
+                style={{
+                  fontFamily: "American Typewriter",
+                  color: "white",
+                  marginTop: 2,
+                  fontSize: 18,
+                  paddingLeft: 5,
+                }}
+              >
+                No Poop
+              </Text>
+            </View>
+          </TouchableOpacity>
+        </View>
 
-      <View flexDirection="row" style={{ marginTop: 5 }}>
-        <TouchableOpacity
-          onPress={() => {
-            // True statement is for register
-            pushTheData({ status: condition, firstAttempt: true })
-          }}
-          style={{ marginRight: 35 }}
+        <View
+          style={{ flex: 1, marginTop: 5 }}
+          flexDirection="row"
+          justifyContent="space-around"
         >
-          <View style={{ alignItems: "center" }}>
-            <Ionicons name="ios-sunny" size={35} color="black" />
-            <Text style={{ fontFamily: "American Typewriter" }}>
-              Morning walk
-            </Text>
-          </View>
-        </TouchableOpacity>
+          <TextInput
+            style={styles.input}
+            placeholder="  User Nickname"
+            // onChangeText={(searchString) => {this.setState({searchString})}}
+            underlineColorAndroid="transparent"
+          />
 
-        <TouchableOpacity
-          onPress={() => {
-            
-          }}
-          style={{ marginRight: 15, marginLeft: 15 }}
-        >
-          <View style={{ alignItems: "center" }}>
-            <Ionicons name="ios-cloudy-night" size={35} color="black" />
-            <Text style={{ fontFamily: "American Typewriter" }}>
-              Night walk
-            </Text>
-          </View>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          onPress={() => {
-            
-          }}
-          style={{ marginLeft: 35 }}
-        >
-          <View style={{ alignItems: "center" }}>
-            <Ionicons name="ios-walk" size={35} color="black" />
-            <Text style={{ fontFamily: "American Typewriter" }}>
-              Extra walk
-            </Text>
-          </View>
-        </TouchableOpacity>
-      </View>
+          <TouchableOpacity
+            onPress={() => {
+              // True statement is for register
+              pushTheData({ status: condition, firstAttempt: true });
+              props.modalVisible(false);
+            }}
+            style={{}}
+          >
+            <View style={{ alignItems: "center" }}>
+              <Ionicons name="md-send" size={35} color="black" />
+              <Text style={{ fontFamily: "American Typewriter" }}>Upload</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
     </>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor:'white'
+  },
+  input: {
     flex: 1,
+    marginLeft: 10,
+    marginRight: 10,
+    height: 50,
+    paddingRight: 5,
+    paddingBottom: 5,
+    backgroundColor: "rgba(0, 0, 0, 0.1)",
+    color: "#424242",
+    borderRadius: 150,
   },
 });
