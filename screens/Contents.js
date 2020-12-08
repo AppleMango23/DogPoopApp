@@ -8,7 +8,6 @@ import {
   FlatList,
   ScrollView,
   LogBox,
-  KeyboardAvoidingView,
   ActivityIndicator,
 } from "react-native";
 import { Ionicons, Entypo, MaterialIcons, AntDesign } from "@expo/vector-icons";
@@ -24,7 +23,6 @@ import {
   HomePhoto,
   PhotoAnimation,
   MaleAvatar,
-  FemaleAvatar,
 } from "../components/enlargeImage";
 import { ModalFeatures, ModalSettingUpUser } from "../components/modalControl";
 
@@ -59,6 +57,7 @@ export default function App({ navigation }) {
     }
   };
 
+  // Sensor for user logout
   useEffect(
     () =>
       navigation.addListener("beforeRemove", (e) => {
@@ -66,7 +65,8 @@ export default function App({ navigation }) {
       }),
     [navigation]
   );
-
+  
+  // Sensor for loading indicator
   useEffect(() => {
     if (firstUpdate.current) {
       firstUpdate.current = false;
@@ -81,12 +81,14 @@ export default function App({ navigation }) {
 
       <ScrollView>
         <HomePhoto />
+        {/* The top floating member lists */}
         <ScrollView horizontal={true}>
           <View
             style={{ height: 105, paddingTop: 5 }}
             flexDirection="row"
             justifyContent="space-around"
           >
+            {/* Group members list */}
             <FlatList
               horizontal={true}
               data={dataGroup}
@@ -101,7 +103,7 @@ export default function App({ navigation }) {
               keyExtractor={(item) => item.key1}
             />
 
-            {/* Join or create */}
+            {/* Still in development Join or create */}
             <TouchableOpacity
               style={{
                 width: 75,
@@ -125,12 +127,14 @@ export default function App({ navigation }) {
           animating={toggleLoading}
           style={{ marginTop: 180, position: "absolute", alignSelf: "center" }}
         />
-        <View style={{ height: 10 }} />
-
-        {prompt && <ModalSettingUpUser />}
-
-        <FlatList
+        {/* Just to control the height */}
+        <View style={{ height: 10 }} /> 
         
+        {/* The modal sensor */}
+        {prompt && <ModalSettingUpUser />}
+        
+        {/* The dog status information */}
+        <FlatList
           data={data.sort((a, b) => {
             return b.key1.localeCompare(a.key1);
           })}
@@ -225,7 +229,8 @@ export default function App({ navigation }) {
           keyExtractor={(item) => item.key1}
         />
       </ScrollView>
-
+      
+      {/* Modal slide up */}
       <Modal
         animationType="fade"
         transparent={true}
@@ -269,7 +274,6 @@ export default function App({ navigation }) {
           >
             <>
               <ModalFeatures modalVisible={setModalVisible} />
-              {/* <ModalSettingUpUser/> */}
             </>
           </Animatable.View>
         </View>
@@ -302,7 +306,6 @@ export default function App({ navigation }) {
 
 const styles = StyleSheet.create({
   container: {
-    // backgroundColor: '#C3E4ED',
     flex: 1,
   },
   containerModal: {
