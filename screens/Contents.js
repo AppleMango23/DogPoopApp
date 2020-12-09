@@ -26,11 +26,12 @@ import {
 } from "../components/enlargeImage";
 import { ModalFeatures, ModalSettingUpUser } from "../components/modalControl";
 
+// Ignore the warning
 LogBox.ignoreAllLogs();
 
 export default function App({ navigation }) {
+  // Use state and some variables
   const [modalVisible, setModalVisible] = useState(false);
-  const [condition, setCondition] = useState("");
   const [toggleLoading, setToggleLoading] = useState(true);
   const [prompt, setPrompt] = useState();
   const data = useFirebaseData();
@@ -44,7 +45,7 @@ export default function App({ navigation }) {
   const iconColour = (status) => {
     if (status == "GOOD")
       return (
-        <View style={{ justifyContent: "center"}}>
+        <View style={{ justifyContent: "center" }}>
           <Ionicons name="ios-checkmark-circle" size={55} color="green" />
         </View>
       );
@@ -65,7 +66,7 @@ export default function App({ navigation }) {
       }),
     [navigation]
   );
-  
+
   // Sensor for loading indicator
   useEffect(() => {
     if (firstUpdate.current) {
@@ -77,9 +78,9 @@ export default function App({ navigation }) {
 
   return (
     <View style={styles.container}>
-      {/* Photo section */}
-
+      {/* Inside there is top list and dog info lists */}
       <ScrollView>
+        {/* Photo take from another */}
         <HomePhoto />
         {/* The top floating member lists */}
         <ScrollView horizontal={true}>
@@ -128,11 +129,11 @@ export default function App({ navigation }) {
           style={{ marginTop: 180, position: "absolute", alignSelf: "center" }}
         />
         {/* Just to control the height */}
-        <View style={{ height: 10 }} /> 
-        
+        <View style={{ height: 10 }} />
+
         {/* The modal sensor */}
         {prompt && <ModalSettingUpUser />}
-        
+
         {/* The dog status information */}
         <FlatList
           data={data.sort((a, b) => {
@@ -176,6 +177,7 @@ export default function App({ navigation }) {
             >
               <View flexDirection="row">
                 <View style={{ marginTop: 6 }}>
+                  {/* Photo take from another file */}
                   <PhotoAnimation />
                 </View>
 
@@ -229,7 +231,7 @@ export default function App({ navigation }) {
           keyExtractor={(item) => item.key1}
         />
       </ScrollView>
-      
+
       {/* Modal slide up */}
       <Modal
         animationType="fade"
@@ -304,6 +306,7 @@ export default function App({ navigation }) {
   );
 }
 
+// Styling
 const styles = StyleSheet.create({
   container: {
     flex: 1,

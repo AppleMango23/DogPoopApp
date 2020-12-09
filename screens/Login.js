@@ -15,6 +15,7 @@ import { StackActions } from "@react-navigation/native";
 
 export default function App({ navigation }) {
 
+  // Facebook API function
   facebookLogIn = async () => {
     try {
       await Facebook.initializeAsync({
@@ -38,26 +39,25 @@ export default function App({ navigation }) {
             userInfo.id
           )
           .then(navigation.dispatch(StackActions.replace("Home")));
-        } catch (error) {
-          // Error saving data
-        }
-        
+        } catch (error) {}
       } else {
       }
     } catch ({ message }) {
       alert(`Facebook Login Error: ${message}`);
     }
-
-    // navigation.dispatch(StackActions.replace("Home"))
   };
 
   return (
     <View style={styles.container}>
+      {/* The keyboard avoider features */}
       <KeyboardAvoidingView
         behavior={Platform.OS == "ios" ? "padding" : "height"}
         style={styles.container}
       >
+        {/* Photos take from another file */}
         <LoginPhoto />
+
+        {/* Displaing the text for username and password login */}
         <View style = {styles.containerInner}>
         <Text
           style={{
@@ -87,11 +87,9 @@ export default function App({ navigation }) {
           <TextInput
             style={styles.input}
             placeholder="User Nickname"
-            // onChangeText={(searchString) => {this.setState({searchString})}}
             underlineColorAndroid="transparent"
           />
         </View>
-
         <View style={styles.searchSection}>
           <AntDesign
             style={styles.searchIcon}
@@ -102,12 +100,12 @@ export default function App({ navigation }) {
           <TextInput
             style={styles.input}
             placeholder="Password"
-            // onChangeText={(searchString) => {this.setState({searchString})}}
             underlineColorAndroid="transparent"
             secureTextEntry={true}
           />
         </View>
-
+        
+        {/* Button for username and password login */}
         <TouchableOpacity
           style={styles.loginBtn}
           onPress={() => {
@@ -116,9 +114,11 @@ export default function App({ navigation }) {
         >
           <Text style={{ color: "white", fontSize: 18 }}>Login</Text>
         </TouchableOpacity>
-
+        
+        {/* Adjusting the height of the design */}
         <View style={{ height: 20 }} />
-
+        
+        {/* Using the photo taken from another file and will trigger the facebook log in feature */}
         <TouchableOpacity
           onPress={() => {
             facebookLogIn();
@@ -132,6 +132,7 @@ export default function App({ navigation }) {
   );
 }
 
+// Styling
 const styles = StyleSheet.create({
   container: {
     alignItems: "center",

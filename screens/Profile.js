@@ -1,26 +1,27 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { StyleSheet, View, Text } from "react-native";
-import {
-  MaleAvatar,
-  AsyncStorage,
-  HomePhoto,
-} from "../components/enlargeImage";
+import { MaleAvatar, HomePhoto } from "../components/enlargeImage";
 import {
   useFirebaseDataUsername,
   useFirebaseDataDogAge,
   useFirebaseDataDogName,
 } from "../components/FirebaseControl";
 
-
 export default function App(props) {
+  // The firebase data taken from another file
   const userName = useFirebaseDataUsername();
   const dogAge = useFirebaseDataDogAge();
   const dogName = useFirebaseDataDogName();
 
   return (
     <View style={styles.container}>
+      {/* Displaying the background */}
       <HomePhoto size={"big"} />
+
+      {/* Displaying user avatar */}
       <MaleAvatar size={"big"} />
+
+      {/* Users & dog information */}
       <View
         style={{
           marginTop: 15,

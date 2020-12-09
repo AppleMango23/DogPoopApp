@@ -3,7 +3,7 @@ import * as firebase from "firebase";
 import { Audio } from "expo-av";
 import { AsyncStorage } from "react-native";
 
-//Setting up Firebase connection
+//API key for Firebase connection
 const config = {
   apiKey: "AIzaSyA6iPmdMQFyBmH7aPiukZ71srz9vHw0uSs",
   authDomain: "angelapp-6b5e0.firebaseapp.com",
@@ -15,6 +15,7 @@ const config = {
   measurementId: "G-G8KDJNWBDG",
 };
 
+// Checking it is logged in or not
 try {
   firebase.initializeApp(config);
   console.log("Logged into app");
@@ -43,7 +44,7 @@ export function useFirebaseData() {
   return data;
 }
 
-//Read the group members (Still in development)
+//Read the group members
 export function useFirebaseDataGroup() {
   const [data, setData] = useState([]);
   function test2() {
@@ -81,7 +82,7 @@ export function useFirebaseDataUsername() {
   return data;
 }
 
-//Read user name
+//Read dog age
 export function useFirebaseDataDogAge() {
   const [data, setData] = useState([]);
   function test2() {
@@ -121,6 +122,7 @@ export async function pushTheData(props) {
 
   if (props.firstAttempt == true) {
     alert("Working on the register!")
+    // Group random words generator codes
     // var randomChars =
     //   "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     // var result = "";
@@ -161,7 +163,6 @@ export async function pushTheData(props) {
   } else {
     // ------------------This one is if it is not first attempt----------------------------
     var unix = Math.round(+new Date() / 1000);
-    //use the time to set the key date year and time that one
     const newReference = firebase
       .database()
       .ref("List/abcdefg/dogs/dogA/dogStatus/" + unix);
@@ -172,7 +173,6 @@ export async function pushTheData(props) {
       (today.getMonth() + 1) +
       "-" +
       today.getFullYear();
-    //Set a better time for am and pm
     var Hour = today.getHours();
     var AmOrPM = Hour >= 12 ? "PM" : "AM";
     var time =
@@ -189,6 +189,7 @@ export async function pushTheData(props) {
         // Sounds
         const soundObject = new Audio.Sound();
         try {
+          // Dog sounds
           await soundObject.loadAsync(require('../assets/dogWoff.mp3'));
           await soundObject.playAsync();
           alert("Saved new record")

@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { Animated, View } from "react-native";
 
+// Path for the images
 const image = require("../assets/dog1.jpg");
 const image2 = require("../assets/dogPark.png");
 const image3 = require("../assets/doglogo.jpg");
@@ -11,6 +12,7 @@ const image6 = require("../assets/avatar2.png");
 export function PhotoAnimation(props) {
   return (
     <View>
+      {/* Images for output */}
       <Animated.Image
         source={image}
         resizeMode="cover"
@@ -28,13 +30,14 @@ export function PhotoAnimation(props) {
 }
 
 export function HomePhoto(props) {
+  // If statement for different requirement
   let heighVolume = 140;
-
   if (props.size == "big") {
     heighVolume = 200;
   }
   return (
     <View>
+      {/* Images for output */}
       <Animated.Image
         source={image2}
         resizeMode="cover"
@@ -52,6 +55,7 @@ export function HomePhoto(props) {
 }
 
 export function LoginPhoto(props) {
+  // If statement for different requirement
   let size1 = 370;
   let size2 = 300;
   let borderEdge = 0;
@@ -64,6 +68,7 @@ export function LoginPhoto(props) {
 
   return (
     <View>
+      {/* Images for output */}
       <Animated.Image
         source={image3}
         resizeMode="cover"
@@ -82,6 +87,7 @@ export function LoginPhoto(props) {
 export function FacebookLoginButton(props) {
   return (
     <View>
+      {/* Images for output */}
       <Animated.Image
         source={image4}
         style={{
@@ -96,6 +102,7 @@ export function FacebookLoginButton(props) {
 }
 
 export function MaleAvatar(props) {
+  // If statement for different requirement
   let size1 = 75;
   let size2 = 75;
 
@@ -106,6 +113,7 @@ export function MaleAvatar(props) {
 
   return (
     <View>
+      {/* Images for output */}
       <Animated.Image
         source={image5}
         style={{
@@ -121,6 +129,7 @@ export function MaleAvatar(props) {
 export function FemaleAvatar(props) {
   return (
     <View>
+      {/* Images for output */}
       <Animated.Image
         source={image6}
         style={{

@@ -8,12 +8,12 @@ import Login from './screens/Login.js';
 import React from 'react';
 import { MaterialCommunityIcons, Ionicons, AntDesign } from '@expo/vector-icons';
 import { LoginPhoto } from "./components/enlargeImage";
-import { MaterialIcons } from "@expo/vector-icons";
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
 function HomeScreen() {
   return (
+      // Settings up the tab navigation(icon,name), set Settings as initial route for first register person
       <Tab.Navigator
       initialRouteName = "Settings"
       >
@@ -53,6 +53,7 @@ function HomeScreen() {
 
 function App() {
   return (
+    // Using stack to split the login screen and after log in, nested navigation
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Login">
         <Stack.Screen options={{headerShown: false}} name="Login" component={Login} />

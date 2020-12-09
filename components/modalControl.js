@@ -15,9 +15,12 @@ export function ModalFeatures(props) {
 
   return (
     <>
+      {/* Modal for add record to the database */}
       <Text style={{ fontFamily: "American Typewriter", fontSize: 22 }}>
         Activity Dog Today
       </Text>
+      
+      {/* Poop or not the button will back to initial color if press twice */}
       <View flexDirection="row" style={{ marginTop: 15 }}>
         <TouchableOpacity
           style={{
@@ -97,7 +100,8 @@ export function ModalFeatures(props) {
           </View>
         </TouchableOpacity>
       </View>
-
+      
+      {/* The user can type some extra notes here */}
       <View
         style={{ flex: 1, marginTop: 5 }}
         flexDirection="column"
@@ -107,14 +111,16 @@ export function ModalFeatures(props) {
           <TextInput
             style={{ paddingTop: 15, paddingLeft: 20 }}
             placeholder="Extra notes to comments the condition."
-            onChangeText={(searchString) => {setTextInputValue(searchString)}}
+            onChangeText={(searchString) => {
+              setTextInputValue(searchString);
+            }}
             underlineColorAndroid="transparent"
           />
         </View>
 
         <TouchableOpacity
           onPress={() => {
-            pushTheData({ status: condition, text: textInputValue});
+            pushTheData({ status: condition, text: textInputValue });
             props.modalVisible(false);
           }}
         >
@@ -137,10 +143,12 @@ export function ModalSettingUpUser(props) {
 
   return (
     <>
+      {/* Modal for register to database */}
       <Text style={{ fontFamily: "American Typewriter", fontSize: 22 }}>
         Welcome to Setting up Screen
       </Text>
 
+      {/* Greetings */}
       <Text
         style={{
           fontFamily: "American Typewriter",
@@ -154,7 +162,8 @@ export function ModalSettingUpUser(props) {
         a good time with our doggo and change the whole feeling into another
         level!
       </Text>
-
+      
+      {/* Text input for data insertion */}
       <View style={{ flexDirection: "row", paddingTop: 10 }}>
         <View style={{ alignItems: "center" }}>
           <Text
@@ -179,7 +188,9 @@ export function ModalSettingUpUser(props) {
               marginRight: 5,
             }}
             placeholder="Please key in"
-            onChangeText={(username) => {setUsername(username)}}
+            onChangeText={(username) => {
+              setUsername(username);
+            }}
             underlineColorAndroid="transparent"
           />
         </View>
@@ -207,7 +218,9 @@ export function ModalSettingUpUser(props) {
               marginRight: 5,
             }}
             placeholder="Please key in"
-            onChangeText={(dogname) => {setDogName(dogname)}}
+            onChangeText={(dogname) => {
+              setDogName(dogname);
+            }}
             underlineColorAndroid="transparent"
           />
         </View>
@@ -235,21 +248,32 @@ export function ModalSettingUpUser(props) {
               marginRight: 5,
             }}
             placeholder="Please key in"
-            onChangeText={(dogage) => {setDogAge(dogage)}}
+            onChangeText={(dogage) => {
+              setDogAge(dogage);
+            }}
             underlineColorAndroid="transparent"
           />
         </View>
       </View>
+      
+      {/* Button to submit */}
       <TouchableOpacity
-      onPress={() => {
-        pushTheData({ firstAttempt:true, username:userNameState, dogage:dogAgeState, dogname:dogNameState});
-        props.closeUp(false);
-      }}
+        onPress={() => {
+          pushTheData({
+            firstAttempt: true,
+            username: userNameState,
+            dogage: dogAgeState,
+            dogname: dogNameState,
+          });
+          props.closeUp(false);
+        }}
       >
-      <View style={{ alignItems: "center", paddingBottom: 20, paddingTop: 160 }}>
-        <Ionicons name="md-send" size={35} color="black" />
-        <Text style={{ fontFamily: "American Typewriter" }}>Confirm!</Text>
-      </View>
+        <View
+          style={{ alignItems: "center", paddingBottom: 20, paddingTop: 160 }}
+        >
+          <Ionicons name="md-send" size={35} color="black" />
+          <Text style={{ fontFamily: "American Typewriter" }}>Confirm!</Text>
+        </View>
       </TouchableOpacity>
     </>
   );

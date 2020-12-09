@@ -1,26 +1,28 @@
-import React, { useState, useEffect } from "react";
-import { StyleSheet, View, Text, TouchableOpacity,Modal, } from "react-native";
+import React, { useState } from "react";
+import { StyleSheet, View, Text, TouchableOpacity, Modal } from "react-native";
 import { StackActions } from "@react-navigation/native";
 import { HomePhoto } from "../components/enlargeImage";
 import {
-  MaterialIcons,
   Octicons,
   MaterialCommunityIcons,
   FontAwesome5,
   AntDesign,
 } from "@expo/vector-icons";
 import * as Animatable from "react-native-animatable";
-import { ModalFeatures, ModalSettingUpUser} from "../components/modalControl";
+import { ModalSettingUpUser } from "../components/modalControl";
 
 export default function App({ navigation }) {
+  // Setting up state for modal visibility
   const [modalVisible, setModalVisible] = useState(true);
-
-  
-
   return (
     <View style={styles.container}>
+      {/* Background image */}
       <HomePhoto size={"big"} />
+
+      {/* Heigh control */}
       <View style={{ height: 210 }} />
+
+      {/* Arranging the grid view button */}
       <View
         style={{
           alignSelf: "flex-start",
@@ -28,6 +30,7 @@ export default function App({ navigation }) {
           flexWrap: "wrap",
         }}
       >
+        {/* Button for Edit user and dog information */}
         <TouchableOpacity
           style={{
             backgroundColor: "white",
@@ -44,7 +47,7 @@ export default function App({ navigation }) {
             backgroundColor: "#fff",
           }}
           onPress={() => {
-            setModalVisible(true)
+            setModalVisible(true);
           }}
         >
           <FontAwesome5 name="user-edit" size={42} color="gray" />
@@ -60,6 +63,7 @@ export default function App({ navigation }) {
           </Text>
         </TouchableOpacity>
 
+        {/* Button for Add photo for user and dog, still in development */}
         <TouchableOpacity
           style={{
             backgroundColor: "white",
@@ -92,6 +96,7 @@ export default function App({ navigation }) {
           </Text>
         </TouchableOpacity>
 
+        {/* Button for Terms and condition require to do some modification on the nested navigator, still in development */}
         <TouchableOpacity
           style={{
             backgroundColor: "white",
@@ -109,7 +114,7 @@ export default function App({ navigation }) {
             backgroundColor: "#fff",
           }}
           onPress={() => {
-            alert("Still in development")            
+            alert("Still in development");
           }}
         >
           <Octicons name="checklist" size={42} color="gray" />
@@ -125,6 +130,7 @@ export default function App({ navigation }) {
           </Text>
         </TouchableOpacity>
 
+        {/* Button for Clear all the information for dog and user, still in development */}
         <TouchableOpacity
           style={{
             backgroundColor: "white",
@@ -156,6 +162,7 @@ export default function App({ navigation }) {
           </Text>
         </TouchableOpacity>
 
+        {/* Button for Logout button for the user */}
         <TouchableOpacity
           style={{
             backgroundColor: "white",
@@ -190,7 +197,7 @@ export default function App({ navigation }) {
         </TouchableOpacity>
       </View>
 
-
+      {/* Modal for prompt user information */}
       <Modal
         animationType="fade"
         transparent={true}
@@ -205,9 +212,7 @@ export default function App({ navigation }) {
             styles.containerModal,
             { backgroundColor: "rgba(0, 0, 0, 0.5)" },
           ]}
-          
-        >
-        </TouchableOpacity>
+        ></TouchableOpacity>
 
         <View
           style={{
@@ -228,19 +233,15 @@ export default function App({ navigation }) {
               height: 450,
               width: "100%",
               alignItems: "center",
-              paddingTop:25,
+              paddingTop: 25,
             }}
           >
             <>
-              <ModalSettingUpUser closeUp = {setModalVisible}/>
-
+              <ModalSettingUpUser closeUp={setModalVisible} />
             </>
           </Animatable.View>
         </View>
       </Modal>
-
-
-
     </View>
   );
 }
@@ -249,6 +250,4 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-
-  
 });
