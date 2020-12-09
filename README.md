@@ -31,6 +31,7 @@ Sub Task<br>
 - [ ] Add UI for the pop out modal at content screen<br>
 - [ ] REPLACE fingeprint push notification if no one walk dog<br>
 - [ ] Graph Analysis<br>
+- [ ] Add the sounds for upload then done<br>
 
 ## Future function
 - [ ] automation test<br>

@@ -32,6 +32,7 @@ export default function App({ navigation }) {
         let userInfo = await response.json();
 
         try {
+          await AsyncStorage.setItem("@MySuperStore:key2",userInfo.name).then()
           await AsyncStorage.setItem(
             "@MySuperStore:key1",
             userInfo.id

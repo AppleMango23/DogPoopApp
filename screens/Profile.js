@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { StyleSheet, View, Text } from "react-native";
 import {
   MaleAvatar,
-  FemaleAvatar,
+  AsyncStorage,
   HomePhoto,
 } from "../components/enlargeImage";
 import {
@@ -10,6 +10,7 @@ import {
   useFirebaseDataDogAge,
   useFirebaseDataDogName,
 } from "../components/FirebaseControl";
+
 
 export default function App(props) {
   const userName = useFirebaseDataUsername();

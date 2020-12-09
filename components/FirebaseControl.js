@@ -22,7 +22,7 @@ try {
   console.log("App reloaded, so firebase did not re-initialize");
 }
 
-//Read
+//Read for the flatlist
 export function useFirebaseData() {
   const [data, setData] = useState([]);
   function test2() {
@@ -43,7 +43,7 @@ export function useFirebaseData() {
   return data;
 }
 
-//Read the group members
+//Read the group members (Still in development)
 export function useFirebaseDataGroup() {
   const [data, setData] = useState([]);
   function test2() {
@@ -98,7 +98,7 @@ export function useFirebaseDataDogAge() {
   return data;
 }
 
-//Read user name
+//Read dog name
 export function useFirebaseDataDogName() {
   const [data, setData] = useState([]);
   function test2() {
@@ -115,7 +115,7 @@ export function useFirebaseDataDogName() {
   return data;
 }
 
-//Push
+//Push the data to the cloud
 export async function pushTheData(props) {
   let userIDForSave = "";
 
@@ -129,7 +129,6 @@ export async function pushTheData(props) {
     //     Math.floor(Math.random() * randomChars.length)
     //   );
     // }
-    // var result = "abcdefg"
     const newReference = firebase.database().ref("List/abcdefg/dogs/");
     newReference.set({
       dogA: {
@@ -141,10 +140,10 @@ export async function pushTheData(props) {
     // await AsyncStorage.setItem("@MySuperStore:GroupCode", result);
     try {
       const value = await AsyncStorage.getItem("@MySuperStore:key1");
-      
+        
         userIDForSave = value;
       
-    } catch (error) {console.log("i am error->",error)}
+    } catch (error) {console.log("i am error1->",error)}
 
     console.log(userIDForSave)
     // User registering
@@ -190,8 +189,9 @@ export async function pushTheData(props) {
         // Sounds
         const soundObject = new Audio.Sound();
         try {
-          // await soundObject.loadAsync(require('../assets/music.mp3'));
-          // await soundObject.playAsync();
+          await soundObject.loadAsync(require('../assets/dogWoff.mp3'));
+          await soundObject.playAsync();
+          alert("Saved new record")
         } catch (error) {}
       });
   }
