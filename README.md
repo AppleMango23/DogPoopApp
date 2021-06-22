@@ -2,20 +2,20 @@
 
 ## Screenshot
 <table>
-  <p>The Login Screen</p>
+  <h3>The Login Screen</h3>
   <tr>
     <p>To get into the system we are able to login via a few methods which included Facebook authentication, email and password, and so on. This application have keyboard avoider as well. When we are typing on the textholder.</p>
     <th>  
-      <img src="./assets/Photos/IMG_4129.jpg" width="250" height="460">
+      <img src="./assets/Photos/IMG_4129.jpg" width="225" height="400">
     </th>
     <th> 
-      <img src="./assets/Photos/IMG_4130.jpg" width="250" height="460">
+      <img src="./assets/Photos/IMG_4130.jpg" width="225" height="400">
     </th>
     <th> 
-      <img src="./assets/Photos/IMG_4132.jpg" width="250" height="460">
+      <img src="./assets/Photos/IMG_4132.jpg" width="225" height="400">
     </th>
     <th> 
-      <img src="./assets/Photos/IMG_4133.jpg" width="250" height="460">
+      <img src="./assets/Photos/IMG_4133.jpg" width="225" height="400">
     </th> 
   </tr>
   <br/>
@@ -23,20 +23,20 @@
 </table>  
 
 <table>
-  <p>The Home Screen</p>
+  <h3>The Home Screen</h3>
   <tr>
     <p>After we get into the home screen we are able to register for first login user. Besides, we are able to check the condition when we press "Home" on the tab bar. If we press the list we are able to check the details. And lastly when we press the add icon we can add new record.</p>
     <th>  
-      <img src="./assets/Photos/IMG_4134.jpg" width="250" height="460">
+      <img src="./assets/Photos/IMG_4134.jpg" width="225" height="400">
     </th>
     <th> 
-      <img src="./assets/Photos/IMG_4135.jpg" width="250" height="460">
+      <img src="./assets/Photos/IMG_4135.jpg" width="225" height="400">
     </th>
     <th> 
-      <img src="./assets/Photos/IMG_4136.jpg" width="250" height="460">
+      <img src="./assets/Photos/IMG_4136.jpg" width="225" height="400">
     </th>
     <th> 
-      <img src="./assets/Photos/IMG_4137.jpg" width="250" height="460">
+      <img src="./assets/Photos/IMG_4137.jpg" width="225" height="400">
     </th> 
   </tr>
   <br/>
@@ -44,69 +44,65 @@
 </table>  
 
 <table>
-  <p>The Profile Screen and Setting Screen</p>
+  <h3>The Profile Screen and Setting Screen</h3>
   <tr>
     <p>The profile screen we are able to check the details of specific user. For setting screen we can perform action such as logout and so on. Many features still in development.</p>
     <th>  
-      <img src="./assets/Photos/IMG_4140.jpg" width="250" height="460">
+      <img src="./assets/Photos/IMG_4140.jpg" width="225" height="400">
     </th>
     <th> 
-      <img src="./assets/Photos/IMG_4141.jpg" width="250" height="460">
+      <img src="./assets/Photos/IMG_4141.jpg" width="225" height="400">
     </th>
     <th> 
-      <img src="./assets/Photos/IMG_4142.jpg" width="250" height="460">
+      <img src="./assets/Photos/IMG_4142.jpg" width="225" height="400">
     </th>
     <th> 
-      <img src="./assets/Photos/IMG_4143.jpg" width="250" height="460">
+      <img src="./assets/Photos/IMG_4143.jpg" width="225" height="400">
     </th> 
   </tr>
   <br/>
 </table>  
 
 ## Present 
-Screens Task<br>
-- [x] Screen for Profile<br>
-  - [x] Show dog name<br>
-  - [x] Show dog age<br>
-  - [x] Show user name<br>
-  - [ ] Walk quantity<br>
-  - [ ] Walk goal (graph)<br>
-- [ ] Screen for Settings<br>
-  - [ ] Register dog name<br>
-  - [ ] Register dog age<br>
-  - [ ] Register user photo<br>
-  - [ ] Register user name<br>
-- [ ] First register<br>
-  - [ ] Ask what group to join<br>
-  - [x] Others will prompt Screen for settings<br>
-
-Sub Task<br>
-- [ ] long press to do special action<br>
-- [ ] flatlist animation reload<br>
-- [ ] Float up on the image when want to login<br>
-- [ ] useState interaction with component<br>
-- [ ] User activities history screen<br>
------------------------------------------------------------------------------------------------------------------<br>
-- [ ] Developing UI for group<br>
-  - [ ] Arrange the overlay decision to new file<br>
-- [ ] Join Groups<br>
-- [ ] Save the auth section to asyncStorage<br>
-- [ ] Add UI for the pop out modal at content screen<br>
-- [ ] REPLACE fingeprint push notification if no one walk dog<br>
-- [ ] Graph Analysis<br>
-- [ ] Add the sounds for upload then done<br>
+- [x] Screen for Profile
+  - [x] Show dog name
+  - [x] Show dog age
+  - [x] Show user name
+  - [ ] Walk quantity
+  - [ ] Walk goal (graph)
+- [ ] Screen for Settings
+  - [ ] Register dog name
+  - [ ] Register dog age
+  - [ ] Register user photo
+  - [ ] Register user name
+- [ ] First register
+  - [ ] Ask what group to join
+  - [x] Others will prompt Screen for settings
+- [ ] long press to do special action
+- [ ] flatlist animation reload
+- [ ] Float up on the image when want to login
+- [ ] useState interaction with component
+- [ ] User activities history screen
+- [ ] Developing UI for group
+  - [ ] Arrange the overlay decision to new file
+- [ ] Join Groups
+- [ ] Save the auth section to asyncStorage
+- [ ] Add UI for the pop out modal at content screen
+- [ ] REPLACE fingeprint push notification if no one walk dog
+- [ ] Graph Analysis
+- [ ] Add the sounds for upload then done
 
 ## Future function
-- [ ] automation test<br>
-- [ ] swipe to delete implementation<br>
-- [ ] firebase chat system<br>
-- [ ] Google log in<br>
-- [ ] daily analysis<br>
-- [ ] monthly analysis<br>
-- [ ] Developing modify record function to database<br>
-- [ ] Developing delete record function to database<br>
-- [ ] firebase Authentication<br>
-- [ ] dark mode<br>
+- [ ] automation test
+- [ ] swipe to delete implementation
+- [ ] firebase chat system
+- [ ] Google log in
+- [ ] daily analysis
+- [ ] monthly analysis
+- [ ] Developing modify record function to database
+- [ ] Developing delete record function to database
+- [ ] firebase Authentication
+- [ ] dark mode
 
 ## Done function
 - [x] navigation to Login screen
@@ -140,7 +136,6 @@ Sub Task<br>
 - [x] reset the stack
 - [x] Create a proper database logic, tree and hierachi
 - [x] Fixed issue Loading indicator
-
 - [x] Arrange the Modal to another file
 - [x] Add the black transparent to the add icon on the group
 - [x] Add the new design to login screen
