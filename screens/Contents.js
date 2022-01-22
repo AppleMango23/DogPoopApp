@@ -109,7 +109,7 @@ export default function App({ navigation }) {
               style={{
                 width: 75,
                 height: 75,
-                borderRadius: 150,
+                borderRadius: 20,
                 alignItems: "center",
                 backgroundColor: "rgba(0, 0, 0, 0.5)",
                 alignItems: "center",
@@ -262,8 +262,8 @@ export default function App({ navigation }) {
             direction="alternate"
             style={{
               backgroundColor: "white",
-              borderTopLeftRadius: 35,
-              borderTopRightRadius: 35,
+              borderTopLeftRadius: 10,
+              borderTopRightRadius: 10,
               height: 450,
               width: "100%",
               alignItems: "center",
@@ -290,7 +290,7 @@ export default function App({ navigation }) {
           right: 24,
           height: 60,
           backgroundColor: "#fff",
-          borderRadius: 100,
+          borderRadius: 20,
         }}
         onPress={() => {
           setModalVisible(true);

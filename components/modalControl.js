@@ -28,7 +28,7 @@ export function ModalFeatures(props) {
             marginRight: 20,
             backgroundColor: condition == "Poop" ? "green" : "grey",
             width: 85,
-            borderRadius: 15,
+            borderRadius: 10,
             height: 28,
             alignItems: "center",
           }}
@@ -67,7 +67,7 @@ export function ModalFeatures(props) {
             marginLeft: 20,
             backgroundColor: condition == "No Poop" ? "red" : "grey",
             width: 100,
-            borderRadius: 15,
+            borderRadius: 10,
             height: 28,
             alignItems: "center",
           }}
@@ -204,6 +204,37 @@ export function ModalSettingUpUser(props) {
               paddingRight: 10,
             }}
           >
+            What your sex:
+          </Text>
+          <TextInput
+            style={{
+              paddingTop: 15,
+              paddingBottom: 15,
+              paddingLeft: 10,
+              paddingRight: 10,
+              backgroundColor: "rgba(0, 0, 0, 0.1)",
+              borderRadius: 10,
+              marginRight: 5,
+              width: 300
+            }}
+            placeholder="Enter sex..."
+            // onChangeText={(dogage) => {
+            //   setDogAge(dogage);
+            // }}
+            underlineColorAndroid="transparent"
+          />
+        </View>
+
+        <View>
+          <Text
+            style={{
+              fontFamily: "American Typewriter",
+              fontSize: 14,
+              paddingTop: 5,
+              paddingLeft: 10,
+              paddingRight: 10,
+            }}
+          >
             What is your dog name:
           </Text>
           <TextInput
@@ -270,7 +301,7 @@ export function ModalSettingUpUser(props) {
         }}
       >
         <View
-          style={{ alignItems: "center", paddingBottom: 20, paddingTop: 100 }}
+          style={{ alignItems: "center", paddingBottom: 20, paddingTop: 180 }}
         >
           <Ionicons name="md-send" size={35} color="black" />
           <Text style={{ fontFamily: "American Typewriter" }}>Confirm!</Text>

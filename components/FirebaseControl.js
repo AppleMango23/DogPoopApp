@@ -71,7 +71,7 @@ export function useFirebaseDataUsername() {
   function test2() {
     firebase
       .database()
-      .ref("List/abcdefg/users/user1/userName")
+      .ref("List/abcdefg/dogs/dogA/userName")
       .on("value", function (snapshot) {
         setData(snapshot.val());
       });
@@ -119,9 +119,12 @@ export function useFirebaseDataDogName() {
 //Push the data to the cloud
 export async function pushTheData(props) {
   let userIDForSave = "";
+  let userNameGiven = "";
 
   if (props.firstAttempt == true) {
-    alert("Working on the register!")
+    // alert("Working on the register!")
+    // working on the random naming things
+
     // Group random words generator codes
     // var randomChars =
     //   "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -141,25 +144,24 @@ export async function pushTheData(props) {
     });
     // await AsyncStorage.setItem("@MySuperStore:GroupCode", result);
     try {
-      const value = await AsyncStorage.getItem("@MySuperStore:key1");
+      const userId = await AsyncStorage.getItem("@MySuperStore:key1");
+      const userName = await AsyncStorage.getItem("@MySuperStore:key2");
         
-        userIDForSave = value;
+        userIDForSave = userId;
+        userNameGiven = userName;
       
-    } catch (error) {console.log("i am error1->",error)}
+    } catch (error) {console.log(error)}
 
-    console.log(userIDForSave)
     // User registering
     const newReference1 = firebase
       .database()
       .ref("List/abcdefg/users/" + userIDForSave);
     newReference1
       .set({
-        userName: "-",
+        userName: userNameGiven,
         userPhotos: "-",
       })
       .then();
-
-    
   } else {
     // ------------------This one is if it is not first attempt----------------------------
     var unix = Math.round(+new Date() / 1000);
