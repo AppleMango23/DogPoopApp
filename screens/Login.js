@@ -14,6 +14,9 @@ import { LoginPhoto, FacebookLoginButton } from "../components/enlargeImage";
 import { StackActions } from "@react-navigation/native";
 
 export default function App({ navigation }) {
+  const [userName, setUserName] = useState('');
+  const [userPassword, setPassword] = useState('');
+
 
   // Facebook API function
   facebookLogIn = async () => {
@@ -33,13 +36,15 @@ export default function App({ navigation }) {
         let userInfo = await response.json();
 
         try {
-          await AsyncStorage.setItem("@MySuperStore:key2",userInfo.name).then()
+          await AsyncStorage.setItem("@MySuperStore:key2", userInfo.name).then()
           await AsyncStorage.setItem(
             "@MySuperStore:key1",
             userInfo.id
           )
-          .then(navigation.dispatch(StackActions.replace("Home")));
-        } catch (error) {}
+            .then(navigation.dispatch(StackActions.replace("Home")));
+        } catch (error) {
+          console.log(error);
+        }
       } else {
       }
     } catch ({ message }) {
@@ -58,74 +63,83 @@ export default function App({ navigation }) {
         <LoginPhoto />
 
         {/* Displaing the text for username and password login */}
-        <View style = {styles.containerInner}>
-        <Text
-          style={{
-            paddingTop: 18,
-            fontFamily: "AmericanTypewriter-Bold",
-            fontSize: 28,
-          }}
-        >
-          My Doggo App
-        </Text>
-        <Text
-          style={{
-            paddingTop: 10,
-            fontFamily: "American Typewriter",
-            fontSize: 18,
-          }}
-        >
-          Please Log in
-        </Text>
-        <View style={styles.searchSection}>
-          <MaterialCommunityIcons
-            style={styles.searchIcon}
-            name="contact-mail-outline"
-            size={25}
-            color="#000"
-          />
-          <TextInput
-            style={styles.input}
-            placeholder="User Nickname"
-            underlineColorAndroid="transparent"
-          />
-        </View>
-        <View style={styles.searchSection}>
-          <AntDesign
-            style={styles.searchIcon}
-            name="lock"
-            size={25}
-            color="#000"
-          />
-          <TextInput
-            style={styles.input}
-            placeholder="Password"
-            underlineColorAndroid="transparent"
-            secureTextEntry={true}
-          />
-        </View>
-        
-        {/* Button for username and password login */}
-        <TouchableOpacity
-          style={styles.loginBtn}
-          onPress={() => {
-            alert("Still in development");
-          }}
-        >
-          <Text style={{ color: "white", fontSize: 18 }}>Login</Text>
-        </TouchableOpacity>
-        
-        {/* Adjusting the height of the design */}
-        <View style={{ height: 20 }} />
-        
-        {/* Using the photo taken from another file and will trigger the facebook log in feature */}
-        <TouchableOpacity
-          onPress={() => {
-            facebookLogIn();
-          }}
-        >
-          <FacebookLoginButton />
-        </TouchableOpacity>
+        <View style={styles.containerInner}>
+          <Text
+            style={{
+              paddingTop: 18,
+              fontFamily: "AmericanTypewriter-Bold",
+              fontSize: 28,
+            }}
+          >
+            My Doggo App
+          </Text>
+          <Text
+            style={{
+              paddingTop: 10,
+              fontFamily: "American Typewriter",
+              fontSize: 18,
+            }}
+          >
+            Please Log in
+          </Text>
+          <View style={styles.searchSection}>
+            <MaterialCommunityIcons
+              style={styles.searchIcon}
+              name="contact-mail-outline"
+              size={25}
+              color="#000"
+            />
+            <TextInput
+              style={styles.input}
+              placeholder="User Nickname"
+              underlineColorAndroid="transparent"
+              onChangeText={newText => setUserName(newText)}
+            />
+          </View>
+          <View style={styles.searchSection}>
+            <AntDesign
+              style={styles.searchIcon}
+              name="lock"
+              size={25}
+              color="#000"
+            />
+            <TextInput
+              style={styles.input}
+              placeholder="Password"
+              underlineColorAndroid="transparent"
+              secureTextEntry={true}
+              onChangeText={newText => setPassword(newText)}
+            />
+          </View>
+
+          {/* Button for username and password login */}
+          <TouchableOpacity
+            style={styles.loginBtn}
+            onPress={ async () => {
+              if (userName === "aaa" && userPassword === "bbb") {
+                await AsyncStorage.setItem("@MySuperStore:key2", "Admin").then()
+                await AsyncStorage.setItem(
+                  "@MySuperStore:key1",
+                  "abssadk12316123Fake"
+                )
+                  .then(navigation.dispatch(StackActions.replace("Home")));
+              }
+            }}
+          >
+            <Text style={{ color: "white", fontSize: 18 }}>Login</Text>
+          </TouchableOpacity>
+
+          {/* Adjusting the height of the design */}
+          <View style={{ height: 20 }} />
+
+          {/* Using the photo taken from another file and will trigger the facebook log in feature */}
+          <TouchableOpacity
+            onPress={() => {
+              facebookLogIn();
+            }}
+          >
+            <FacebookLoginButton />
+          </TouchableOpacity>
         </View>
       </KeyboardAvoidingView>
     </View>
@@ -137,15 +151,15 @@ const styles = StyleSheet.create({
   container: {
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor:'white'
+    backgroundColor: 'white'
   },
-  containerInner:{
+  containerInner: {
     alignItems: "center",
-    borderTopRightRadius:35,
-    borderTopLeftRadius:35,
-    width:380,
-    height:500,
-    backgroundColor:'rgba(0, 0, 0, 0.1)'
+    borderTopRightRadius: 35,
+    borderTopLeftRadius: 35,
+    width: 380,
+    height: 500,
+    backgroundColor: 'rgba(0, 0, 0, 0.1)'
   },
   loginBtn: {
     backgroundColor: "#66CCCC",
