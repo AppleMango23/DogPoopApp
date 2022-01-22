@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, View, Text, TouchableOpacity, Modal } from "react-native";
+import { StyleSheet, View, Text, TouchableOpacity, Modal, } from "react-native";
 import { StackActions } from "@react-navigation/native";
 import { HomePhoto } from "../components/enlargeImage";
 import {
@@ -10,10 +10,13 @@ import {
 } from "@expo/vector-icons";
 import * as Animatable from "react-native-animatable";
 import { ModalSettingUpUser } from "../components/modalControl";
+import { useFirebaseData } from "../components/FirebaseControl";
 
 export default function App({ navigation }) {
   // Setting up state for modal visibility
   const [modalVisible, setModalVisible] = useState(true);
+  const data = useFirebaseData();
+
   return (
     <View style={styles.container}>
       {/* Background image */}
@@ -198,50 +201,54 @@ export default function App({ navigation }) {
       </View>
 
       {/* Modal for prompt user information */}
-      <Modal
-        animationType="fade"
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => {
-          setModalVisible(false);
-        }}
-      >
-        <TouchableOpacity
-          activeOpacity={1.0}
-          style={[
-            styles.containerModal,
-            { backgroundColor: "rgba(0, 0, 0, 0.5)" },
-          ]}
-        ></TouchableOpacity>
-
-        <View
-          style={{
-            backgroundColor: "rgba(0, 0, 0, 0.5)",
-            height: 900,
-            alignItems: "center",
-            justifyContent: "center",
+      {(data.length === 0) &&
+        <Modal
+          animationType="fade"
+          transparent={true}
+          visible={modalVisible}
+          onRequestClose={() => {
+            setModalVisible(false);
           }}
         >
-          <Animatable.View
-            animation={"fadeInUp"}
-            iterationCount={1}
-            direction="alternate"
+          <TouchableOpacity
+            activeOpacity={1.0}
+            style={[
+              styles.containerModal,
+              { backgroundColor: "rgba(0, 0, 0, 0.5)" },
+            ]}
+          ></TouchableOpacity>
+
+          
+          <View
             style={{
-              backgroundColor: "white",
-              borderTopLeftRadius: 35,
-              borderTopRightRadius: 35,
-              height: 450,
-              width: "100%",
+              backgroundColor: "rgba(0, 0, 0, 0.5)",
+              height: 900,
               alignItems: "center",
-              paddingTop: 25,
+              justifyContent: "center",
             }}
           >
-            <>
-              <ModalSettingUpUser closeUp={setModalVisible} />
-            </>
-          </Animatable.View>
-        </View>
-      </Modal>
+            <Animatable.View
+              animation={"fadeInUp"}
+              iterationCount={1}
+              direction="alternate"
+              style={{
+                backgroundColor: "white",
+                borderTopLeftRadius: 10,
+                borderTopRightRadius: 10,
+                height: "75%",
+                width: "100%",
+                alignItems: "center",
+                paddingTop: 25,
+              }}
+            >
+              <>
+                <ModalSettingUpUser closeUp={setModalVisible} />
+              </>
+            </Animatable.View>
+          </View>
+          
+        </Modal>
+      }
     </View>
   );
 }

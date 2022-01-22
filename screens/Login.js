@@ -8,7 +8,7 @@ import {
   KeyboardAvoidingView,
   AsyncStorage,
 } from "react-native";
-import { AntDesign, MaterialCommunityIcons } from "@expo/vector-icons";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 import * as Facebook from "expo-facebook";
 import { LoginPhoto, FacebookLoginButton } from "../components/enlargeImage";
 import { StackActions } from "@react-navigation/native";
@@ -16,7 +16,6 @@ import { StackActions } from "@react-navigation/native";
 export default function App({ navigation }) {
   const [userName, setUserName] = useState('');
   const [userPassword, setPassword] = useState('');
-
 
   // Facebook API function
   facebookLogIn = async () => {
@@ -66,7 +65,7 @@ export default function App({ navigation }) {
         <View style={styles.containerInner}>
           <Text
             style={{
-              paddingTop: 18,
+              paddingTop: 25,
               fontFamily: "AmericanTypewriter-Bold",
               fontSize: 28,
             }}
@@ -77,35 +76,35 @@ export default function App({ navigation }) {
             style={{
               paddingTop: 10,
               fontFamily: "American Typewriter",
-              fontSize: 18,
+              fontSize: 15,
             }}
           >
-            Please Log in
+            You may key in to Log on Account
           </Text>
           <View style={styles.searchSection}>
             <MaterialCommunityIcons
               style={styles.searchIcon}
-              name="contact-mail-outline"
+              name="account-cowboy-hat"
               size={25}
               color="#000"
             />
             <TextInput
               style={styles.input}
-              placeholder="User Nickname"
+              placeholder="Enter User Name..."
               underlineColorAndroid="transparent"
               onChangeText={newText => setUserName(newText)}
             />
           </View>
           <View style={styles.searchSection}>
-            <AntDesign
+            <MaterialCommunityIcons
               style={styles.searchIcon}
-              name="lock"
+              name="lock-alert"
               size={25}
               color="#000"
             />
             <TextInput
               style={styles.input}
-              placeholder="Password"
+              placeholder="Enter User Password..."
               underlineColorAndroid="transparent"
               secureTextEntry={true}
               onChangeText={newText => setPassword(newText)}
@@ -116,7 +115,7 @@ export default function App({ navigation }) {
           <TouchableOpacity
             style={styles.loginBtn}
             onPress={ async () => {
-              if (userName === "aaa" && userPassword === "bbb") {
+              if (userName === "Aaa" && userPassword === "bbb") {
                 await AsyncStorage.setItem("@MySuperStore:key2", "Admin").then()
                 await AsyncStorage.setItem(
                   "@MySuperStore:key1",
@@ -155,17 +154,17 @@ const styles = StyleSheet.create({
   },
   containerInner: {
     alignItems: "center",
-    borderTopRightRadius: 35,
-    borderTopLeftRadius: 35,
+    borderTopRightRadius: 20,
+    borderTopLeftRadius: 20,
     width: 380,
     height: 500,
-    backgroundColor: 'rgba(0, 0, 0, 0.1)'
+    backgroundColor: 'rgba(0, 0, 0, 0.08)'
   },
   loginBtn: {
     backgroundColor: "#66CCCC",
     paddingVertical: 10,
     paddingHorizontal: 20,
-    borderRadius: 80,
+    borderRadius: 10,
     width: 300,
     height: 45,
     marginTop: 20,
@@ -175,7 +174,7 @@ const styles = StyleSheet.create({
     backgroundColor: "grey",
     paddingVertical: 10,
     paddingHorizontal: 20,
-    borderRadius: 20,
+    borderRadius: 10,
     position: "absolute",
     bottom: 0,
   },
@@ -186,7 +185,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "#fff",
     width: "80%",
-    borderRadius: 150,
+    borderRadius: 10,
   },
   searchIcon: {
     padding: 10,
@@ -199,6 +198,6 @@ const styles = StyleSheet.create({
     paddingLeft: 0,
     backgroundColor: "#fff",
     color: "#424242",
-    borderRadius: 150,
+    borderRadius: 10,
   },
 });

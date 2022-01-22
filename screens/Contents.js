@@ -24,7 +24,7 @@ import {
   PhotoAnimation,
   MaleAvatar,
 } from "../components/enlargeImage";
-import { ModalFeatures, ModalSettingUpUser } from "../components/modalControl";
+import { ModalFeatures } from "../components/modalControl";
 
 // Ignore the warning
 LogBox.ignoreAllLogs();
@@ -131,9 +131,6 @@ export default function App({ navigation }) {
         {/* Just to control the height */}
         <View style={{ height: 10 }} />
 
-        {/* The modal sensor */}
-        {prompt && <ModalSettingUpUser />}
-
         {/* The dog status information */}
         <FlatList
           data={data.sort((a, b) => {
@@ -177,7 +174,6 @@ export default function App({ navigation }) {
             >
               <View flexDirection="row">
                 <View style={{ marginTop: 6 }}>
-                  {/* Photo take from another file */}
                   <PhotoAnimation />
                 </View>
 

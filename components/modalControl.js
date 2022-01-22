@@ -153,9 +153,7 @@ export function ModalSettingUpUser(props) {
         style={{
           fontFamily: "American Typewriter",
           fontSize: 14,
-          paddingTop: 5,
-          paddingLeft: 10,
-          paddingRight: 10,
+          padding: 15
         }}
       >
         It is a honor to serve you as our first beta users and we will be having
@@ -164,8 +162,8 @@ export function ModalSettingUpUser(props) {
       </Text>
       
       {/* Text input for data insertion */}
-      <View style={{ flexDirection: "row", paddingTop: 10 }}>
-        <View style={{ alignItems: "center" }}>
+      <View style={{ flexDirection: "column", paddingTop: 10, justifyContent:'space-between', alignItems:'flex-end', height: "30%"  }}>
+        <View>
           <Text
             style={{
               fontFamily: "American Typewriter",
@@ -175,7 +173,7 @@ export function ModalSettingUpUser(props) {
               paddingRight: 10,
             }}
           >
-            User name:
+            Please key in the User name:
           </Text>
           <TextInput
             style={{
@@ -184,10 +182,11 @@ export function ModalSettingUpUser(props) {
               paddingLeft: 10,
               paddingRight: 10,
               backgroundColor: "rgba(0, 0, 0, 0.1)",
-              borderRadius: 30,
+              borderRadius: 10,
               marginRight: 5,
+              width: 300
             }}
-            placeholder="Please key in"
+            placeholder="Enter User name..."
             onChangeText={(username) => {
               setUsername(username);
             }}
@@ -195,7 +194,7 @@ export function ModalSettingUpUser(props) {
           />
         </View>
 
-        <View style={{ alignItems: "center" }}>
+        <View>
           <Text
             style={{
               fontFamily: "American Typewriter",
@@ -205,7 +204,7 @@ export function ModalSettingUpUser(props) {
               paddingRight: 10,
             }}
           >
-            Dog name:
+            What is your dog name:
           </Text>
           <TextInput
             style={{
@@ -214,10 +213,11 @@ export function ModalSettingUpUser(props) {
               paddingLeft: 10,
               paddingRight: 10,
               backgroundColor: "rgba(0, 0, 0, 0.1)",
-              borderRadius: 30,
+              borderRadius: 10,
               marginRight: 5,
+              width: 300
             }}
-            placeholder="Please key in"
+            placeholder="Enter dog's name..."
             onChangeText={(dogname) => {
               setDogName(dogname);
             }}
@@ -225,7 +225,7 @@ export function ModalSettingUpUser(props) {
           />
         </View>
 
-        <View style={{ alignItems: "center" }}>
+        <View>
           <Text
             style={{
               fontFamily: "American Typewriter",
@@ -235,7 +235,7 @@ export function ModalSettingUpUser(props) {
               paddingRight: 10,
             }}
           >
-            Dog age:
+            What about your dog age:
           </Text>
           <TextInput
             style={{
@@ -244,10 +244,11 @@ export function ModalSettingUpUser(props) {
               paddingLeft: 10,
               paddingRight: 10,
               backgroundColor: "rgba(0, 0, 0, 0.1)",
-              borderRadius: 30,
+              borderRadius: 10,
               marginRight: 5,
+              width: 300
             }}
-            placeholder="Please key in"
+            placeholder="Enter dog age..."
             onChangeText={(dogage) => {
               setDogAge(dogage);
             }}
@@ -269,7 +270,7 @@ export function ModalSettingUpUser(props) {
         }}
       >
         <View
-          style={{ alignItems: "center", paddingBottom: 20, paddingTop: 160 }}
+          style={{ alignItems: "center", paddingBottom: 20, paddingTop: 100 }}
         >
           <Ionicons name="md-send" size={35} color="black" />
           <Text style={{ fontFamily: "American Typewriter" }}>Confirm!</Text>
