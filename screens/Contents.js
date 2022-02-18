@@ -26,14 +26,11 @@ import {
 } from "../components/enlargeImage";
 import { ModalFeatures } from "../components/modalControl";
 
-// Ignore the warning
 LogBox.ignoreAllLogs();
 
 export default function App({ navigation }) {
-  // Use state and some variables
   const [modalVisible, setModalVisible] = useState(false);
   const [toggleLoading, setToggleLoading] = useState(true);
-  const [prompt, setPrompt] = useState();
   const data = useFirebaseData();
   const dataGroup = useFirebaseDataGroup();
   const userName = useFirebaseDataUsername();

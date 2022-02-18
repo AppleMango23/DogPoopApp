@@ -1,8 +1,9 @@
 # DogPoopApp
 
 ## Screenshot
+
 <table>
-  <h3>The Login Screen</h3>
+  <h3>ABCThe Login Screen</h3>
   <tr>
     <p>To get into the system we are able to login via a few methods which included Facebook authentication, email and password, and so on. This application have keyboard avoider as well. When we are typing on the textholder.</p>
     <th>  
@@ -20,7 +21,7 @@
   </tr>
   <br/>
   <br/>
-</table>  
+</table>
 
 <table>
   <h3>The Home Screen</h3>
@@ -41,7 +42,7 @@
   </tr>
   <br/>
   <br/>
-</table>  
+</table>
 
 <table>
   <h3>The Profile Screen and Setting Screen</h3>
@@ -61,9 +62,10 @@
     </th> 
   </tr>
   <br/>
-</table>  
+</table>
 
-## Present 
+## Present
+
 - [x] Screen for Profile
   - [x] Show dog name
   - [x] Show dog age
@@ -93,6 +95,7 @@
 - [ ] Add the sounds for upload then done
 
 ## Future function
+
 - [ ] automation test
 - [ ] swipe to delete implementation
 - [ ] firebase chat system
@@ -105,6 +108,7 @@
 - [ ] dark mode
 
 ## Done function
+
 - [x] navigation to Login screen
 - [x] navigation codes
 - [x] Add loading screen

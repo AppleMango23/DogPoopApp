@@ -14,10 +14,9 @@ import { LoginPhoto, FacebookLoginButton } from "../components/enlargeImage";
 import { StackActions } from "@react-navigation/native";
 
 export default function App({ navigation }) {
-  const [userName, setUserName] = useState('');
-  const [userPassword, setPassword] = useState('');
+  const [userName, setUserName] = useState("");
+  const [userPassword, setPassword] = useState("");
 
-  // Facebook API function
   facebookLogIn = async () => {
     try {
       await Facebook.initializeAsync({
@@ -35,12 +34,13 @@ export default function App({ navigation }) {
         let userInfo = await response.json();
 
         try {
-          await AsyncStorage.setItem("@MySuperStore:key2", userInfo.name).then()
           await AsyncStorage.setItem(
-            "@MySuperStore:key1",
-            userInfo.id
-          )
-            .then(navigation.dispatch(StackActions.replace("Home")));
+            "@MySuperStore:key2",
+            userInfo.name
+          ).then();
+          await AsyncStorage.setItem("@MySuperStore:key1", userInfo.id).then(
+            navigation.dispatch(StackActions.replace("Home"))
+          );
         } catch (error) {
           console.log(error);
         }
@@ -53,15 +53,11 @@ export default function App({ navigation }) {
 
   return (
     <View style={styles.container}>
-      {/* The keyboard avoider features */}
       <KeyboardAvoidingView
         behavior={Platform.OS == "ios" ? "padding" : "height"}
         style={styles.container}
       >
-        {/* Photos take from another file */}
         <LoginPhoto />
-
-        {/* Displaing the text for username and password login */}
         <View style={styles.containerInner}>
           <Text
             style={{
@@ -92,7 +88,7 @@ export default function App({ navigation }) {
               style={styles.input}
               placeholder="Enter User Name..."
               underlineColorAndroid="transparent"
-              onChangeText={newText => setUserName(newText)}
+              onChangeText={(newText) => setUserName(newText)}
             />
           </View>
           <View style={styles.searchSection}>
@@ -107,28 +103,30 @@ export default function App({ navigation }) {
               placeholder="Enter User Password..."
               underlineColorAndroid="transparent"
               secureTextEntry={true}
-              onChangeText={newText => setPassword(newText)}
+              onChangeText={(newText) => setPassword(newText)}
             />
           </View>
 
           {/* Button for username and password login */}
           <TouchableOpacity
             style={styles.loginBtn}
-            onPress={ async () => {
+            onPress={async () => {
               if (userName === "Aaa" && userPassword === "bbb") {
-                await AsyncStorage.setItem("@MySuperStore:key2", "Admin").then()
+                await AsyncStorage.setItem(
+                  "@MySuperStore:key2",
+                  "Admin"
+                ).then();
                 await AsyncStorage.setItem(
                   "@MySuperStore:key1",
                   "abssadk12316123Fake"
-                )
-                  .then(navigation.dispatch(StackActions.replace("Home")));
+                ).then(navigation.dispatch(StackActions.replace("Home")));
               }
             }}
           >
             <Text style={{ color: "white", fontSize: 18 }}>Login</Text>
           </TouchableOpacity>
 
-          {/* Adjusting the height of the design */}
+          {/* Make another way for this styling */}
           <View style={{ height: 20 }} />
 
           {/* Using the photo taken from another file and will trigger the facebook log in feature */}
@@ -150,7 +148,7 @@ const styles = StyleSheet.create({
   container: {
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: 'white'
+    backgroundColor: "white",
   },
   containerInner: {
     alignItems: "center",
@@ -158,7 +156,7 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 20,
     width: 380,
     height: 500,
-    backgroundColor: 'rgba(0, 0, 0, 0.08)'
+    backgroundColor: "rgba(0, 0, 0, 0.08)",
   },
   loginBtn: {
     backgroundColor: "#66CCCC",
